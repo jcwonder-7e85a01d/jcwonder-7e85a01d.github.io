@@ -1,0 +1,1795 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91今日爆料 - 热点内幕与实时追踪</title>
+<meta name="description" content="91今日爆料聚合当日网络热点、圈内争议与匿名投稿，包含爆料精选、最新动态、分类入口与深度解析，适合关注事件内幕与舆论走向的读者浏览。">
+<meta name="keywords" content="91今日爆料">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c0261e'/%3E%3Ccircle cx='16' cy='13' r='6' fill='%23f9d423'/%3E%3Crect x='8' y='21' width='16' height='3' rx='1.5' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --brand: #c0261e;
+    --brand-light: #f9e6e4;
+    --brand-dark: #8c1a14;
+    --bg: #f7f5f2;
+    --surface: #ffffff;
+    --surface-alt: #f0ece8;
+    --text: #1e1b18;
+    --text-secondary: #5c5550;
+    --text-tertiary: #8a8179;
+    --border: #e2dbd5;
+    --border-light: #ede8e3;
+    --shadow: 0 2px 8px rgba(30, 27, 24, 0.06);
+    --shadow-hover: 0 6px 20px rgba(30, 27, 24, 0.12);
+    --radius-card: 12px;
+    --radius-btn: 8px;
+    --radius-tag: 6px;
+    --radius-banner: 16px;
+    --font: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-padding-top: 116px; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  button { font-family: inherit; cursor: pointer; }
+  img { max-width: 100%; display: block; }
+
+  /* ============ 吸顶公告条 ============ */
+  .announce-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--brand-dark);
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .announce-bar::-webkit-scrollbar { display: none; }
+  .announce-bar .brand-tag {
+    background: var(--brand);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+  .announce-bar .announce-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .announce-bar .announce-item .dot { width: 5px; height: 5px; border-radius: 50%; background: #f9d423; }
+  .announce-bar .announce-item .date { color: #f0b8b5; font-size: 12px; }
+  .announce-bar .announce-item a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+  .announce-bar .announce-item a:hover { color: #f9d423; }
+
+  /* ============ 吸顶页头 ============ */
+  .site-header {
+    position: sticky;
+    top: 37px;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .header-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .brand svg { width: 32px; height: 32px; }
+  .brand-text { font-weight: 800; font-size: 19px; letter-spacing: -0.5px; color: var(--brand); }
+  .brand-text span { color: var(--text); }
+  .main-nav { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+  .main-nav a {
+    padding: 6px 12px;
+    border-radius: var(--radius-btn);
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .main-nav a:hover, .main-nav a:focus-visible {
+    background: var(--brand-light);
+    color: var(--brand);
+    text-decoration: none;
+  }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .header-actions .btn-ghost {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: var(--radius-btn);
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+  }
+  .header-actions .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+  .header-actions .btn-primary {
+    background: var(--brand);
+    border: none;
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: var(--radius-btn);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .header-actions .btn-primary:hover { background: var(--brand-dark); }
+  .hamburger {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-btn);
+    padding: 6px 10px;
+    color: var(--text);
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* ============ 首屏 ============ */
+  .hero {
+    background: linear-gradient(135deg, #2b0e0c 0%, #4a1612 40%, #1e1b18 100%);
+    color: #fff;
+    padding: 48px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -40px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(249, 212, 35, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 10%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192, 38, 30, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 30%, #f9d423 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-desc {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 560px;
+    margin-bottom: 24px;
+    line-height: 1.75;
+  }
+  .hero-desc strong { color: #f9d423; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-actions .btn-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 22px;
+    border-radius: var(--radius-btn);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-hero.primary { background: var(--brand); color: #fff; border: none; }
+  .btn-hero.primary:hover { background: #e0342a; text-decoration: none; transform: translateY(-1px); }
+  .btn-hero.secondary {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-hero.secondary:hover { background: rgba(255,255,255,0.18); text-decoration: none; }
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-banner);
+    padding: 20px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-visual .visual-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-visual .visual-label .pulse {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #f9d423;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+  .hero-visual .visual-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-visual .visual-item:last-child { border-bottom: none; }
+  .hero-visual .visual-item .vi-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #f9d423;
+    background: rgba(249, 212, 35, 0.12);
+    border-radius: 4px;
+    padding: 1px 7px;
+    flex-shrink: 0;
+  }
+  .hero-visual .visual-item .vi-text { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .hero-visual .visual-item .vi-text .vi-tag { color: #f9d423; font-weight: 600; }
+
+  /* ============ 布局 ============ */
+  .layout {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 32px 24px 48px;
+    display: grid;
+    grid-template-columns: 180px 1fr 260px;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* ============ 左频道索引 ============ */
+  .channel-aside { position: sticky; top: 116px; }
+  .channel-nav {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
+    padding: 16px 0;
+    box-shadow: var(--shadow);
+  }
+  .channel-nav .nav-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    letter-spacing: 1px;
+    padding: 0 16px 10px;
+    text-transform: uppercase;
+  }
+  .channel-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.15s;
+    border-left: 3px solid transparent;
+  }
+  .channel-nav a:hover, .channel-nav a:focus-visible {
+    background: var(--brand-light);
+    color: var(--brand);
+    border-left-color: var(--brand);
+    text-decoration: none;
+  }
+  .channel-nav a .count {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    background: var(--surface-alt);
+    padding: 1px 7px;
+    border-radius: 10px;
+  }
+  .channel-nav a:hover .count { background: #fff; color: var(--brand); }
+
+  /* ============ 主内容 ============ */
+  .content-main { min-width: 0; display: flex; flex-direction: column; gap: 36px; }
+  .section-head { margin-bottom: 18px; }
+  .section-head h2 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .section-head h2::before {
+    content: '';
+    width: 4px;
+    height: 22px;
+    background: var(--brand);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .section-head .sub {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    padding-left: 14px;
+  }
+
+  /* 概览 */
+  .overview-box {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    padding: 24px 28px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow);
+    line-height: 1.85;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .overview-box p { margin-bottom: 14px; }
+  .overview-box p:last-child { margin-bottom: 0; }
+  .overview-box strong { color: var(--text); }
+
+  /* 精选卡片 */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+  .card-img-wrap { position: relative; overflow: hidden; }
+  .card-img-wrap img { width: 100%; height: 160px; object-fit: cover; transition: transform 0.3s; }
+  .card:hover .card-img-wrap img { transform: scale(1.04); }
+  .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card-body .card-type {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brand);
+    background: var(--brand-light);
+    padding: 2px 8px;
+    border-radius: var(--radius-tag);
+    align-self: flex-start;
+    letter-spacing: 0.5px;
+  }
+  .card-body h3 { font-size: 16px; font-weight: 700; line-height: 1.4; }
+  .card-body h3 a { color: var(--text); text-decoration: none; }
+  .card-body h3 a:hover { color: var(--brand); }
+  .card-body .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .card-meta .hot { color: var(--brand); font-weight: 600; }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .card-tags span {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    background: var(--surface-alt);
+    padding: 2px 8px;
+    border-radius: var(--radius-tag);
+  }
+
+  /* 最新动态列表 */
+  .update-list {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .update-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-light);
+    align-items: flex-start;
+    transition: background 0.15s;
+  }
+  .update-item:last-child { border-bottom: none; }
+  .update-item:hover { background: #fdf9f8; }
+  .update-item .u-time {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    width: 56px;
+    padding-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .update-item .u-content { flex: 1; min-width: 0; }
+  .update-item .u-content h4 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+  .update-item .u-content h4 a { color: var(--text); text-decoration: none; }
+  .update-item .u-content h4 a:hover { color: var(--brand); }
+  .update-item .u-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .update-item .u-tag {
+    font-size: 11px;
+    color: var(--brand);
+    background: var(--brand-light);
+    padding: 2px 8px;
+    border-radius: var(--radius-tag);
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+
+  /* 分类入口 */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .category-item {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-card);
+    padding: 16px 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: var(--shadow);
+  }
+  .category-item:hover {
+    border-color: var(--brand);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .category-item .cat-icon { font-size: 24px; margin-bottom: 6px; }
+  .category-item .cat-name { font-size: 14px; font-weight: 700; color: var(--text); }
+  .category-item .cat-count { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+
+  /* 深度解析 */
+  .deep-dive {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
+    padding: 28px 30px;
+    box-shadow: var(--shadow);
+  }
+  .deep-dive h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 24px 0 10px;
+    color: var(--text);
+  }
+  .deep-dive h3:first-of-type { margin-top: 0; }
+  .deep-dive p { font-size: 15px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 12px; }
+  .deep-dive ul { margin: 8px 0 14px 20px; }
+  .deep-dive li { font-size: 14px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 6px; }
+  .deep-dive .callout {
+    background: var(--brand-light);
+    border-left: 3px solid var(--brand);
+    padding: 12px 16px;
+    border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+    font-size: 14px;
+    color: var(--text);
+    margin: 14px 0;
+  }
+
+  /* 体验指南 */
+  .guide-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .guide-step {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-card);
+    padding: 18px;
+    box-shadow: var(--shadow);
+    counter-increment: guide;
+  }
+  .guide-step .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .guide-step h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .guide-step p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 8px; }
+  .faq-list details {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .faq-list details summary {
+    padding: 14px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--text);
+    transition: color 0.15s;
+  }
+  .faq-list details summary::-webkit-details-marker { display: none; }
+  .faq-list details summary::after {
+    content: '+';
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--brand);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq-list details[open] summary::after { content: '−'; }
+  .faq-list details summary:hover { color: var(--brand); }
+  .faq-list details .faq-answer {
+    padding: 0 18px 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+  .faq-list details .faq-answer p { margin-bottom: 8px; }
+  .faq-list details .faq-answer p:last-child { margin-bottom: 0; }
+
+  /* 评论 */
+  .comment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .comment-card {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+  }
+  .comment-card .c-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .comment-card .c-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--brand-light);
+    color: var(--brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .comment-card .c-nick { font-size: 13px; font-weight: 600; color: var(--text); }
+  .comment-card .c-time { font-size: 11px; color: var(--text-tertiary); margin-left: auto; }
+  .comment-card .c-text { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+  .comment-card .c-text .mention { color: var(--brand); font-weight: 500; }
+
+  /* 相关资讯 */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .news-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item .n-date {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    width: 72px;
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .news-item .n-body { flex: 1; min-width: 0; }
+  .news-item .n-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+  .news-item .n-body h4 a { color: var(--text); text-decoration: none; }
+  .news-item .n-body h4 a:hover { color: var(--brand); }
+  .news-item .n-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* 相关推荐 */
+  .related-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .related-tags a {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.15s;
+    box-shadow: var(--shadow);
+  }
+  .related-tags a:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+    background: var(--brand-light);
+    text-decoration: none;
+  }
+  .related-tags a .tag-hot {
+    font-size: 10px;
+    background: var(--brand);
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 8px;
+    margin-left: 6px;
+  }
+
+  /* 补充：热度榜 */
+  .hot-rank {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .hot-rank .rank-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.15s;
+  }
+  .hot-rank .rank-item:last-child { border-bottom: none; }
+  .hot-rank .rank-item:hover { background: #fdf9f8; }
+  .hot-rank .rank-num {
+    width: 22px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    text-align: center;
+  }
+  .hot-rank .rank-item:nth-child(1) .rank-num { color: #e0342a; }
+  .hot-rank .rank-item:nth-child(2) .rank-num { color: #e06b2a; }
+  .hot-rank .rank-item:nth-child(3) .rank-num { color: #d4a017; }
+  .hot-rank .rank-item .rank-title { font-size: 14px; font-weight: 600; flex: 1; min-width: 0; }
+  .hot-rank .rank-item .rank-title a { color: var(--text); text-decoration: none; }
+  .hot-rank .rank-item .rank-title a:hover { color: var(--brand); }
+  .hot-rank .rank-item .rank-score {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============ 右辅助栏 ============ */
+  .aside-right { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 116px; }
+  .aside-card {
+    background: var(--surface);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow);
+    padding: 16px 18px;
+  }
+  .aside-card h3 {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .aside-card h3::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: var(--brand);
+    border-radius: 2px;
+  }
+  .aside-card .aside-list { display: flex; flex-direction: column; gap: 10px; }
+  .aside-card .aside-list a {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    line-height: 1.5;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .aside-card .aside-list a:hover { color: var(--brand); }
+  .aside-card .aside-list a .idx {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    width: 16px;
+  }
+  .aside-card .aside-list a .idx.top { color: var(--brand); }
+  .aside-card .update-feed { display: flex; flex-direction: column; gap: 10px; }
+  .aside-card .update-feed .uf-item {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .aside-card .update-feed .uf-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .aside-card .update-feed .uf-item .uf-time { color: var(--text-tertiary); font-size: 11px; display: block; margin-bottom: 2px; }
+
+  /* ============ 页尾 ============ */
+  .site-footer {
+    background: #1e1b18;
+    color: rgba(255,255,255,0.65);
+    padding: 48px 24px 32px;
+    margin-top: 16px;
+  }
+  .footer-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-brand .fb-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+  .footer-brand .fb-logo span { color: #f9d423; }
+  .footer-brand .fb-desc { font-size: 13px; line-height: 1.7; margin-bottom: 14px; max-width: 300px; }
+  .footer-brand .fb-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
+  .footer-col h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: 0.5px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul a { font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.15s; }
+  .footer-col ul a:hover { color: #f9d423; }
+
+  /* ============ 回到顶部 ============ */
+  .back-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(192, 38, 30, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    transform: translateY(6px);
+    z-index: 90;
+  }
+  .back-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .back-top:hover { background: var(--brand-dark); }
+
+  /* ============ 响应式 ============ */
+  @media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr 280px; }
+    .channel-aside { display: none; }
+    .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+    .hero-visual { flex-direction: row; flex-wrap: wrap; }
+    .hero-visual .visual-item { flex: 1 1 200px; border-bottom: none; border-right: 1px solid rgba(255,255,255,0.08); padding-right: 12px; }
+    .hero-visual .visual-item:last-child { border-right: none; }
+    .category-grid { grid-template-columns: repeat(4, 1fr); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 740px) {
+    .announce-bar { font-size: 12px; padding: 6px 12px; gap: 10px; }
+    .site-header { padding: 0 12px; top: 31px; }
+    .header-inner { height: 56px; gap: 8px; }
+    .brand-text { font-size: 16px; }
+    .brand svg { width: 26px; height: 26px; }
+    .main-nav { display: none; }
+    .main-nav.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+      gap: 2px;
+      box-shadow: var(--shadow-hover);
+      z-index: 98;
+    }
+    .main-nav.open a { width: 100%; padding: 10px 12px; border-radius: var(--radius-btn); }
+    .header-actions .btn-ghost { display: none; }
+    .hamburger { display: block; }
+    .hero { padding: 32px 16px 28px; }
+    .hero h1 { font-size: 30px; }
+    .hero-desc { font-size: 14px; }
+    .hero-visual { flex-direction: column; }
+    .hero-visual .visual-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-right: 0; }
+    .layout { grid-template-columns: 1fr; padding: 20px 14px 36px; gap: 24px; }
+    .aside-right { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+    .guide-steps { grid-template-columns: 1fr; }
+    .comment-grid { grid-template-columns: 1fr; }
+    .deep-dive { padding: 20px; }
+    .overview-box { padding: 18px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .back-top { bottom: 18px; right: 18px; width: 38px; height: 38px; }
+    .news-item { flex-direction: column; gap: 4px; }
+    .news-item .n-date { width: auto; }
+    .update-item { flex-wrap: wrap; }
+    .update-item .u-tag { margin-left: 70px; }
+  }
+  @media (max-width: 480px) {
+    .aside-right { grid-template-columns: 1fr; }
+    .category-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .hero-visual .visual-label .pulse { animation: none; }
+  }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar" id="announce-bar">
+  <span class="brand-tag">91今日爆料</span>
+  <span class="announce-item">
+    <span class="dot"></span>
+    <span class="date">11月8日</span>
+    <a href="#latest">“夜航星”聊天记录截图流出，三小时内转发破4.2万</a>
+  </span>
+  <span class="announce-item">
+    <span class="dot"></span>
+    <span class="date">11月7日</span>
+    <a href="#latest">“南城电竞酒店偷拍”涉事方发声明，警方已介入</a>
+  </span>
+  <span class="announce-item">
+    <span class="dot"></span>
+    <span class="date">11月6日</span>
+    <a href="#latest">匿名投稿：某MCN机构签约主播合同附加条款曝光</a>
+  </span>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#top" class="brand" aria-label="91今日爆料首页">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#c0261e"/>
+        <circle cx="16" cy="13" r="6" fill="#f9d423"/>
+        <rect x="8" y="21" width="16" height="3" rx="1.5" fill="#fff"/>
+        <circle cx="16" cy="13" r="2.5" fill="#c0261e"/>
+      </svg>
+      <span class="brand-text">91<span>今日爆料</span></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="主题导航">
+      <a href="#overview">领域概览</a>
+      <a href="#featured">爆料精选</a>
+      <a href="#latest">最新动态</a>
+      <a href="#categories">分类入口</a>
+      <a href="#deep-dive">深度解析</a>
+      <a href="#guide">体验指南</a>
+      <a href="#faq">常见问答</a>
+      <a href="#comments">用户评论</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-ghost" type="button" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">投稿须知</button>
+      <button class="btn-primary" type="button" onclick="document.getElementById('comments').scrollIntoView({behavior:'smooth'})">参与讨论</button>
+      <button class="hamburger" type="button" id="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <h1>91今日爆料</h1>
+      <p class="hero-desc">
+        汇聚当日<strong>匿名投稿、聊天记录、现场视频与圈内争议</strong>，覆盖电竞酒店、MCN合约、直播翻车、社交平台删帖等方向。每条爆料标注信源层级与时间线，区分已公开事实与单方说法。
+      </p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn-hero primary">今日精选爆料 →</a>
+        <a href="#latest" class="btn-hero secondary">查看最新 12 条动态</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="visual-label"><span class="pulse"></span>实时追踪中</div>
+      <div class="visual-item">
+        <span class="vi-num">01</span>
+        <span class="vi-text"><span class="vi-tag">夜航星</span>私聊截图 · 转发 4.2 万</span>
+      </div>
+      <div class="visual-item">
+        <span class="vi-num">02</span>
+        <span class="vi-text"><span class="vi-tag">南城电竞酒店</span>偷拍事件 · 警方通报</span>
+      </div>
+      <div class="visual-item">
+        <span class="vi-num">03</span>
+        <span class="vi-text"><span class="vi-tag">星耀传媒</span>合同附加条款 · 单方回应</span>
+      </div>
+      <div class="visual-item">
+        <span class="vi-num">04</span>
+        <span class="vi-text"><span class="vi-tag">喵播</span>主播“阿珂”停播 · 粉丝分裂</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主布局：三栏 -->
+<div class="layout">
+
+  <!-- 左频道索引 -->
+  <aside class="channel-aside" aria-label="频道索引">
+    <nav class="channel-nav">
+      <div class="nav-title">爆料频道</div>
+      <a href="#latest">最新动态 <span class="count">12</span></a>
+      <a href="#featured">聊天记录 <span class="count">8</span></a>
+      <a href="#featured">现场视频 <span class="count">5</span></a>
+      <a href="#categories">MCN合约 <span class="count">4</span></a>
+      <a href="#categories">直播翻车 <span class="count">6</span></a>
+      <a href="#categories">电竞酒店 <span class="count">3</span></a>
+      <a href="#categories">删帖记录 <span class="count">7</span></a>
+      <a href="#categories">匿名投稿 <span class="count">9</span></a>
+      <a href="#comments">用户讨论 <span class="count">36</span></a>
+    </nav>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="content-main" id="main-content">
+
+    <!-- 1. 领域概览 -->
+    <section id="overview">
+      <div class="section-head">
+        <h2>爆料领域概览</h2>
+        <div class="sub">信源分层 · 时间线 · 单方说法与已证实信息对照</div>
+      </div>
+      <div class="overview-box">
+        <p>“爆料”在当前网络语境下涵盖的范围比多数人预想的宽。按照信源形态，至少分成四类：<strong>聊天记录截图</strong>（微信、QQ、私信）、<strong>现场视频与照片</strong>（酒店走廊、直播后台、会议现场）、<strong>合同/邮件等文档</strong>（MCN签约条款、商务报价单）、以及<strong>当事人自述或第三方转述</strong>。四类素材的可验证程度差异极大——截图的PS门槛低，视频有剪辑上下文缺失，合同可能只有单页，自述则天然带立场。</p>
+        <p>从11月1日到8日，站内单日投稿量从47条涨到112条，增量集中在两个方向：<strong>电竞酒店偷拍</strong>与<strong>MCN机构合同纠纷</strong>。前者源于10月31日南城某电竞酒店保洁人员在社交平台上传的一段视频，后者由星耀传媒前主播“小鹿”在11月4日发布的一则9分钟自述视频引爆。两起事件都遵循“单方爆料→对方回应→第三方补充→出现反转或细节修正”的典型路径。</p>
+        <p>值得关注的具体条目还包括：喵播主播“阿珂”在11月6日凌晨突然停播，其粉丝群流传一份标注“内部通知”的聊天截图，声称“因不可抗力配合调查”；B站UP主“老猫拆解”于11月7日发布对“夜航星”事件聊天记录的时间戳分析，指出截图中的手机状态栏与声称的拍摄时间存在约17分钟偏差。截至11月8日14时，该分析视频播放量达36.8万。</p>
+        <p>对读者而言，判断一条爆料是否值得跟进，需要看三个具体要素：<strong>原始素材是否完整</strong>（有无上下文、有无元数据）、<strong>当事方是否有实名回应</strong>（匿名“知情人士”不算）、以及<strong>是否有独立第三方交叉验证</strong>（技术分析、实地探访、多方信源）。缺其中一项，信息层级就应下调。</p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section id="featured">
+      <div class="section-head">
+        <h2>爆料精选 · 今日值得追的八条</h2>
+        <div class="sub">每条标注类型、热度与信源层级</div>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/yhx1108/400/300" alt="夜航星聊天记录截图局部" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">聊天记录</span>
+            <h3><a href="#latest">“夜航星”私聊截图流出：三小时转发4.2万</a></h3>
+            <p class="card-desc">截图共17张，涉及某平台运营与主播的私下沟通，其中3张出现“限流”字样。UP主“老猫拆解”指出第9张状态栏时间与聊天时间差17分钟。</p>
+            <div class="card-tags"><span>限流</span><span>时间戳分析</span><span>平台运营</span></div>
+            <div class="card-meta"><span class="hot">热度 98</span><span>11月8日 09:12</span><span>信源层级：待验证</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/ncdjd1107/400/300" alt="南城电竞酒店走廊监控画面截图" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">现场视频</span>
+            <h3><a href="#latest">南城电竞酒店偷拍：警方已介入，涉事保洁停职</a></h3>
+            <p class="card-desc">10月31日上传的视频显示酒店走廊与机房区域，拍摄角度来自保洁人员工牌摄像头。酒店方11月7日发声明称已停职涉事员工并配合调查。</p>
+            <div class="card-tags"><span>偷拍</span><span>警方通报</span><span>停职</span></div>
+            <div class="card-meta"><span class="hot">热度 95</span><span>11月7日 18:40</span><span>信源层级：官方回应</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/xycm1104/400/300" alt="星耀传媒合同附加条款文件局部" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">合同文档</span>
+            <h3><a href="#deep-dive">星耀传媒合同附加条款：前主播“小鹿”公开9分钟自述</a></h3>
+            <p class="card-desc">合同第7页附加条款约定“账号归属权在合约期内归公司所有”，小鹿称签约时未被单独提示。星耀传媒11月5日回应“条款合法合规”。</p>
+            <div class="card-tags"><span>MCN合约</span><span>账号归属</span><span>自述视频</span></div>
+            <div class="card-meta"><span class="hot">热度 91</span><span>11月5日 14:20</span><span>信源层级：当事方回应</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/aketing1106/400/300" alt="喵播主播阿珂停播公告截图" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">直播动态</span>
+            <h3><a href="#latest">喵播“阿珂”凌晨停播：粉丝群流传“配合调查”截图</a></h3>
+            <p class="card-desc">11月6日02:17阿珂直播间突然关闭，粉丝群随后出现一张标注“内部通知”的截图。喵播官方客服回应称“主播个人原因停播”，未证实截图内容。</p>
+            <div class="card-tags"><span>停播</span><span>粉丝群</span><span>客服回应</span></div>
+            <div class="card-meta"><span class="hot">热度 88</span><span>11月6日 09:05</span><span>信源层级：单方说法</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/lmjc1107/400/300" alt="老猫拆解视频截图，展示时间轴标注" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">技术分析</span>
+            <h3><a href="#deep-dive">“老猫拆解”发布夜航星截图时间戳分析：36.8万播放</a></h3>
+            <p class="card-desc">逐张比对17张截图的状态栏、聊天气泡间距与系统字体渲染差异，指出第9、12、15张存在同一设备不同时区设置的问题。结论：截图经过拼接。</p>
+            <div class="card-tags"><span>时间戳</span><span>截图鉴定</span><span>拼接痕迹</span></div>
+            <div class="card-meta"><span class="hot">热度 86</span><span>11月7日 20:30</span><span>信源层级：第三方分析</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/anonymous1108/400/300" alt="匿名投稿邮箱界面示意" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">匿名投稿</span>
+            <h3><a href="#latest">匿名投稿：某电商直播基地强制主播签“竞业承诺书”</a></h3>
+            <p class="card-desc">投稿附一份两页PDF，抬头为“杭州星链直播基地”，要求主播离职后6个月内不得在同类平台开播，违约金标注50万元。基地尚未回应。</p>
+            <div class="card-tags"><span>竞业协议</span><span>直播基地</span><span>违约金</span></div>
+            <div class="card-meta"><span class="hot">热度 79</span><span>11月8日 07:45</span><span>信源层级：单方投稿</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/djjiudian1103/400/300" alt="电竞酒店机房区域入口照片" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">实地探访</span>
+            <h3><a href="#deep-dive">南城电竞酒店实地：机房区域原本禁止保洁单独进入</a></h3>
+            <p class="card-desc">11月3日探访发现，机房入口贴有“非技术人员禁止入内”标识，但保洁人员工牌可刷开电子锁。酒店经理解释“权限设置疏漏，已重置全部门禁”。</p>
+            <div class="card-tags"><span>门禁权限</span><span>实地探访</span><span>机房</span></div>
+            <div class="card-meta"><span class="hot">热度 82</span><span>11月3日 16:10</span><span>信源层级：现场核实</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap">
+            <img src="https://picsum.photos/seed/shantie1106/400/300" alt="社交平台删帖通知截图" width="400" height="300" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-type">删帖记录</span>
+            <h3><a href="#latest">“夜航星”相关帖文六小时内被删27条，部分账号禁言</a></h3>
+            <p class="card-desc">从11月8日08:00到14:00，微博、小红书、贴吧三个平台合计27条相关帖文显示“内容已删除”。其中5个账号主页显示“因违反社区规范被禁言”。</p>
+            <div class="card-tags"><span>删帖</span><span>禁言</span><span>社区规范</span></div>
+            <div class="card-meta"><span class="hot">热度 76</span><span>11月8日 14:00</span><span>信源层级：平台记录</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 -->
+    <section id="latest">
+      <div class="section-head">
+        <h2>最新爆料动态</h2>
+        <div class="sub">11月6日—11月8日 · 按时间倒序</div>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <span class="u-time">14:00</span>
+          <div class="u-content">
+            <h4><a href="#featured">“夜航星”相关帖文六小时内被删27条</a></h4>
+            <p>微博、小红书、贴吧三个平台合计删除27条，5个账号禁言。删除时间集中在08:00—14:00，平台未逐条说明理由。</p>
+          </div>
+          <span class="u-tag">删帖</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">11:32</span>
+          <div class="u-content">
+            <h4><a href="#deep-dive">星耀传媒追加声明：晒出小鹿签约当天的签到表</a></h4>
+            <p>声明附一张签到表照片，显示小鹿于2025年3月12日签署合同。小鹿方随后回应“签到表不等于逐条讲解条款”。</p>
+          </div>
+          <span class="u-tag">MCN</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">09:12</span>
+          <div class="u-content">
+            <h4><a href="#featured">“夜航星”私聊截图三小时转发4.2万</a></h4>
+            <p>17张截图首发于一个127人的微信群，随后被搬运至微博。转发峰值出现在09:30—10:00，单分钟最高转发860次。</p>
+          </div>
+          <span class="u-tag">聊天记录</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">07:45</span>
+          <div class="u-content">
+            <h4><a href="#featured">匿名投稿：杭州星链直播基地“竞业承诺书”</a></h4>
+            <p>附两页PDF，违约金50万元，限制期6个月。投稿人称“不签就不给排播”。基地公开电话截至14时无人接听。</p>
+          </div>
+          <span class="u-tag">匿名投稿</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">昨日 20:30</span>
+          <div class="u-content">
+            <h4><a href="#deep-dive">“老猫拆解”发布时间戳分析视频，指出截图拼接</a></h4>
+            <p>逐张比对状态栏时区与聊天气泡间距，认定第9、12、15张来自不同设备。视频播放量36.8万，评论区出现“技术流”与“过度解读”两种声音。</p>
+          </div>
+          <span class="u-tag">技术分析</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">昨日 18:40</span>
+          <div class="u-content">
+            <h4><a href="#featured">南城电竞酒店声明：涉事保洁停职，门禁全部重置</a></h4>
+            <p>声明称已停职涉事保洁并配合警方调查，同时重置全部电子锁权限。酒店经理向探访者确认“保洁工牌原本不应有机房权限”。</p>
+          </div>
+          <span class="u-tag">官方回应</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">昨日 14:20</span>
+          <div class="u-content">
+            <h4><a href="#deep-dive">小鹿发布9分钟自述：合同附加条款未单独提示</a></h4>
+            <p>视频中展示合同第7页，附加条款约定账号归属权在合约期内归公司所有。小鹿称签约时“对方只说这是标准模板”。</p>
+          </div>
+          <span class="u-tag">合同纠纷</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">昨日 09:05</span>
+          <div class="u-content">
+            <h4><a href="#featured">喵播阿珂停播，粉丝群流传“内部通知”截图</a></h4>
+            <p>停播发生在02:17，截图标注“因不可抗力配合调查”。喵播客服回应“主播个人原因”，未证实截图真实性。</p>
+          </div>
+          <span class="u-tag">停播</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">11月6日</span>
+          <div class="u-content">
+            <h4><a href="#featured">星耀传媒首次回应：条款“合法合规”</a></h4>
+            <p>回应仅58字，未逐条解释附加条款。评论区最高赞为“合法和提前告知是两件事”，获1.2万赞同。</p>
+          </div>
+          <span class="u-tag">回应</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">11月5日</span>
+          <div class="u-content">
+            <h4><a href="#featured">南城电竞酒店事件原始视频上传者身份确认</a></h4>
+            <p>上传者为酒店前保洁人员，10月20日离职。视频拍摄于10月28日，上传于10月31日。酒店方称“离职后上传，无法预判”。</p>
+          </div>
+          <span class="u-tag">身份确认</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">11月4日</span>
+          <div class="u-content">
+            <h4><a href="#deep-dive">小鹿自述视频发布，播放量当晚破80万</a></h4>
+            <p>视频时长9分14秒，发布平台为B站与抖音。评论区前100条中约四成分享类似MCN签约经历。</p>
+          </div>
+          <span class="u-tag">自述视频</span>
+        </div>
+        <div class="update-item">
+          <span class="u-time">11月3日</span>
+          <div class="u-content">
+            <h4><a href="#deep-dive">实地探访：南城电竞酒店机房标识与门禁权限不符</a></h4>
+            <p>现场照片显示机房入口贴“非技术人员禁止入内”，但保洁工牌可刷开电子锁。经理承认“权限设置疏漏”。</p>
+          </div>
+          <span class="u-tag">实地探访</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section id="categories">
+      <div class="section-head">
+        <h2>爆料分类入口</h2>
+        <div class="sub">按素材类型与领域划分</div>
+      </div>
+      <div class="category-grid">
+        <a href="#latest" class="category-item">
+          <div class="cat-icon">💬</div>
+          <div class="cat-name">聊天记录</div>
+          <div class="cat-count">8 条待验证</div>
+        </a>
+        <a href="#latest" class="category-item">
+          <div class="cat-icon">🎥</div>
+          <div class="cat-name">现场视频</div>
+          <div class="cat-count">5 条含时间线</div>
+        </a>
+        <a href="#deep-dive" class="category-item">
+          <div class="cat-icon">📄</div>
+          <div class="cat-name">MCN合约</div>
+          <div class="cat-count">4 份合同节选</div>
+        </a>
+        <a href="#featured" class="category-item">
+          <div class="cat-icon">🎙️</div>
+          <div class="cat-name">直播翻车</div>
+          <div class="cat-count">6 起事件</div>
+        </a>
+        <a href="#featured" class="category-item">
+          <div class="cat-icon">🏨</div>
+          <div class="cat-name">电竞酒店</div>
+          <div class="cat-count">3 条跟进</div>
+        </a>
+        <a href="#latest" class="category-item">
+          <div class="cat-icon">🗑️</div>
+          <div class="cat-name">删帖记录</div>
+          <div class="cat-count">27 条已记录</div>
+        </a>
+        <a href="#comments" class="category-item">
+          <div class="cat-icon">📬</div>
+          <div class="cat-name">匿名投稿</div>
+          <div class="cat-count">9 条新投稿</div>
+        </a>
+        <a href="#comments" class="category-item">
+          <div class="cat-icon">⚖️</div>
+          <div class="cat-name">竞业协议</div>
+          <div class="cat-count">2 份文件</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section id="deep-dive">
+      <div class="section-head">
+        <h2>深度解析：截图、合同与门禁——三条爆料的核查路径</h2>
+        <div class="sub">可核对的结构化判断</div>
+      </div>
+      <div class="deep-dive">
+        <h3>夜航星截图：拼接痕迹落在哪几个具体位置</h3>
+        <p>“老猫拆解”的视频之所以在11月7日晚上被大量转发，是因为它没有停留在“感觉像P的”，而是把17张截图拆成三组可核对的物理特征：</p>
+        <ul>
+          <li><strong>状态栏时区</strong>：第9、12、15张顶部时间显示为“09:41”，但同一批截图里其他14张为“21:41”。视频逐帧放大后指出，这三张的电池图标样式与其余不同。</li>
+          <li><strong>聊天气泡间距</strong>：第9张中两条消息的垂直间距为14px，其余14张统一为12px。截图分辨率一致的前提下，间距差异指向不同设备或不同系统版本。</li>
+          <li><strong>字体渲染</strong>：第12张的“限流”二字边缘有轻微彩色子像素渲染痕迹，而其余截图无此特征。视频认为该张可能来自安卓设备，其余为iPhone。</li>
+        </ul>
+        <p>这三项证据只能证明“截图不是同一设备同一时间连续截取”，无法直接证明“内容伪造”。两者之间还有一段距离——拼接可能为了隐藏中间对话，也可能为了制造伪证。目前没有第三方拿到原始聊天记录导出文件，所以截图内容本身仍停留在“待验证”层级。</p>
+        <div class="callout">可核对的结构：截图可信度 = 原始文件是否可导出（当前缺失）+ 时间戳是否连续（当前不连续）+ 当事方是否实名确认（当前无）。三项中两项未满足，信源层级维持在“待验证”。</div>
+
+        <h3>星耀传媒合同：附加条款的争议不在合法性，在提示义务</h3>
+        <p>小鹿展示的合同第7页附加条款原文为：“乙方在合约期内及合约终止后6个月内，不得在同类平台开设直播账号，账号ID及粉丝关系归甲方所有。”星耀传媒11月5日的回应强调“条款经法务审核，合法合规”。</p>
+        <p>但合法合规与是否履行提示义务是两个层面。小鹿在自述视频中给出的具体说法是：签约当天对方翻到签字页直接让她签，没有逐页讲解，她当时“以为附加条款是标准模板的一部分”。11月8日星耀传媒追加的签到表照片只能证明她当天到场签字，不能证明条款被逐条说明。</p>
+        <p>同类纠纷在2025年已有先例可对比。2025年7月，杭州互联网法院审理的一起MCN合同纠纷中，法院认定“账号归属条款属于与对方有重大利害关系的条款，提供格式条款一方应采取合理方式提示对方注意”。该案最终调解结案，但裁判理由被多家法律公众号引用。星耀传媒合同中该条款是否达到“合理方式提示”标准，目前双方各执一词。</p>
+
+        <h3>南城电竞酒店：门禁权限的疏漏发生在哪个环节</h3>
+        <p>11月3日的实地探访确认了三件事：机房入口贴有“非技术人员禁止入内”标识；保洁人员工牌可以刷开电子锁；酒店经理承认“权限设置疏漏”。这三件事指向同一个具体问题——门禁系统在发卡时没有按岗位角色限制区域。</p>
+        <p>从时间线看，涉事保洁于10月20日离职，视频拍摄于10月28日，上传于10月31日。也就是说，拍摄发生时涉事人员已非酒店员工。酒店方在11月7日声明中称“已重置全部门禁权限”，但未说明此前是否定期审计权限。一个可对比的细节是：同区域另一家电竞酒店（距南城店约2.3公里）的机房采用独立密码锁，保洁工牌只能进入客房与布草间。权限颗粒度的差异，直接决定了“非技术人员进入机房”这件事是偶发还是系统性的。</p>
+        <p>警方介入后，目前公开可查的信息仅有一条：11月7日18时40分酒店声明确认“涉事保洁已停职”。案件细节未披露。在此阶段，任何关于“偷拍内容是否外流”“是否有其他人员参与”的说法，都属于推测层级。</p>
+      </div>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section id="guide">
+      <div class="section-head">
+        <h2>爆料消费指南：先看什么、怎么判断、何时该停</h2>
+        <div class="sub">按信源类型排序的阅读路径</div>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-num">1</div>
+          <h4>先看原始素材是否完整</h4>
+          <p>聊天记录看有没有上下文截断、状态栏是否连续；视频看有没有剪辑点、音频是否同步。17张截图和1张截图，判断权重完全不同。</p>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">2</div>
+          <h4>再查当事方是否实名回应</h4>
+          <p>“知情人士”和“内部通知”不算回应。星耀传媒11月5日的58字声明虽然短，但盖了公章、有落款，比粉丝群截图高一个层级。</p>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <h4>找独立第三方交叉验证</h4>
+          <p>“老猫拆解”的时间戳分析、实地探访的门禁照片，都属于第三方验证。没有第三方时，把信息当作“单方说法”处理，别急着下结论。</p>
+        </div>
+      </div>
+      <div class="overview-box" style="margin-top:14px;">
+        <p><strong>怎么比较两条同类爆料的价值？</strong>看三个指标：素材完整度（原始文件/上下文占比）、回应率（当事方是否实名、是否逐条回应）、验证方数量（独立第三方分析或实地探访）。以11月8日的“夜航星截图”与“南城酒店视频”为例——前者热度更高，但三项指标中仅“验证方数量”有一项（老猫拆解），素材完整度和回应率均缺失；后者热度稍低，但酒店已实名声明、警方已介入、实地探访已发表，三项中两项有实质进展。</p>
+        <p><strong>什么时候该停止跟进？</strong>当一条爆料连续三天没有新增可验证信息、当事方拒绝一切实名回应、且第三方分析指向素材存在根本性缺陷时，继续投入时间的边际收益就很低了。这不是说事件一定为假，而是说现有素材已经无法支撑更多判断。</p>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section id="faq">
+      <div class="section-head">
+        <h2>常见问答</h2>
+        <div class="sub">关于爆料核查与具体事件</div>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>“夜航星”聊天记录截图被指出拼接，那内容还能信吗？</summary>
+          <div class="faq-answer">
+            <p>拼接事实已由“老猫拆解”的视频逐帧指出：第9、12、15张的状态栏时区、气泡间距和字体渲染与其余14张不一致。但拼接只能说明截图不是同设备连续截取，不能直接证明聊天内容为伪造。</p>
+            <p>目前没有第三方拿到原始聊天记录导出文件，所以截图中的“限流”等表述仍处于单方说法层级。建议把该事件当前状态标记为“素材存疑，内容待验证”，而非直接采信或全盘否定。</p>
+          </div>
+        </details>
+        <details>
+          <summary>星耀传媒合同里的账号归属条款，法律上到底站不站得住？</summary>
+          <div class="faq-answer">
+            <p>2025年7月杭州互联网法院审理的一起MCN合同纠纷中，裁判理由指出“账号归属条款属于与对方有重大利害关系的条款，提供格式条款一方应采取合理方式提示对方注意”。该案调解结案，但裁判理由被多家法律公众号引用。</p>
+            <p>星耀传媒条款的争议点不在条文本身是否违法，而在签约当天是否履行了逐条提示义务。小鹿称未被单独讲解，星耀传媒晒出的签到表只能证明到场签字，不能证明提示过程。双方目前各执一词，尚无第三方证人公开表态。</p>
+          </div>
+        </details>
+        <details>
+          <summary>南城电竞酒店涉事保洁已经离职，酒店还有责任吗？</summary>
+          <div class="faq-answer">
+            <p>视频拍摄于10月28日，涉事保洁10月20日离职，拍摄时已非酒店员工。但门禁权限的疏漏发生在酒店管理环节——保洁工牌在离职后仍能刷开机房电子锁，说明权限回收与定期审计存在缺口。</p>
+            <p>酒店11月7日声明称“已重置全部门禁权限”，但未说明此前权限审计的周期。同区域另一家电竞酒店机房采用独立密码锁、保洁工牌仅限客房与布草间，可作为权限颗粒度的对比参照。</p>
+          </div>
+        </details>
+        <details>
+          <summary>喵播阿珂停播的“内部通知”截图，真实性有多高？</summary>
+          <div class="faq-answer">
+            <p>截图来源是粉丝群，非官方渠道。喵播客服11月6日回应称“主播个人原因停播”，未证实截图内容。截图本身没有可核对的元数据，也没有其他独立信源交叉验证。</p>
+            <p>按信源分层规则，该截图目前属于“单方说法”层级，且来源不明。在喵播官方或阿珂本人实名说明之前，截图中的“配合调查”等表述只能作为未经证实的传言看待。</p>
+          </div>
+        </details>
+        <details>
+          <summary>杭州星链直播基地的竞业承诺书，违约金50万合理吗？</summary>
+          <div class="faq-answer">
+            <p>投稿附的两页PDF显示限制期为离职后6个月，违约金50万元。基地公开电话截至11月8日14时无人接听，尚未有官方回应。</p>
+            <p>竞业限制的合理性通常与岗位涉密程度、补偿金标准挂钩。这份承诺书目前只看到违约条款，没有看到对应的补偿条款。缺少补偿约定的竞业限制，在司法实践中被支持的概率会打折扣。建议等基地回应后再做判断。</p>
+          </div>
+        </details>
+        <details>
+          <summary>一条爆料从“单方说法”升到“已证实”，通常需要哪几步？</summary>
+          <div class="faq-answer">
+            <p>以近期三条事件为参照：第一步是当事方实名回应（南城酒店11月7日声明、星耀传媒11月5日书面回应）；第二步是独立第三方交叉验证（老猫拆解的时间戳分析、实地探访的门禁照片）；第三步是关键素材的原始文件可核验（夜航星事件目前卡在这一步）。</p>
+            <p>三步中至少完成两步，信息层级才适合从“待验证”上调。三步均未完成时，即便转发量再高，也应维持原有标注。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section id="comments">
+      <div class="section-head">
+        <h2>用户评论 · 36 条讨论选摘</h2>
+        <div class="sub">关于具体条目与信源判断</div>
+      </div>
+      <div class="comment-grid">
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">白</span><span class="c-nick">白桃乌龙</span><span class="c-time">11月8日 14:22</span></div>
+          <div class="c-text">夜航星那17张截图我逐张看了，第9张的电池图标确实跟别的不一样，老猫拆解没瞎说。但拼接不等于造假，中间可能删了无关对话。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">南</span><span class="c-nick">南城老居民</span><span class="c-time">11月8日 13:50</span></div>
+          <div class="c-text">那家电竞酒店我住过两次，机房在走廊尽头，平时确实没人管。保洁工牌能刷开机房，这事比视频本身更离谱。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">星</span><span class="c-nick">星耀前员工</span><span class="c-time">11月8日 12:10</span></div>
+          <div class="c-text">小鹿说的签约流程我信。2025年3月那批主播基本都是一天签完，法务不在场，运营拿着合同翻到签字页就完事。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">阿</span><span class="c-nick">阿珂的榜七</span><span class="c-time">11月8日 11:45</span></div>
+          <div class="c-text">停播就停播吧，粉丝群那张“内部通知”截图连个公章都没有，一群人当圣旨转。等官方说话不行吗。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">法</span><span class="c-nick">法山叔</span><span class="c-time">11月8日 10:33</span></div>
+          <div class="c-text">星耀传媒晒签到表这个操作，等于承认了“没逐条讲解”，只是证明人到了。合同法上这叫履行了到场义务，没履行提示义务，两码事。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">夜</span><span class="c-nick">夜航星吃瓜号</span><span class="c-time">11月8日 09:58</span></div>
+          <div class="c-text">27条删帖我截图存了，最早删的是08:17那条，转发才2000多就没了。后面越删转得越快，这操作看不懂。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">杭</span><span class="c-nick">杭州直播小运营</span><span class="c-time">11月8日 09:20</span></div>
+          <div class="c-text">竞业承诺书那个，50万违约金在直播基地算中档，我见过80万的。但限制期6个月偏长，一般3个月。补偿金没写才是大问题。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">路</span><span class="c-nick">路人甲乙丙</span><span class="c-time">11月7日 23:10</span></div>
+          <div class="c-text">看了老猫拆解的视频，第一次知道截图还能这么鉴定。以后看到聊天记录先存疑，等三天再说。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">小</span><span class="c-nick">小鹿快跑</span><span class="c-time">11月7日 21:40</span></div>
+          <div class="c-text">小鹿那9分钟视频里，合同第7页拍得挺清楚。附加条款字号比正文小一号，这个细节不知道有没有人注意。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">电</span><span class="c-nick">电竞酒店常客</span><span class="c-time">11月7日 19:05</span></div>
+          <div class="c-text">南城那家酒店我上周去看了，机房门口现在贴了两张封条，门禁也换了。经理态度还行，就是不肯说之前权限谁管的。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">喵</span><span class="c-nick">喵播潜水员</span><span class="c-time">11月7日 16:30</span></div>
+          <div class="c-text">阿珂停播前那场直播我看了，02:15左右她看了眼手机然后说“等一下”，两分钟后就黑屏了。不像提前安排好的。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">谢</span><span class="c-nick">谢谢无所谓</span><span class="c-time">11月7日 14:12</span></div>
+          <div class="c-text">说句挨骂的，这些爆料看多了挺累的。真真假假，等子弹飞一会儿再说吧。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">图</span><span class="c-nick">图图不糊</span><span class="c-time">11月7日 11:50</span></div>
+          <div class="c-text">夜航星那张第12张的彩色子像素痕迹我放大看了，确实有。但安卓截图也不一定都有，要看系统版本。老猫说得有点绝对。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">签</span><span class="c-nick">签过竞业的我</span><span class="c-time">11月7日 10:25</span></div>
+          <div class="c-text">星链那个竞业承诺书，不签不给排播这事我信。2024年我在类似基地待过，排播权捏在运营手里，不签就走人。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">围</span><span class="c-nick">围观群众甲</span><span class="c-time">11月6日 22:08</span></div>
+          <div class="c-text">11月8日这波删帖有点狠，我关注的一个博主发了夜航星的图，号直接没了。现在只能在这里看整理。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">老</span><span class="c-nick">老猫粉丝团</span><span class="c-time">11月6日 18:44</span></div>
+          <div class="c-text">老猫拆解从去年就开始做截图鉴定，这次夜航星是他播放涨得最快的一期。质量确实高，就是更新太慢了。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">合</span><span class="c-nick">合同打工人</span><span class="c-time">11月6日 15:30</span></div>
+          <div class="c-text">星耀传媒11月5日那个回应，58个字，比合同附加条款还短。法务审核过和讲没讲给主播听，差着十万八千里。</div>
+        </div>
+        <div class="comment-card">
+          <div class="c-head"><span class="c-avatar">南</span><span class="c-nick">南城住客</span><span class="c-time">11月6日 09:12</span></div>
+          <div class="c-text">酒店11月7日的声明看了，停职保洁、重置门禁，但没提赔偿。被拍到的住客怎么办，一句没提。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section id="news">
+      <div class="section-head">
+        <h2>相关资讯</h2>
+        <div class="sub">11月1日—11月8日</div>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <span class="n-date">11月8日</span>
+          <div class="n-body">
+            <h4><a href="#featured">微博处置“夜航星”相关话题：禁言5个账号，删除27条帖文</a></h4>
+            <p>处置时间集中在08:00—14:00，平台未逐条说明理由。其中3个账号被禁言7天，2个永久禁言。话题页目前显示“内容暂不展示”。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="n-date">11月7日</span>
+          <div class="n-body">
+            <h4><a href="#deep-dive">南城警方回应电竞酒店偷拍：已受理，涉事保洁停职</a></h4>
+            <p>警方确认已受理报案，未透露是否立案。酒店声明称配合调查，门禁系统全部重置。探访发现机房入口已加贴封条。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="n-date">11月7日</span>
+          <div class="n-body">
+            <h4><a href="#deep-dive">“老猫拆解”时间戳分析视频播放量36.8万，登B站热门第14位</a></h4>
+            <p>视频时长22分37秒，发布16小时。评论区前50条中约三成讨论安卓与iOS截图差异，两成质疑“过度解读”。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="n-date">11月6日</span>
+          <div class="n-body">
+            <h4><a href="#featured">喵播客服回应阿珂停播：主播个人原因，未证实“配合调查”截图</a></h4>
+            <p>客服回应时间为11月6日09:05，措辞为“主播个人原因暂停直播”。粉丝群流传的截图标注“不可抗力”，两者表述不一致。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="n-date">11月5日</span>
+          <div class="n-body">
+            <h4><a href="#deep-dive">星耀传媒发布58字书面回应：合同条款“合法合规”</a></h4>
+            <p>回应落款盖公章，未逐条解释附加条款。小鹿方11月5日14:20发布二次回应，称“合法合规不等于提前告知”。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <span class="n-date">11月3日</span>
+          <div class="n-body">
+            <h4><a href="#deep-dive">实地探访南城电竞酒店：机房标识与门禁权限不符</a></h4>
+            <p>现场照片显示“非技术人员禁止入内”标识，保洁工牌可刷开电子锁。经理承认疏漏，称已联系技术方重置全部权限。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section id="related">
+      <div class="section-head">
+        <h2>相关推荐</h2>
+        <div class="sub">按具体条目与类型延伸</div>
+      </div>
+      <div class="related-tags">
+        <a href="#latest">夜航星截图第9张时区异常</a>
+        <a href="#deep-dive">星耀传媒附加条款原文</a>
+        <a href="#featured">南城电竞酒店门禁审计</a>
+        <a href="#latest">小鹿9分钟自述视频</a>
+        <a href="#comments">老猫拆解时间戳方法</a>
+        <a href="#latest">杭州星链竞业承诺书</a>
+        <a href="#featured">喵播阿珂停播时间线</a>
+        <a href="#comments">27条删帖记录清单</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充：热度榜 -->
+    <section id="hot-rank">
+      <div class="section-head">
+        <h2>11月8日爆料热度榜</h2>
+        <div class="sub">按站内阅读与讨论量排序</div>
+      </div>
+      <div class="hot-rank">
+        <div class="rank-item">
+          <span class="rank-num">1</span>
+          <span class="rank-title"><a href="#featured">夜航星私聊截图流出：三小时转发4.2万</a></span>
+          <span class="rank-score">98.2</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">2</span>
+          <span class="rank-title"><a href="#featured">南城电竞酒店偷拍：警方已介入，涉事保洁停职</a></span>
+          <span class="rank-score">95.7</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">3</span>
+          <span class="rank-title"><a href="#deep-dive">星耀传媒合同附加条款：前主播小鹿公开自述</a></span>
+          <span class="rank-score">91.4</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">4</span>
+          <span class="rank-title"><a href="#featured">喵播阿珂凌晨停播：粉丝群流传“配合调查”截图</a></span>
+          <span class="rank-score">88.6</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">5</span>
+          <span class="rank-title"><a href="#deep-dive">老猫拆解发布夜航星截图时间戳分析</a></span>
+          <span class="rank-score">86.3</span>
+        </div>
+        <div class="rank-item">
+          <span class="rank-num">6</span>
+          <span class="rank-title"><a href="#featured">匿名投稿：杭州星链直播基地竞业承诺书</a></span>
+          <span class="rank-score">79.8</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="aside-right" aria-label="辅助栏">
+    <div class="aside-card">
+      <h3>今日更新流</h3>
+      <div class="update-feed">
+        <div class="uf-item"><span class="uf-time">14:00</span>27条相关帖文被删，5账号禁言</div>
+        <div class="uf-item"><span class="uf-time">11:32</span>星耀传媒晒签到表，小鹿方回应</div>
+        <div class="uf-item"><span class="uf-time">09:12</span>夜航星截图转发破4.2万</div>
+        <div class="uf-item"><span class="uf-time">07:45</span>匿名投稿竞业承诺书</div>
+        <div class="uf-item"><span class="uf-time">昨日 20:30</span>老猫拆解视频36.8万播放</div>
+      </div>
+    </div>
+    <div class="aside-card">
+      <h3>信源层级速查</h3>
+      <div class="aside-list">
+        <a href="#deep-dive"><span class="idx top">A</span>官方声明/警方通报</a>
+        <a href="#deep-dive"><span class="idx">B</span>第三方技术分析/实地探访</a>
+        <a href="#deep-dive"><span class="idx">C</span>当事方实名回应</a>
+        <a href="#deep-dive"><span class="idx">D</span>匿名投稿/单方截图</a>
+      </div>
+    </div>
+    <div class="aside-card">
+      <h3>热门标签</h3>
+      <div class="related-tags" style="gap:6px;">
+        <a href="#featured" style="font-size:12px;padding:4px 10px;">夜航星</a>
+        <a href="#featured" style="font-size:12px;padding:4px 10px;">MCN合约</a>
+        <a href="#featured" style="font-size:12px;padding:4px 10px;">电竞酒店</a>
+        <a href="#featured" style="font-size:12px;padding:4px 10px;">删帖记录</a>
+        <a href="#featured" style="font-size:12px;padding:4px 10px;">竞业协议</a>
+        <a href="#featured" style="font-size:12px;padding:4px 10px;">截图鉴定</a>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fb-logo">91<span>今日爆料</span></div>
+      <p class="fb-desc">覆盖11月1日至11月8日的匿名投稿、聊天记录、合同文档与实地探访，按信源层级标注，每日更新12—20条。</p>
+      <p class="fb-copy">© 2026 91今日爆料 · 内容为示例聚合页，不构成事实认定</p>
+    </div>
+    <div class="footer-col">
+      <h4>爆料类型</h4>
+      <ul>
+        <li><a href="#featured">聊天记录</a></li>
+        <li><a href="#featured">现场视频</a></li>
+        <li><a href="#deep-dive">MCN合约</a></li>
+        <li><a href="#featured">直播翻车</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>参与</h4>
+      <ul>
+        <li><a href="#comments">匿名投稿入口</a></li>
+        <li><a href="#comments">用户讨论区</a></li>
+        <li><a href="#faq">投稿须知</a></li>
+        <li><a href="#hot-rank">今日热度榜</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>核查工具</h4>
+      <ul>
+        <li><a href="#deep-dive">信源层级说明</a></li>
+        <li><a href="#deep-dive">截图时间戳比对</a></li>
+        <li><a href="#deep-dive">合同条款拆解</a></li>
+        <li><a href="#guide">消费指南</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="back-top" aria-label="回到顶部">↑</button>
+
+<script>
+  (function(){
+    var backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', function(){
+      if (window.scrollY > 600) { backTop.classList.add('visible'); }
+      else { backTop.classList.remove('visible'); }
+    }, { passive: true });
+    backTop.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    var hamburger = document.getElementById('hamburger');
+    var mainNav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', function(){
+      var open = mainNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      hamburger.textContent = open ? '✕' : '☰';
+    });
+    mainNav.addEventListener('click', function(e){
+      if (e.target.tagName === 'A' && window.innerWidth <= 740) {
+        mainNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.textContent = '☰';
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+        mainNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.textContent = '☰';
+        hamburger.focus();
+      }
+    });
+    document.addEventListener('click', function(e){
+      if (window.innerWidth <= 740 && mainNav.classList.contains('open')) {
+        if (!mainNav.contains(e.target) && e.target !== hamburger && !hamburger.contains(e.target)) {
+          mainNav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.textContent = '☰';
+        }
+      }
+    });
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "91今日爆料",
+      "description": "聚合当日网络热点、圈内争议与匿名投稿，按信源层级标注的爆料内容平台。",
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "“夜航星”聊天记录截图被指出拼接，那内容还能信吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "拼接事实已由“老猫拆解”的视频逐帧指出：第9、12、15张的状态栏时区、气泡间距和字体渲染与其余14张不一致。但拼接只能说明截图不是同设备连续截取，不能直接证明聊天内容为伪造。目前没有第三方拿到原始聊天记录导出文件，所以截图中的“限流”等表述仍处于单方说法层级。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "星耀传媒合同里的账号归属条款，法律上到底站不站得住？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2025年7月杭州互联网法院审理的一起MCN合同纠纷中，裁判理由指出“账号归属条款属于与对方有重大利害关系的条款，提供格式条款一方应采取合理方式提示对方注意”。该案调解结案，但裁判理由被多家法律公众号引用。星耀传媒条款的争议点不在条文本身是否违法，而在签约当天是否履行了逐条提示义务。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "南城电竞酒店涉事保洁已经离职，酒店还有责任吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "视频拍摄于10月28日，涉事保洁10月20日离职，拍摄时已非酒店员工。但门禁权限的疏漏发生在酒店管理环节——保洁工牌在离职后仍能刷开机房电子锁，说明权限回收与定期审计存在缺口。酒店11月7日声明称“已重置全部门禁权限”，但未说明此前权限审计的周期。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "喵播阿珂停播的“内部通知”截图，真实性有多高？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "截图来源是粉丝群，非官方渠道。喵播客服11月6日回应称“主播个人原因停播”，未证实截图内容。截图本身没有可核对的元数据，也没有其他独立信源交叉验证。按信源分层规则，该截图目前属于“单方说法”层级，且来源不明。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "杭州星链直播基地的竞业承诺书，违约金50万合理吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "投稿附的两页PDF显示限制期为离职后6个月，违约金50万元。基地公开电话截至11月8日14时无人接听，尚未有官方回应。竞业限制的合理性通常与岗位涉密程度、补偿金标准挂钩。这份承诺书目前只看到违约条款，没有看到对应的补偿条款。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "一条爆料从“单方说法”升到“已证实”，通常需要哪几步？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "以近期三条事件为参照：第一步是当事方实名回应；第二步是独立第三方交叉验证；第三步是关键素材的原始文件可核验。三步中至少完成两步，信息层级才适合从“待验证”上调。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+  </html>

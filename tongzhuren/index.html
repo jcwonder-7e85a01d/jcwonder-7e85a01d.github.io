@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捅主任 - 垂类内容聚合与深度解析</title>
+    <meta name="description" content="捅主任是聚焦特定领域的内容聚合与深度解析平台，汇集最新动态、精选条目、分类入口、深度解析与用户评论，为关注该领域的读者提供可搜索的具体内容与判断依据。">
+    <meta name="keywords" content="捅主任">
+    <style>
+        /* 全局色彩与设计变量 */
+        :root {
+            --primary: #0f3b5e;
+            --primary-light: #1e5a8a;
+            --primary-dark: #092a44;
+            --accent: #d9772e;
+            --bg-body: #f7f6f3;
+            --bg-panel: #ffffff;
+            --text-primary: #1f2a38;
+            --text-secondary: #4a5a6a;
+            --text-tertiary: #7c8b9a;
+            --divider: #e2e5e9;
+            --radius-card: 14px;
+            --radius-btn: 30px;
+            --radius-tag: 6px;
+            --shadow-default: 0 4px 12px rgba(0, 20, 30, 0.06);
+            --shadow-hover: 0 10px 24px rgba(0, 20, 30, 0.12);
+            --header-height: 72px;
+            --announce-height: 44px;
+            --sticky-offset: calc(var(--announce-height) + var(--header-height));
+            --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 吸顶公告条 */
+        .announcement-bar {
+            background-color: var(--primary-dark);
+            color: #fff;
+            height: var(--announce-height);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            position: sticky;
+            top: 0;
+            z-index: 60;
+        }
+
+        .announcement-bar .brand-mark {
+            font-weight: 700;
+            color: #fff;
+            margin-right: 18px;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .announcement-bar .news-ticker {
+            display: flex;
+            gap: 28px;
+            overflow: hidden;
+            white-space: nowrap;
+            flex-wrap: nowrap;
+        }
+
+        .announcement-bar .news-ticker span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #d0dbe8;
+        }
+
+        .announcement-bar .news-ticker strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* 吸顶页头 */
+        .page-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--divider);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            position: sticky;
+            top: var(--announce-height);
+            z-index: 50;
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            justify-content: space-between;
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo-svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .brand-text {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+
+        .primary-nav {
+            display: flex;
+            gap: 22px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .primary-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+
+        .primary-nav a:hover,
+        .primary-nav a:focus-visible {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            outline: none;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .search-toggle {
+            background: none;
+            border: 1px solid var(--divider);
+            border-radius: var(--radius-btn);
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .search-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--primary);
+            padding: 4px 8px;
+            line-height: 1;
+        }
+
+        /* 移动端导航抽屉 */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 70;
+        }
+
+        .mobile-nav-overlay.active {
+            display: block;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-panel);
+            box-shadow: var(--shadow-hover);
+            z-index: 80;
+            padding: 24px 20px;
+            transition: left 0.25s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav-drawer.active {
+            left: 0;
+        }
+
+        .mobile-nav-drawer .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            float: right;
+            cursor: pointer;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .mobile-nav-drawer nav {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            clear: both;
+            padding-top: 12px;
+        }
+
+        .mobile-nav-drawer nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--divider);
+        }
+
+        /* 主布局三栏门户 */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 24px 40px;
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr) 260px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* 左侧频道索引 */
+        .channel-aside {
+            position: sticky;
+            top: calc(var(--sticky-offset) + 16px);
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            padding: 20px 0;
+        }
+
+        .channel-aside h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            padding: 0 18px 12px;
+            border-bottom: 1px solid var(--divider);
+            margin-bottom: 8px;
+        }
+
+        .channel-list {
+            list-style: none;
+        }
+
+        .channel-list li a {
+            display: block;
+            padding: 10px 18px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            border-left: 3px solid transparent;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+
+        .channel-list li a:hover,
+        .channel-list li a.active {
+            background: #eef2f7;
+            border-left-color: var(--primary);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* 中间主内容 */
+        .main-content {
+            min-width: 0;
+        }
+
+        /* 首屏区域 */
+        .hero-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f9 100%);
+            border-radius: 24px;
+            padding: 36px 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-default);
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin-bottom: 22px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 26px;
+            border-radius: var(--radius-btn);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            padding: 10px 26px;
+            border-radius: var(--radius-btn);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #e8eef5;
+        }
+
+        .hero-visual {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 通用板块 */
+        .section-block {
+            margin-bottom: 38px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.3px;
+        }
+
+        .section-header .more-link {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .section-header .more-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 精选卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .content-card {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+
+        .card-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block;
+            background: #eaeef2;
+        }
+
+        .card-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-type {
+            display: inline-block;
+            background: var(--primary-light);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: var(--radius-tag);
+            align-self: flex-start;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            flex: 1;
+            margin-bottom: 12px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            border-top: 1px solid var(--divider);
+            padding-top: 10px;
+            margin-top: auto;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            background: #edf1f7;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: var(--radius-tag);
+            white-space: nowrap;
+        }
+
+        /* 最新更新列表 */
+        .update-list {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            padding: 6px 0;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: baseline;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--divider);
+            gap: 14px;
+            transition: background 0.15s;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-item:hover {
+            background: #f9fafb;
+        }
+
+        .update-time {
+            flex-shrink: 0;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            width: 70px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .update-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+            font-size: 0.92rem;
+        }
+
+        .update-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .update-title a:hover {
+            color: var(--primary);
+        }
+
+        .update-summary {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            flex: 2;
+        }
+
+        /* 分类入口网格 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .category-item {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            padding: 18px 12px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow-default);
+            transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .category-item:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            background: #f4f8fd;
+        }
+
+        /* 深度解析 */
+        .deep-dive {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            padding: 28px 32px;
+        }
+
+        .deep-dive h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        .deep-dive h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .deep-dive p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        .deep-dive ul {
+            margin: 12px 0 16px 20px;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
+        .deep-dive li {
+            margin-bottom: 6px;
+        }
+
+        /* FAQ 折叠 */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .faq-item {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 16px 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding: 0 20px 18px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            border-top: 1px solid var(--divider);
+            padding-top: 14px;
+        }
+
+        /* 评论 */
+        .comment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .comment-card {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .comment-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .comment-nickname {
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+        }
+
+        .comment-text {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 资讯列表 */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .news-item {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            padding: 18px 22px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .news-date {
+            flex-shrink: 0;
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            width: 80px;
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        .news-title {
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .news-summary {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+        }
+
+        /* 相关推荐标签 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-cloud a {
+            background: var(--bg-panel);
+            border-radius: var(--radius-btn);
+            padding: 8px 20px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            box-shadow: var(--shadow-default);
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .tag-cloud a:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* 右侧辅助栏 */
+        .sidebar-aside {
+            position: sticky;
+            top: calc(var(--sticky-offset) + 16px);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-widget {
+            background: var(--bg-panel);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            padding: 20px;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .hot-list {
+            list-style: none;
+        }
+
+        .hot-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f2f5;
+            font-size: 0.88rem;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hot-rank {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.8rem;
+            width: 24px;
+        }
+
+        .hot-title {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .hot-title:hover {
+            color: var(--primary);
+        }
+
+        .timeline-list {
+            list-style: none;
+            border-left: 2px solid var(--primary-light);
+            padding-left: 16px;
+        }
+
+        .timeline-list li {
+            position: relative;
+            padding: 6px 0 14px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-list li::before {
+            content: "";
+            position: absolute;
+            left: -22px;
+            top: 11px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-light);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* 页脚 */
+        .page-footer {
+            background: var(--primary-dark);
+            color: #cbd5e1;
+            padding: 48px 24px 32px;
+            margin-top: 20px;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+
+        .footer-brand .brand-text-footer {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            max-width: 340px;
+            color: #a5b8cc;
+        }
+
+        .footer-group h4 {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .footer-group a {
+            display: block;
+            color: #a5b8cc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 4px 0;
+            transition: color 0.15s;
+        }
+
+        .footer-group a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 32px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.8rem;
+            color: #7c8b9a;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* 回到顶部 */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-hover);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 40;
+            transition: background 0.2s, opacity 0.2s;
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-light);
+        }
+
+        /* 锚点偏移 */
+        [id] {
+            scroll-margin-top: var(--sticky-offset);
+        }
+
+        /* 响应式 */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 160px minmax(0, 1fr) 220px;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: minmax(0, 1fr) 240px;
+            }
+            .channel-aside {
+                display: none;
+            }
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 24px;
+            }
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .hero-visual {
+                width: 140px;
+                height: 140px;
+            }
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .primary-nav {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 740px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 16px 16px 32px;
+            }
+            .sidebar-aside {
+                position: static;
+                margin-top: 24px;
+            }
+            .announcement-bar {
+                font-size: 0.75rem;
+                padding: 0 12px;
+            }
+            .announcement-bar .news-ticker {
+                gap: 14px;
+            }
+            .announcement-bar .brand-mark {
+                margin-right: 8px;
+                font-size: 0.85rem;
+            }
+            .page-header {
+                padding: 0 16px;
+            }
+            .brand-text {
+                font-size: 1.2rem;
+            }
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .comment-list {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .news-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .update-item {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .update-time {
+                width: auto;
+            }
+            .deep-dive {
+                padding: 20px 18px;
+            }
+            .back-to-top {
+                bottom: 16px;
+                right: 16px;
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <!-- 吸顶公告条 -->
+    <div class="announcement-bar">
+        <span class="brand-mark">捅主任</span>
+        <div class="news-ticker">
+            <span><strong>2026-11-08</strong> 新增「拆解评审」第12期</span>
+            <span><strong>8个</strong> 分类入口已更新</span>
+            <span><strong>2026-11-07</strong> 榜单「本周热力条」上线</span>
+        </div>
+    </div>
+
+    <!-- 吸顶页头 -->
+    <header class="page-header">
+        <div class="header-inner">
+            <div class="brand-area">
+                <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="32" height="32" rx="10" fill="#0f3b5e"/>
+                    <path d="M14 18h12M14 24h8" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="28" cy="12" r="4" fill="#d9772e"/>
+                </svg>
+                <span class="brand-text">捅主任</span>
+            </div>
+            <nav class="primary-nav">
+                <a href="/#overview">领域概览</a>
+                <a href="/#featured">精选内容</a>
+                <a href="/#latest">最新更新</a>
+                <a href="/#categories">分类入口</a>
+                <a href="/#deepdive">深度解析</a>
+                <a href="/#faq">常见问题</a>
+            </nav>
+            <div class="header-actions">
+                <button class="search-toggle" id="searchToggleBtn" aria-label="搜索">搜索</button>
+                <button class="menu-toggle" id="menuToggleBtn" aria-label="打开菜单">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端导航抽屉与遮罩 -->
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+        <button class="close-btn" id="closeDrawerBtn" aria-label="关闭菜单">×</button>
+        <nav>
+            <a href="/#overview">领域概览</a>
+            <a href="/#featured">精选内容</a>
+            <a href="/#latest">最新更新</a>
+            <a href="/#categories">分类入口</a>
+            <a href="/#deepdive">深度解析</a>
+            <a href="/#faq">常见问题</a>
+            <a href="/#comments">用户评论</a>
+            <a href="/#news">相关资讯</a>
+        </nav>
+    </div>
+
+    <!-- 主容器三栏布局 -->
+    <div class="main-container">
+
+        <!-- 左侧频道索引 -->
+        <aside class="channel-aside">
+            <h2>频道索引</h2>
+            <ul class="channel-list">
+                <li><a href="/#overview" class="active">领域概览</a></li>
+                <li><a href="/#featured">精选内容</a></li>
+                <li><a href="/#latest">最新更新</a></li>
+                <li><a href="/#categories">分类入口</a></li>
+                <li><a href="/#deepdive">深度解析</a></li>
+                <li><a href="/#guide">体验指南</a></li>
+                <li><a href="/#faq">常见问题</a></li>
+                <li><a href="/#comments">用户评论</a></li>
+                <li><a href="/#news">相关资讯</a></li>
+                <li><a href="/#recommend">相关推荐</a></li>
+                <li><a href="/#hotlist">热门榜单</a></li>
+            </ul>
+        </aside>
+
+        <!-- 中间主内容 -->
+        <main class="main-content">
+
+            <!-- 首屏 -->
+            <section class="hero-section" id="top">
+                <div class="hero-text">
+                    <h1>捅主任</h1>
+                    <p class="hero-desc">汇聚拆解评测、工具实测、案例复盘与圈内动态，为关注内容拆解与产品体验的读者提供可搜索的具体条目与判断依据。</p>
+                    <div class="hero-cta">
+                        <a href="/#featured" class="btn-primary">浏览精选条目</a>
+                        <a href="/#deepdive" class="btn-outline">阅读深度解析</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="78" stroke="#0f3b5e" stroke-width="2" stroke-dasharray="6 6" opacity="0.3"/>
+                        <circle cx="100" cy="100" r="58" stroke="#d9772e" stroke-width="3" opacity="0.5"/>
+                        <rect x="70" y="70" width="60" height="60" rx="12" fill="#0f3b5e" opacity="0.9"/>
+                        <path d="M85 95h30M85 110h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="145" cy="60" r="10" fill="#d9772e"/>
+                    </svg>
+                </div>
+            </section>
+
+            <!-- 板块1：主题领域概览 -->
+            <section class="section-block" id="overview">
+                <div class="section-header">
+                    <h2>内容拆解与产品评测领域概览</h2>
+                </div>
+                <div style="background: var(--bg-panel); border-radius: var(--radius-card); box-shadow: var(--shadow-default); padding: 24px 28px; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
+                    <p>拆解评测这个领域，远不止开箱和参数罗列。围绕一个产品、一个案例或一种内容形态，可以衍生出结构拆解、场景实测、竞品横评、用户反馈归纳、成本与定价分析等具体方向。当前值得关注的内容包括：针对智能硬件的分模块拆解报告（如「拆解评审」系列对耳机、键盘、扫地机的结构分析），针对内容产品的运营复盘（如短视频账号的起号路径、选题淘汰率），以及围绕工具类应用的效率实测（如笔记工具、任务管理工具在真实项目中的表现）。</p>
+                    <p>从内容形态看，图文拆解、视频评测、数据对比表、时间线复盘是四种常见载体。图文拆解侧重结构与物料，视频评测侧重体验与场景，数据对比表适合参数与价格横评，时间线复盘多用于事件或项目过程。读者对这类内容的需求集中在：能不能看到内部结构、有没有可验证的数据、对比是否公平、结论是否可复现。</p>
+                    <p>近期比较受关注的条目有「拆解评审」第12期对某款开放式耳机的腔体分析、账号「硬核拆解」对千元机械键盘的轴体横评，以及「效率工具局」对三款任务管理工具在30天项目周期中的使用记录。这些条目共同指向一个趋势：拆解对象从单一硬件扩展到软硬结合的使用流程，评测维度从参数转向场景适配。</p>
+                </div>
+            </section>
+
+            <!-- 板块2：精选内容推荐 -->
+            <section class="section-block" id="featured">
+                <div class="section-header">
+                    <h2>精选拆解与实测条目</h2>
+                </div>
+                <div class="card-grid">
+                    <article class="content-card">
+                        <img class="card-img" src="https://picsum.photos/seed/teardown1/400/300" width="400" height="300" loading="lazy" alt="开放式耳机腔体拆解结构图">
+                        <div class="card-body">
+                            <span class="card-type">拆解报告</span>
+                            <h3 class="card-title">开放式耳机腔体拆解：三款主流型号对比</h3>
+                            <div class="card-tags"><span class="tag">声学结构</span><span class="tag">物料清单</span><span class="tag">装配工艺</span></div>
+                            <p class="card-desc">拆开三款500元价位开放式耳机，对比腔体设计、振膜材质与防漏音结构，附装配公差实测数据。</p>
+                            <div class="card-meta"><span>热度 4.2k</span><span>更新 11-06</span></div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <img class="card-img" src="https://picsum.photos/seed/keyboard2/400/300" width="400" height="300" loading="lazy" alt="机械键盘轴体横评拆解图">
+                        <div class="card-body">
+                            <span class="card-type">横评对比</span>
+                            <h3 class="card-title">千元机械键盘轴体横评：手感曲线与寿命测试</h3>
+                            <div class="card-tags"><span class="tag">轴体</span><span class="tag">压力克数</span><span class="tag">耐久测试</span></div>
+                            <p class="card-desc">覆盖6款热门轴体，用压力测试仪记录触发曲线，并做50万次按压寿命抽检，给出场景选购建议。</p>
+                            <div class="card-meta"><span>热度 3.8k</span><span>更新 11-05</span></div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <img class="card-img" src="https://picsum.photos/seed/taskapp3/400/300" width="400" height="300" loading="lazy" alt="任务管理工具界面截图">
+                        <div class="card-body">
+                            <span class="card-type">工具实测</span>
+                            <h3 class="card-title">三款任务管理工具30天项目实测</h3>
+                            <div class="card-tags"><span class="tag">效率工具</span><span class="tag">项目协作</span><span class="tag">使用日志</span></div>
+                            <p class="card-desc">用同一套项目流程分别跑三款工具，记录每日操作步数、提醒漏报次数与团队接受度，附完整日志表。</p>
+                            <div class="card-meta"><span>热度 5.1k</span><span>更新 11-07</span></div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <img class="card-img" src="https://picsum.photos/seed/robot4/400/300" width="400" height="300" loading="lazy" alt="扫地机器人拆解内部结构">
+                        <div class="card-body">
+                            <span class="card-type">深度拆解</span>
+                            <h3 class="card-title">扫地机器人底盘拆解：激光模组与越障结构</h3>
+                            <div class="card-tags"><span class="tag">激光雷达</span><span class="tag">越障轮组</span><span class="tag">尘盒设计</span></div>
+                            <p class="card-desc">拆解两款2000元档扫地机，对比激光模组型号、悬挂结构行程与尘盒密封方式，附越障测试数据。</p>
+                            <div class="card-meta"><span>热度 3.5k</span><span>更新 11-03</span></div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <img class="card-img" src="https://picsum.photos/seed/shortvideo5/400/300" width="400" height="300" loading="lazy" alt="短视频账号数据看板截图">
+                        <div class="card-body">
+                            <span class="card-type">运营复盘</span>
+                            <h3 class="card-title">短视频账号起号30天：选题淘汰率与流量曲线</h3>
+                            <div class="card-tags"><span class="tag">起号路径</span><span class="tag">选题库</span><span class="tag">完播率</span></div>
+                            <p class="card-desc">记录一个知识类账号从0到1万粉的30天，逐条列出选题、发布时间与完播率，分析哪类选题被淘汰。</p>
+                            <div class="card-meta"><span>热度 4.7k</span><span>更新 11-04</span></div>
+                        </div>
+                    </article>
+                    <article class="content-card">
+                        <img class="card-img" src="https://picsum.photos/seed/earbud6/400/300" width="400" height="300" loading="lazy" alt="降噪耳机降噪曲线图">
+                        <div class="card-body">
+                            <span class="card-type">场景实测</span>
+                            <h3 class="card-title">通勤降噪耳机实测：地铁与街道噪音衰减对比</h3>
+                            <div class="card-tags"><span class="tag">降噪深度</span><span class="tag">风噪</span><span class="tag">佩戴舒适度</span></div>
+                            <p class="card-desc">在早高峰地铁与临街人行道分别测试三款降噪耳机的低频衰减分贝值，并记录风噪出现的临界速度。</p>
+                            <div class="card-meta"><span>热度 4.9k</span><span>更新 11-08</span></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 板块3：最新更新 -->
+            <section class="section-block" id="latest">
+                <div class="section-header">
+                    <h2>最新更新与动态</h2>
+                </div>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="update-time">11-08</span>
+                        <span class="update-title"><a href="/#featured">「拆解评审」第12期上线</a></span>
+                        <span class="update-summary">本期拆解对象为某品牌开放式耳机，重点分析腔体泄压孔设计对低频的影响。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-08</span>
+                        <span class="update-title"><a href="/#hotlist">本周热力条榜单更新</a></span>
+                        <span class="update-summary">「三款任务管理工具30天实测」升至榜首，热度5.1k；扫地机拆解跌出前三。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-07</span>
+                        <span class="update-title"><a href="/#news">机械键盘轴体横评数据公开</a></span>
+                        <span class="update-summary">压力曲线原始数据已上传至公开表格，包含6款轴体各100次触发记录。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-06</span>
+                        <span class="update-title"><a href="/#guide">新增「体验指南」条目</a></span>
+                        <span class="update-summary">补充了拆解类内容的阅读顺序建议：先看结论，再回看拆解过程与数据表。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-05</span>
+                        <span class="update-title"><a href="/#comments">评论区新增12条实测反馈</a></span>
+                        <span class="update-summary">用户围绕「扫地机越障结构」展开讨论，有读者补充了自家门槛高度的实测数据。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-04</span>
+                        <span class="update-title"><a href="/#featured">短视频起号复盘更新第二周数据</a></span>
+                        <span class="update-summary">第二周完播率从31%降至22%，作者拆解了选题调整前后的流量差异。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-03</span>
+                        <span class="update-title"><a href="/#categories">分类入口调整</a></span>
+                        <span class="update-summary">「声学拆解」与「效率工具」从二级分类提至一级入口，原「智能硬件」拆为两个子类。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-02</span>
+                        <span class="update-title"><a href="/#deepdive">深度解析新增「信源分层」小节</a></span>
+                        <span class="update-summary">以耳机拆解为例，说明官方参数、第三方实测与用户反馈三种信源的可核对程度。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-01</span>
+                        <span class="update-title"><a href="/#recommend">相关推荐标签扩充</a></span>
+                        <span class="update-summary">新增「越障测试」「轴体压力曲线」「起号选题库」等8个具体方向词。</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">10-30</span>
+                        <span class="update-title"><a href="/#faq">FAQ补充两个新问题</a></span>
+                        <span class="update-summary">涉及「拆解类内容如何判断是否恰饭」与「横评数据怎么复核」。</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 板块4：分类入口 -->
+            <section class="section-block" id="categories">
+                <div class="section-header">
+                    <h2>分类入口</h2>
+                </div>
+                <div class="category-grid">
+                    <a class="category-item" href="/#featured">声学拆解</a>
+                    <a class="category-item" href="/#featured">键盘轴体</a>
+                    <a class="category-item" href="/#featured">清洁电器</a>
+                    <a class="category-item" href="/#featured">效率工具</a>
+                    <a class="category-item" href="/#featured">内容运营复盘</a>
+                    <a class="category-item" href="/#featured">场景实测</a>
+                    <a class="category-item" href="/#featured">竞品横评</a>
+                    <a class="category-item" href="/#featured">物料与成本</a>
+                </div>
+            </section>
+
+            <!-- 板块5：深度解析正文 -->
+            <section class="section-block" id="deepdive">
+                <div class="section-header">
+                    <h2>深度解析：拆解评测的判断依据</h2>
+                </div>
+                <div class="deep-dive">
+                    <h3>拆解报告的可信度分层</h3>
+                    <p>一份拆解报告通常包含三类信息：官方公开参数、第三方实测数据、拆解者主观判断。三者的可核对程度差异很大。以2026年11月6日上线的「开放式耳机腔体拆解」为例，报告中引用的官方频响曲线（来自品牌公开PDF）可以逐点核对；拆解者用游标卡尺测量的腔体壁厚数据，需要看是否标注了测量位置与重复次数；而“泄压孔设计合理”这类结论，则依赖拆解者的经验，缺乏统一标准。</p>
+                    <p>读者可以按三个层级快速定位：第一层是物料清单与结构照片，几乎不可伪造；第二层是测量数据，需确认仪器型号与测量方法；第三层是主观评价，可参考但不宜直接作为购买依据。以「机械键盘轴体横评」为例，压力曲线原始数据已公开，读者能自行比对触发压力偏差，但“手感偏软”的结论因个人偏好差异较大，仅作参考。</p>
+
+                    <h3>横评中的对比公平性</h3>
+                    <p>横向评测最容易出现的问题是条件不一致。2026年11月5日发布的六款轴体横评中，测试用键盘统一采用同一块PCB与同一套键帽，按压速度由机械臂控制在每秒2次，这一条件在正文中明确写出。对比之下，部分同类横评在测试不同轴体时更换了键盘底座，导致触发压力数据出现系统性偏移。</p>
+                    <ul>
+                        <li>核对测试设备是否统一：PCB型号、键帽高度、润滑状态。</li>
+                        <li>核对环境条件：温度、湿度是否记录，尤其对声学产品影响明显。</li>
+                        <li>核对样本量：单次测量还是多次取平均，是否剔除异常值。</li>
+                    </ul>
+
+                    <h3>场景实测与参数的关系</h3>
+                    <p>参数好的产品不一定在具体场景中表现好。以通勤降噪耳机为例，官方标称降噪深度42dB，但在地铁车厢的低频噪音环境中，实际衰减值往往低于标称。2026年11月8日更新的场景实测中，三款耳机在早高峰地铁的实测低频衰减分别为28dB、31dB、26dB，与标称值差距明显。这种差距来自测试条件不同：官方数据通常在消声室测得，而地铁环境存在振动与风噪干扰。</p>
+                    <p>读者在看场景实测时，应优先关注测试地点的描述是否具体——是几号线地铁、哪个时段、车厢拥挤程度如何。这些细节决定了数据能否迁移到自己的使用场景。如果只写“地铁实测”而没有线路与时段，数据的参考价值会打折扣。</p>
+
+                    <h3>运营复盘类内容的证据结构</h3>
+                    <p>短视频起号复盘在2026年11月4日更新了第二周数据，完播率从31%降至22%。作者列出了第二周每日发布的选题、发布时间与对应完播率，其中一条关于“工具测评”的选题完播率仅14%，被作者标记为淘汰方向。这种逐条记录的方式比笼统的“选题要垂直”有用得多。读者可以自行计算选题类型与完播率的关系，而不是依赖作者的总结。</p>
+                    <p>复盘类内容常见的缺失是只给结果不给过程。例如“30天涨粉1万”的标题下，如果没有逐日数据、没有删掉的失败选题、没有发布时间调整记录，这个结果就无法复现。可核对的结构应包括：每日发布条数、每条选题关键词、发布时间、前3秒流失率、完播率、互动率。缺少其中两项以上，结论的可信度就要降低。</p>
+
+                    <h3>物料成本与定价的拆解逻辑</h3>
+                    <p>拆解报告经常估算物料成本，但估算方法差异很大。以扫地机器人底盘拆解为例，2026年11月3日发布的报告中列出了激光模组、越障轮组、尘盒的采购参考价，但未包含模具摊销、组装人工与物流费用。读者若用这份物料成本直接对比零售价，容易高估利润空间。更合理的做法是区分“物料成本”与“总成本”，后者需要产线规模与良率数据，通常不在拆解范围内。</p>
+                    <p>判断成本估算是否可信，可以看三个点：是否注明采购渠道（公开报价还是行业估算）、是否包含二级物料（螺丝、线材、包装）、是否给出价格区间而非单一数值。三项齐全的估算，参考价值明显更高。</p>
+                </div>
+            </section>
+
+            <!-- 板块6：体验指南 -->
+            <section class="section-block" id="guide">
+                <div class="section-header">
+                    <h2>体验指南：拆解内容的阅读顺序</h2>
+                </div>
+                <div style="background: var(--bg-panel); border-radius: var(--radius-card); box-shadow: var(--shadow-default); padding: 24px 28px; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
+                    <p>面对一篇拆解或实测内容，建议按“结论—数据—过程—评论”的顺序阅读。先看文末结论或摘要，判断这篇内容是否与你的需求相关；再翻到数据表格或测量记录，确认数据来源与测试条件；然后回看拆解过程照片，核实结构描述与实物是否一致；最后浏览评论区，看有没有读者指出数据异常或补充实测。这个顺序能帮你在一篇长文中快速定位可信部分。</p>
+                    <p>判断一个条目值不值得投入时间，可以看三个指标：是否公开测试设备型号、是否给出样本量、是否标注测量日期。以2026年11月7日更新的键盘轴体横评为例，正文列出了压力测试仪型号、每款轴体100次触发记录与测试日期，属于信息完整度较高的条目。如果一篇评测只写“手感不错”而没有设备与数据，阅读优先级可以降低。</p>
+                    <p>同类条目比较时，优先选择测试条件写得更具体的。比如两款扫地机拆解，A篇写了越障测试的门槛高度（2cm、3cm、4cm三档）与测试次数，B篇只写“越障能力不错”，A篇的参考价值更高，因为你可以将自己的门槛高度代入对比。场景实测同理，写明地铁线路、时段、车厢位置的内容，比只写“地铁实测”的内容更有迁移价值。</p>
+                </div>
+            </section>
+
+            <!-- 板块7：FAQ -->
+            <section class="section-block" id="faq">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>拆解报告里的物料成本估算，能直接用来判断利润空间吗？</summary>
+                        <div class="faq-answer">不能直接判断。拆解报告通常只覆盖主要物料，不含模具摊销、组装人工、良率损耗与物流费用。以扫地机底盘拆解为例，激光模组与轮组的采购价可以查到，但模具费用需按产量分摊，小批量生产时单台摊销可能高出物料成本30%以上。判断利润空间还需要产线规模与渠道成本数据。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>横评数据怎么复核？有没有公开的原始记录？</summary>
+                        <div class="faq-answer">2026年11月7日发布的键盘轴体横评已公开压力曲线原始数据表，包含6款轴体各100次触发记录。复核时先确认测试设备型号是否一致，再看触发压力偏差范围是否在厂商标称的±5cN以内。如果原始数据缺失，只能参考正文给出的平均值，复核空间有限。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>场景实测的降噪数据，为什么和官方标称差那么多？</summary>
+                        <div class="faq-answer">测试环境不同。官方标称的42dB降噪深度通常在消声室测得，而地铁车厢存在低频振动、风噪与人群噪音，实测衰减值普遍低于标称。2026年11月8日更新的通勤降噪实测中，三款耳机在地铁早高峰的低频衰减为28—31dB。看这类数据时，优先找写明测试线路与时段的内容。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>短视频起号复盘，哪些数据是必须记录的？</summary>
+                        <div class="faq-answer">至少记录四项：每日发布条数、每条选题关键词、发布时间、完播率。2026年11月4日更新的复盘条目还加入了前3秒流失率与互动率。缺少发布时间或选题关键词，就无法判断流量变化是内容问题还是时段问题。逐日记录比周汇总更有参考价值。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>拆解报告里的结构照片，能看出装配工艺好坏吗？</summary>
+                        <div class="faq-answer">能看出部分信息，但需要结合公差数据。结构照片可以观察卡扣数量、螺丝规格、排线固定方式与防水胶圈的有无。装配工艺的好坏还要看公差测量，例如腔体接缝的均匀度、按键行程的一致性。只有照片没有测量数据时，只能判断设计意图，无法判断制造精度。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>效率工具实测30天，时间跨度够不够？</summary>
+                        <div class="faq-answer">30天能覆盖一个完整项目周期，适合观察任务管理工具的提醒机制与协作流程。但团队规模与项目复杂度会影响结论。2026年11月7日更新的实测中，团队为5人、项目包含3个阶段，作者也注明“超过10人团队需另行验证”。时间跨度是否足够，取决于你的使用场景与实测场景的接近程度。</div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 板块8：用户评论 -->
+            <section class="section-block" id="comments">
+                <div class="section-header">
+                    <h2>用户评论</h2>
+                </div>
+                <div class="comment-list">
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">林</span><span class="comment-nickname">林工拆东西</span></div>
+                        <p class="comment-text">开放式耳机那篇腔体拆解，泄压孔的位置和我之前猜的完全不一样。不过低频曲线只给了单次测量，要是能多测三次取平均就好了。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">赵</span><span class="comment-nickname">赵四不加班</span></div>
+                        <p class="comment-text">键盘轴体横评的原始数据表我下载了，压力曲线确实能对上。就是润滑状态没写清楚，出厂润滑还是手动润滑，对触发压力有影响的。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">王</span><span class="comment-nickname">王二狗摸鱼中</span></div>
+                        <p class="comment-text">任务管理工具那篇看完，默默把正在用的那个卸了。30天操作步数统计太真实，我每天至少多点5次才能找到上周的任务。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">陈</span><span class="comment-nickname">陈师傅修板子</span></div>
+                        <p class="comment-text">扫地机越障结构那个，悬挂行程量了没？我拆过同款，左轮和右轮的弹簧长度差0.5mm，不知道是不是个例。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">周</span><span class="comment-nickname">周周写稿</span></div>
+                        <p class="comment-text">起号复盘第二周的完播率跌得真实。我账号也这样，工具测评类选题没人看，后来全换成踩坑经历才拉回来。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">吴</span><span class="comment-nickname">吴彦祖分祖</span></div>
+                        <p class="comment-text">降噪耳机地铁实测，28dB和31dB的差距在车厢里能听出来吗？我耳朵比较木，感觉开不开降噪都差不多。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">郑</span><span class="comment-nickname">郑在加班</span></div>
+                        <p class="comment-text">物料成本那节说得在理。之前看某手机拆解，物料成本算出来800块，一群人喊暴利，完全不算研发和渠道。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">孙</span><span class="comment-nickname">孙大圣搬砖</span></div>
+                        <p class="comment-text">有没有人拆过百元档的开放式耳机？想看看和500元档的腔体差别到底在哪，是振膜还是磁路。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">李</span><span class="comment-nickname">李不靠谱</span></div>
+                        <p class="comment-text">评论区那个弹簧长度差0.5mm的，我拆同款没发现这个问题。可能是批次差异，建议多拆两台确认。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">黄</span><span class="comment-nickname">黄小邪</span></div>
+                        <p class="comment-text">看完深度解析里信源分层那段，回头翻了翻之前存的拆解报告，一半以上没写测试设备型号。以后得留个心眼。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">徐</span><span class="comment-nickname">徐工不画图</span></div>
+                        <p class="comment-text">短视频选题淘汰率那个表，能不能把被淘汰的选题也列出来？光看留下的看不出问题。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">何</span><span class="comment-nickname">何同学不修电脑</span></div>
+                        <p class="comment-text">今天地铁上试了降噪对比，风噪确实大。但测试里没写风速，这个变量影响挺大的。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">马</span><span class="comment-nickname">马什么梅</span></div>
+                        <p class="comment-text">效率工具实测里那个提醒漏报次数很有用，我用的那款每周漏两次，一直以为是自己的问题。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user"><span class="comment-avatar">朱</span><span class="comment-nickname">朱一旦的枯燥生活</span></div>
+                        <p class="comment-text">轴体横评6款里没有我用的那款，希望能加测。另外50万次按压只抽检了一颗轴，样本量是不是少了点。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 板块9：相关资讯 -->
+            <section class="section-block" id="news">
+                <div class="section-header">
+                    <h2>相关资讯</h2>
+                </div>
+                <div class="news-list">
+                    <div class="news-item">
+                        <span class="news-date">2026-11-08</span>
+                        <div class="news-content">
+                            <div class="news-title">「拆解评审」第12期上线，首次公开开放式耳机泄压孔流量数据</div>
+                            <p class="news-summary">该期报告用流量计测量了三款耳机泄压孔在20—200Hz的流量变化，并与低频衰减曲线并列展示。作者在附录中注明了流量计型号与校准日期。</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">2026-11-07</span>
+                        <div class="news-content">
+                            <div class="news-title">键盘轴体横评原始数据表公开，含6款轴体各100次触发记录</div>
+                            <p class="news-summary">数据表以CSV格式发布，包含触发压力、回弹时间与行程偏差三列。作者在评论区回复称，后续将补充润滑状态标注与50万次寿命测试的中间数据。</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">2026-11-06</span>
+                        <div class="news-content">
+                            <div class="news-title">扫地机拆解报告新增越障测试：2cm门槛通过率100%，4cm降至60%</div>
+                            <p class="news-summary">测试用两款2000元档扫地机各跑30次，记录越障成功次数与卡住位置。报告指出，轮组悬挂行程差异是4cm门槛通过率分化的主因。</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">2026-11-05</span>
+                        <div class="news-content">
+                            <div class="news-title">短视频起号复盘第二周数据：完播率从31%降至22%</div>
+                            <p class="news-summary">作者逐条列出了第二周发布的7条视频，其中“工具测评”类选题完播率仅14%，被标记为放弃方向。第三周计划全部切换为“踩坑复盘”类选题。</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">2026-11-04</span>
+                        <div class="news-content">
+                            <div class="news-title">通勤降噪耳机实测数据更新：地铁低频衰减28—31dB</div>
+                            <p class="news-summary">测试在早高峰8:00—9:00的地铁2号线进行，三款耳机各测5次取平均。报告同时记录了风噪出现的临界速度，其中一款在15km/h时出现明显风噪。</p>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-date">2026-11-02</span>
+                        <div class="news-content">
+                            <div class="news-title">效率工具实测满30天，完整操作日志与团队反馈公开</div>
+                            <p class="news-summary">5人团队在30天内完成3个阶段项目，记录了三款工具的操作步数、提醒漏报次数与成员接受度评分。日志显示，提醒漏报次数最多的一款达每周2.3次。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 板块10：相关推荐 -->
+            <section class="section-block" id="recommend">
+                <div class="section-header">
+                    <h2>相关推荐</h2>
+                </div>
+                <div class="tag-cloud">
+                    <a href="/#featured">泄压孔流量测试</a>
+                    <a href="/#featured">轴体压力曲线</a>
+                    <a href="/#featured">越障测试2cm门槛</a>
+                    <a href="/#featured">起号选题淘汰率</a>
+                    <a href="/#featured">地铁降噪实测</a>
+                    <a href="/#featured">任务管理提醒漏报</a>
+                    <a href="/#featured">物料成本估算方法</a>
+                    <a href="/#featured">装配公差测量</a>
+                </div>
+            </section>
+
+            <!-- 板块11：补充板块 - 热门榜单 -->
+            <section class="section-block" id="hotlist">
+                <div class="section-header">
+                    <h2>热门榜单</h2>
+                </div>
+                <div style="background: var(--bg-panel); border-radius: var(--radius-card); box-shadow: var(--shadow-default); padding: 20px 24px;">
+                    <ol class="hot-list" style="list-style: none;">
+                        <li><span class="hot-rank">01</span><a href="/#featured" class="hot-title">三款任务管理工具30天项目实测</a><span style="margin-left:auto; color:var(--text-tertiary); font-size:0.78rem;">5.1k</span></li>
+                        <li><span class="hot-rank">02</span><a href="/#featured" class="hot-title">通勤降噪耳机实测：地铁与街道噪音衰减对比</a><span style="margin-left:auto; color:var(--text-tertiary); font-size:0.78rem;">4.9k</span></li>
+                        <li><span class="hot-rank">03</span><a href="/#featured" class="hot-title">短视频账号起号30天：选题淘汰率与流量曲线</a><span style="margin-left:auto; color:var(--text-tertiary); font-size:0.78rem;">4.7k</span></li>
+                        <li><span class="hot-rank">04</span><a href="/#featured" class="hot-title">开放式耳机腔体拆解：三款主流型号对比</a><span style="margin-left:auto; color:var(--text-tertiary); font-size:0.78rem;">4.2k</span></li>
+                        <li><span class="hot-rank">05</span><a href="/#featured" class="hot-title">千元机械键盘轴体横评：手感曲线与寿命测试</a><span style="margin-left:auto; color:var(--text-tertiary); font-size:0.78rem;">3.8k</span></li>
+                        <li><span class="hot-rank">06</span><a href="/#featured" class="hot-title">扫地机器人底盘拆解：激光模组与越障结构</a><span style="margin-left:auto; color:var(--text-tertiary); font-size:0.78rem;">3.5k</span></li>
+                    </ol>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 右侧辅助栏 -->
+        <aside class="sidebar-aside">
+            <div class="sidebar-widget">
+                <h3>热门条目</h3>
+                <ul class="hot-list">
+                    <li><span class="hot-rank">1</span><a href="/#featured" class="hot-title">任务管理工具实测</a></li>
+                    <li><span class="hot-rank">2</span><a href="/#featured" class="hot-title">降噪耳机地铁实测</a></li>
+                    <li><span class="hot-rank">3</span><a href="/#featured" class="hot-title">短视频起号复盘</a></li>
+                    <li><span class="hot-rank">4</span><a href="/#featured" class="hot-title">开放式耳机拆解</a></li>
+                    <li><span class="hot-rank">5</span><a href="/#featured" class="hot-title">轴体横评数据表</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-widget">
+                <h3>更新时间线</h3>
+                <ul class="timeline-list">
+                    <li><span class="timeline-date">2026-11-08</span>「拆解评审」第12期上线</li>
+                    <li><span class="timeline-date">2026-11-07</span>轴体横评原始数据公开</li>
+                    <li><span class="timeline-date">2026-11-06</span>扫地机越障测试数据更新</li>
+                    <li><span class="timeline-date">2026-11-05</span>起号复盘第二周完播率公布</li>
+                    <li><span class="timeline-date">2026-11-04</span>降噪耳机地铁实测上线</li>
+                    <li><span class="timeline-date">2026-11-02</span>效率工具30天日志公开</li>
+                </ul>
+            </div>
+            <div class="sidebar-widget">
+                <h3>投稿与交流</h3>
+                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6; margin-bottom:12px;">如果你也做过拆解或实测，欢迎把记录整理成条目投稿。需要包含测试设备、样本量与测量日期。</p>
+                <a href="/#featured" style="display:inline-block; background:var(--primary); color:#fff; padding:8px 20px; border-radius:var(--radius-btn); text-decoration:none; font-size:0.85rem; font-weight:600;">提交条目</a>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="page-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="brand-text-footer">捅主任</div>
+                <p>覆盖2026年10月至11月的拆解评测与实测内容，条目类型包括声学拆解、轴体横评、清洁电器结构分析、效率工具日志与运营复盘。每周更新3—5条，月度榜单汇总一次。</p>
+            </div>
+            <div class="footer-group">
+                <h4>内容分类</h4>
+                <a href="/#featured">声学拆解</a>
+                <a href="/#featured">键盘轴体</a>
+                <a href="/#featured">清洁电器</a>
+                <a href="/#featured">效率工具</a>
+            </div>
+            <div class="footer-group">
+                <h4>互动</h4>
+                <a href="/#comments">用户评论</a>
+                <a href="/#featured">投稿条目</a>
+                <a href="/#hotlist">热门榜单</a>
+            </div>
+            <div class="footer-group">
+                <h4>关于</h4>
+                <a href="/#overview">领域概览</a>
+                <a href="/#deepdive">深度解析</a>
+                <a href="/#faq">常见问题</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 捅主任 · 内容聚合示例页面</span>
+            <span>页面数据为示例条目，更新日期以2026-11-08为准</span>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="回到顶部">↑</button>
+
+    <!-- 内联脚本 -->
+    <script>
+        (function() {
+            // 移动端菜单
+            const menuToggle = document.getElementById('menuToggleBtn');
+            const drawer = document.getElementById('mobileDrawer');
+            const overlay = document.getElementById('mobileOverlay');
+            const closeBtn = document.getElementById('closeDrawerBtn');
+
+            function openDrawer() {
+                drawer.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDrawer() {
+                drawer.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', closeDrawer);
+
+            // 点击导航项自动收起
+            drawer.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', closeDrawer);
+            });
+
+            // Esc 关闭
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && drawer.classList.contains('active')) {
+                    closeDrawer();
+                }
+            });
+
+            // 回到顶部
+            const backBtn = document.getElementById('backToTopBtn');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    backBtn.classList.add('visible');
+                } else {
+                    backBtn.classList.remove('visible');
+                }
+            });
+            backBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 搜索按钮简单提示（无实际搜索框，仅作入口示意）
+            const searchBtn = document.getElementById('searchToggleBtn');
+            searchBtn.addEventListener('click', function() {
+                alert('页面内搜索可通过浏览器查找功能（Ctrl+F）定位具体条目名称。');
+            });
+
+            // 侧栏频道高亮（基于滚动位置）
+            const sections = document.querySelectorAll('section[id]');
+            const channelLinks = document.querySelectorAll('.channel-list a');
+
+            function highlightChannel() {
+                let currentId = '';
+                const scrollPos = window.scrollY + 120;
+                sections.forEach(section => {
+                    if (section.offsetTop <= scrollPos) {
+                        currentId = section.getAttribute('id');
+                    }
+                });
+                channelLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '/#' + currentId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightChannel);
+            highlightChannel();
+        })();
+    </script>
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "捅主任",
+        "description": "聚焦拆解评测与产品实测的内容聚合页面，提供声学拆解、轴体横评、清洁电器结构分析、效率工具日志与运营复盘等具体条目。",
+        "inLanguage": "zh-CN"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "拆解报告里的物料成本估算，能直接用来判断利润空间吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "不能直接判断。拆解报告通常只覆盖主要物料，不含模具摊销、组装人工、良率损耗与物流费用。以扫地机底盘拆解为例，激光模组与轮组的采购价可以查到，但模具费用需按产量分摊，小批量生产时单台摊销可能高出物料成本30%以上。判断利润空间还需要产线规模与渠道成本数据。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "横评数据怎么复核？有没有公开的原始记录？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "2026年11月7日发布的键盘轴体横评已公开压力曲线原始数据表，包含6款轴体各100次触发记录。复核时先确认测试设备型号是否一致，再看触发压力偏差范围是否在厂商标称的±5cN以内。如果原始数据缺失，只能参考正文给出的平均值，复核空间有限。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "场景实测的降噪数据，为什么和官方标称差那么多？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "测试环境不同。官方标称的42dB降噪深度通常在消声室测得，而地铁车厢存在低频振动、风噪与人群噪音，实测衰减值普遍低于标称。2026年11月8日更新的通勤降噪实测中，三款耳机在地铁早高峰的低频衰减为28—31dB。看这类数据时，优先找写明测试线路与时段的内容。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "短视频起号复盘，哪些数据是必须记录的？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "至少记录四项：每日发布条数、每条选题关键词、发布时间、完播率。2026年11月4日更新的复盘条目还加入了前3秒流失率与互动率。缺少发布时间或选题关键词，就无法判断流量变化是内容问题还是时段问题。逐日记录比周汇总更有参考价值。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "拆解报告里的结构照片，能看出装配工艺好坏吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "能看出部分信息，但需要结合公差数据。结构照片可以观察卡扣数量、螺丝规格、排线固定方式与防水胶圈的有无。装配工艺的好坏还要看公差测量，例如腔体接缝的均匀度、按键行程的一致性。只有照片没有测量数据时，只能判断设计意图，无法判断制造精度。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "效率工具实测30天，时间跨度够不够？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "30天能覆盖一个完整项目周期，适合观察任务管理工具的提醒机制与协作流程。但团队规模与项目复杂度会影响结论。2026年11月7日更新的实测中，团队为5人、项目包含3个阶段，作者也注明“超过10人团队需另行验证”。时间跨度是否足够，取决于你的使用场景与实测场景的接近程度。"
+                }
+            }
+        ]
+    }
+    </script>
+
+</body>
+  </html>

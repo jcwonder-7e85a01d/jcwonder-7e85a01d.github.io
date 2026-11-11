@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>曹长卿joker女博士 - 角色解析与二创内容聚合</title>
+  <meta name="description" content="曹长卿joker女博士相关角色解析与二创内容聚合，涵盖人物档案、同人作品、剧情解读、创作交流与更新动态，适合角色爱好者与二创作者查阅。">
+  <meta name="keywords" content="曹长卿joker女博士">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e1b2e'/%3E%3Ccircle cx='24' cy='28' r='10' fill='%23c9a0ff' opacity='0.9'/%3E%3Cpath d='M14 48 Q24 38 34 48' stroke='%23f2d3a0' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='44' cy='22' r='6' fill='%23f2d3a0' opacity='0.85'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f7f5fb;
+      --panel: #ffffff;
+      --ink: #1e1b2e;
+      --ink-2: #4a4560;
+      --ink-3: #7b759a;
+      --line: #e4def0;
+      --brand: #6a4c93;
+      --brand-soft: #ede7f6;
+      --brand-deep: #3f2b63;
+      --accent: #c9a0ff;
+      --accent-warm: #f2d3a0;
+      --radius-card: 14px;
+      --radius-btn: 999px;
+      --radius-tag: 8px;
+      --radius-banner: 18px;
+      --shadow: 0 2px 8px rgba(30, 27, 46, 0.06);
+      --shadow-hover: 0 8px 20px rgba(30, 27, 46, 0.12);
+      --font: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+      --header-h: 56px;
+      --notice-h: 40px;
+      --sticky-offset: calc(var(--header-h) + var(--notice-h));
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--sticky-offset) + 12px); }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* 吸顶公告条 */
+    .notice-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--notice-h);
+      background: var(--brand-deep);
+      color: #f0eaff;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .notice-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .notice-brand {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      color: var(--accent-warm);
+      font-size: 13px;
+    }
+    .notice-items {
+      display: flex;
+      gap: 22px;
+      overflow: hidden;
+      flex: 1;
+      mask-image: linear-gradient(to right, transparent 0, #000 12px, #000 calc(100% - 12px), transparent 100%);
+    }
+    .notice-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-size: 13px;
+      opacity: 0.92;
+    }
+    .notice-date {
+      background: rgba(201, 160, 255, 0.25);
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.2px;
+      color: #f2eaff;
+    }
+    .notice-item strong { font-weight: 600; color: #fff; }
+
+    /* 吸顶页头 */
+    .site-header {
+      position: sticky;
+      top: var(--notice-h);
+      z-index: 99;
+      height: var(--header-h);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--brand-deep);
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+    .brand svg { flex-shrink: 0; }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      padding: 6px 12px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--ink-2);
+      white-space: nowrap;
+      transition: background 0.18s, color 0.18s;
+    }
+    .main-nav a:hover, .main-nav a:focus-visible {
+      background: var(--brand-soft);
+      color: var(--brand-deep);
+      outline: none;
+    }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-ghost {
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: var(--radius-btn);
+      color: var(--brand);
+      border: 1px solid var(--line);
+      background: #fff;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); background: var(--brand-soft); }
+    .hamburger {
+      display: none;
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: var(--brand-soft);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 18px; height: 2px;
+      background: var(--brand-deep);
+      border-radius: 2px;
+      transition: transform 0.2s;
+    }
+
+    /* 移动菜单 */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 27, 46, 0.45);
+      z-index: 110;
+      opacity: 0;
+      transition: opacity 0.22s;
+    }
+    .mobile-overlay.open { display: block; opacity: 1; }
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(300px, 82vw);
+      height: 100%;
+      background: #fff;
+      z-index: 120;
+      padding: 24px 20px;
+      transform: translateX(100%);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: -8px 0 30px rgba(30,27,46,0.15);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu .close-btn {
+      align-self: flex-end;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--brand-soft);
+      color: var(--brand-deep);
+      font-size: 20px;
+      line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 8px;
+    }
+    .mobile-menu a {
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      color: var(--ink-2);
+      transition: background 0.15s;
+    }
+    .mobile-menu a:hover { background: var(--brand-soft); color: var(--brand-deep); }
+
+    /* 首屏 */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 600px 400px at 85% 15%, rgba(201,160,255,0.22), transparent 65%),
+        radial-gradient(ellipse 500px 350px at 10% 85%, rgba(242,211,160,0.18), transparent 65%),
+        linear-gradient(155deg, #fdfcff 0%, #f3effa 55%, #ece6f5 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 56px 20px 60px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--brand);
+      background: rgba(106, 76, 147, 0.08);
+      padding: 4px 12px;
+      border-radius: var(--radius-btn);
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-size: clamp(32px, 4.4vw, 52px);
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--brand-deep);
+      margin-bottom: 18px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--ink-2);
+      max-width: 540px;
+      margin-bottom: 28px;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: var(--radius-btn);
+      background: var(--brand);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+      box-shadow: 0 4px 14px rgba(106, 76, 147, 0.28);
+    }
+    .btn-primary:hover { background: var(--brand-deep); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(106, 76, 147, 0.35); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 22px;
+      border-radius: var(--radius-btn);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink-2);
+      font-size: 15px;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); background: #fff; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .hero-meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .hero-meta-num { font-size: 22px; font-weight: 800; color: var(--brand-deep); line-height: 1.2; }
+    .hero-meta-label { font-size: 12px; color: var(--ink-3); letter-spacing: 0.3px; }
+
+    /* 首屏视觉 */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+    .hero-visual svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      filter: drop-shadow(0 12px 30px rgba(63, 43, 99, 0.16));
+      animation: float 7s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* 主布局：三栏门户 */
+    .layout {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 260px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* 左频道索引 */
+    .channel-index {
+      position: sticky;
+      top: calc(var(--sticky-offset) + 16px);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .channel-index-title {
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      font-weight: 700;
+      padding: 0 10px 10px;
+    }
+    .channel-index a {
+      padding: 8px 12px;
+      border-radius: 9px;
+      font-size: 14px;
+      color: var(--ink-2);
+      transition: background 0.16s, color 0.16s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .channel-index a::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--line);
+      flex-shrink: 0;
+      transition: background 0.16s;
+    }
+    .channel-index a:hover, .channel-index a:focus-visible {
+      background: var(--brand-soft);
+      color: var(--brand-deep);
+      outline: none;
+    }
+    .channel-index a:hover::before { background: var(--accent); }
+
+    /* 主内容 */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      min-width: 0;
+    }
+
+    /* 通用板块 */
+    .section { scroll-margin-top: var(--sticky-offset); }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .section-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--brand-deep);
+      letter-spacing: -0.2px;
+      line-height: 1.3;
+    }
+    .section-sub {
+      font-size: 13px;
+      color: var(--ink-3);
+    }
+    .section-more {
+      font-size: 13px;
+      color: var(--brand);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .section-more:hover { text-decoration: underline; }
+
+    /* 概览 */
+    .overview-text {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.85;
+      background: var(--panel);
+      padding: 26px 30px;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .overview-text p + p { margin-top: 14px; }
+    .overview-text strong { color: var(--brand-deep); font-weight: 700; }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--brand-soft);
+    }
+    .card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .tag.warm { background: #fdf3e2; color: #a06b1e; }
+    .card-desc {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink-3);
+      margin-top: 2px;
+    }
+    .card-heat { color: #c06a2e; font-weight: 600; }
+
+    /* 最新动态列表 */
+    .update-list {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .update-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--line);
+      align-items: flex-start;
+      transition: background 0.16s;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-item:hover { background: #faf8fe; }
+    .update-time {
+      font-size: 12px;
+      color: var(--ink-3);
+      white-space: nowrap;
+      min-width: 68px;
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+    .update-content { flex: 1; min-width: 0; }
+    .update-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .update-desc {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    }
+    .category-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .category-name {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--brand-deep);
+    }
+    .category-count {
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 30px 34px;
+      box-shadow: var(--shadow);
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.85;
+    }
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--brand-deep);
+      margin: 26px 0 10px;
+      letter-spacing: -0.1px;
+    }
+    .deep-dive h3:first-child { margin-top: 0; }
+    .deep-dive p { margin-bottom: 12px; }
+    .deep-dive ul { margin: 8px 0 14px 20px; list-style: disc; }
+    .deep-dive li { margin-bottom: 5px; }
+    .deep-dive strong { color: var(--brand-deep); }
+    .deep-dive .callout {
+      background: #f6f2fd;
+      border-left: 3px solid var(--accent);
+      padding: 12px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      font-size: 14px;
+      color: var(--ink-2);
+    }
+
+    /* 指南 */
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .guide-step {
+      display: flex;
+      gap: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--brand-soft);
+      color: var(--brand-deep);
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .step-body { flex: 1; }
+    .step-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .step-desc { font-size: 13.5px; color: var(--ink-3); line-height: 1.7; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      padding: 16px 22px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: background 0.16s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--brand);
+      transition: transform 0.2s;
+      line-height: 1;
+    }
+    .faq-item[open] summary { background: #faf8fe; }
+    .faq-item[open] summary::after { content: '−'; transform: rotate(180deg); }
+    .faq-answer {
+      padding: 0 22px 18px;
+      font-size: 14px;
+      color: var(--ink-2);
+      line-height: 1.8;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .comment-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .comment-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .comment-name { font-size: 13px; font-weight: 700; color: var(--brand-deep); }
+    .comment-badge { font-size: 10px; color: var(--ink-3); background: var(--brand-soft); padding: 1px 7px; border-radius: 999px; }
+    .comment-text { font-size: 13.5px; color: var(--ink-2); line-height: 1.65; }
+
+    /* 相关资讯 */
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .news-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color 0.18s;
+    }
+    .news-item:hover { border-color: var(--accent); }
+    .news-date {
+      font-size: 12px;
+      color: var(--ink-3);
+      white-space: nowrap;
+      min-width: 82px;
+      font-variant-numeric: tabular-nums;
+      padding-top: 2px;
+    }
+    .news-body { flex: 1; }
+    .news-title { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+    .news-summary { font-size: 13px; color: var(--ink-3); line-height: 1.6; }
+
+    /* 相关推荐标签 */
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+    .related-tag {
+      font-size: 13.5px;
+      padding: 7px 16px;
+      border-radius: var(--radius-btn);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+      transition: border-color 0.16s, background 0.16s, color 0.16s;
+    }
+    .related-tag:hover { border-color: var(--accent); background: var(--brand-soft); color: var(--brand-deep); }
+
+    /* 榜单 */
+    .rank-list {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .rank-item:last-child { border-bottom: none; }
+    .rank-num {
+      width: 24px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink-3);
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    .rank-item:nth-child(1) .rank-num { color: #c0392b; }
+    .rank-item:nth-child(2) .rank-num { color: #d4700e; }
+    .rank-item:nth-child(3) .rank-num { color: #b8912a; }
+    .rank-info { flex: 1; min-width: 0; }
+    .rank-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .rank-tag { font-size: 11px; color: var(--ink-3); margin-left: 8px; }
+    .rank-score { font-size: 13px; color: var(--brand); font-weight: 700; }
+
+    /* 投稿区块 */
+    .contribute-box {
+      background: linear-gradient(135deg, #f3effa 0%, #ede7f6 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-banner);
+      padding: 28px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .contribute-box h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--brand-deep);
+      margin-bottom: 6px;
+    }
+    .contribute-box p {
+      font-size: 13.5px;
+      color: var(--ink-2);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    /* 右侧辅助栏 */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: sticky;
+      top: calc(var(--sticky-offset) + 16px);
+    }
+    .side-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .side-head {
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--brand-deep);
+      border-bottom: 1px solid var(--line);
+      letter-spacing: 0.3px;
+    }
+    .side-list { display: flex; flex-direction: column; }
+    .side-list-item {
+      padding: 11px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.5;
+      transition: background 0.16s;
+      display: flex;
+      gap: 8px;
+    }
+    .side-list-item:last-child { border-bottom: none; }
+    .side-list-item:hover { background: #faf8fe; }
+    .side-idx { color: var(--ink-3); font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .side-tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 14px 18px;
+    }
+    .side-tag {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: var(--radius-tag);
+      background: var(--brand-soft);
+      color: var(--brand);
+      transition: background 0.16s;
+    }
+    .side-tag:hover { background: var(--accent); color: var(--brand-deep); }
+
+    /* 页尾 */
+    .site-footer {
+      background: #1e1b2e;
+      color: #c9c2dd;
+      margin-top: 20px;
+    }
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 44px 20px 28px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(201, 194, 221, 0.14);
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 17px;
+      color: #f2eaff;
+      margin-bottom: 12px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: #a79fc0;
+      max-width: 300px;
+    }
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #a79fc0;
+      margin-bottom: 14px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { font-size: 13.5px; color: #c9c2dd; transition: color 0.16s; }
+    .footer-links a:hover { color: #f2d3a0; }
+    .footer-bottom {
+      padding-top: 20px;
+      font-size: 12px;
+      color: #7b759a;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom span { line-height: 1.6; }
+
+    /* 回到顶部 */
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 24px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(63, 43, 99, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.22s, transform 0.22s, visibility 0.22s;
+      z-index: 90;
+      font-size: 18px;
+    }
+    .back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-top:hover { background: var(--brand-deep); }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .layout {
+        grid-template-columns: 1fr 260px;
+      }
+      .channel-index { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-visual { min-height: 220px; order: -1; }
+      .hero-visual svg { max-width: 300px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 740px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 24px 14px 44px;
+      }
+      .sidebar { position: static; order: 2; }
+      .main-content { order: 1; gap: 34px; }
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .header-inner { gap: 10px; }
+      .hero-inner { padding: 36px 14px 44px; }
+      .hero-desc { font-size: 15px; }
+      .hero-meta { gap: 18px; }
+      .overview-text, .deep-dive { padding: 20px 18px; }
+      .card-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+      .category-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+      .comment-list { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .notice-items { gap: 14px; }
+      .notice-item:nth-child(3) { display: none; }
+      .contribute-box { padding: 22px 18px; }
+      .back-top { right: 14px; bottom: 16px; width: 40px; height: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="notice-bar" role="region" aria-label="站内公告">
+    <div class="notice-inner">
+      <span class="notice-brand">曹长卿joker女博士</span>
+      <div class="notice-items">
+        <span class="notice-item"><span class="notice-date">11-08</span><strong>《女博士的Joker牌》</strong>第4章更新</span>
+        <span class="notice-item"><span class="notice-date">11-07</span><strong>“曹长卿”角色解析</strong>修订版发布</span>
+        <span class="notice-item"><span class="notice-date">11-05</span>同人创作<strong>新增42件</strong>作品</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/#hero" class="brand" aria-label="曹长卿joker女博士首页">
+        <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#3f2b63"/>
+          <circle cx="25" cy="28" r="10" fill="#c9a0ff" opacity="0.9"/>
+          <path d="M14 48 Q25 37 36 48" stroke="#f2d3a0" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="45" cy="22" r="6" fill="#f2d3a0" opacity="0.85"/>
+        </svg>
+        <span>曹长卿joker女博士</span>
+      </a>
+      <nav class="main-nav" aria-label="站内导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#featured">精选推荐</a>
+        <a href="/#updates">最新动态</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">用户评论</a>
+        <a href="/#news">相关资讯</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/#contribute" class="btn-ghost">投稿</a>
+        <button class="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 移动遮罩与菜单 -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="移动端导航">
+    <button class="close-btn" aria-label="关闭菜单">×</button>
+    <a href="/#overview">领域概览</a>
+    <a href="/#featured">精选推荐</a>
+    <a href="/#updates">最新动态</a>
+    <a href="/#categories">分类入口</a>
+    <a href="/#deep-dive">深度解析</a>
+    <a href="/#guide">体验指南</a>
+    <a href="/#faq">常见问题</a>
+    <a href="/#comments">用户评论</a>
+    <a href="/#news">相关资讯</a>
+    <a href="/#contribute">投稿</a>
+  </nav>
+
+  <!-- 首屏 -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow">角色 · 二创 · 解析</span>
+        <h1>曹长卿joker女博士</h1>
+        <p class="hero-desc">聚焦“曹长卿”“joker”“女博士”三个核心角色标签的同人创作与深度解析，收录人物档案、剧情线索、二创作品与创作讨论，为角色爱好者提供可检索的条目索引。</p>
+        <div class="hero-actions">
+          <a href="/#featured" class="btn-primary">浏览精选内容 →</a>
+          <a href="/#contribute" class="btn-secondary">投稿二创作品</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-num">128</span>
+            <span class="hero-meta-label">收录条目</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-num">42</span>
+            <span class="hero-meta-label">本月新增作品</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-num">11-08</span>
+            <span class="hero-meta-label">最近更新</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#c9a0ff" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#6a4c93" stop-opacity="0.7"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f2d3a0" stop-opacity="0.95"/>
+              <stop offset="100%" stop-color="#e0b87a" stop-opacity="0.8"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="200" cy="300" rx="140" ry="22" fill="#3f2b63" opacity="0.08"/>
+          <circle cx="200" cy="160" r="90" fill="url(#g1)" opacity="0.55"/>
+          <circle cx="280" cy="100" r="38" fill="url(#g2)" opacity="0.7"/>
+          <rect x="130" y="200" width="140" height="10" rx="5" fill="#3f2b63" opacity="0.22"/>
+          <path d="M120 280 Q160 230 200 260 Q240 290 280 250" stroke="#6a4c93" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
+          <circle cx="200" cy="160" r="48" fill="#3f2b63" opacity="0.25"/>
+          <path d="M175 145 L185 140 L190 155 Z" fill="#f2d3a0" opacity="0.9"/>
+          <path d="M225 145 L215 140 L210 155 Z" fill="#f2d3a0" opacity="0.9"/>
+          <path d="M185 185 Q200 198 215 185" stroke="#f2d3a0" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <circle cx="160" cy="90" r="5" fill="#c9a0ff" opacity="0.8"/>
+          <circle cx="310" cy="200" r="4" fill="#f2d3a0" opacity="0.8"/>
+          <circle cx="100" cy="180" r="3" fill="#6a4c93" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主布局：三栏 -->
+  <div class="layout">
+
+    <!-- 左频道索引 -->
+    <aside class="channel-index" aria-label="频道索引">
+      <div class="channel-index-title">频道索引</div>
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">最新动态</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep-dive">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#related">相关推荐</a>
+      <a href="/#rank">热门榜单</a>
+      <a href="/#contribute">投稿交流</a>
+    </aside>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+
+      <!-- 1. 主题领域概览 -->
+      <section class="section" id="overview">
+        <div class="section-head">
+          <h2 class="section-title">角色领域概览</h2>
+          <span class="section-sub">曹长卿 · joker · 女博士</span>
+        </div>
+        <div class="overview-text">
+          <p><strong>“曹长卿”</strong>最初来自网文《雪中悍刀行》中的儒圣角色，在二创语境中被大量重新演绎；<strong>“joker”</strong>指代扑克牌中的王牌意象，常与疯批、反转、孤注一掷的叙事绑定；<strong>“女博士”</strong>则指向高学历女性角色，在近两年的同人创作中频繁与“joker”组合，形成“理性外壳＋疯狂内核”的角色模板。三者在同人社区中交汇，催生出一批以知识女性为主角、以小丑牌为关键道具的短篇故事、插画与角色解析。</p>
+          <p>目前可检索的创作方向集中在四类：<strong>人物档案重组</strong>（将曹长卿的儒生设定移植到现代学术语境）、<strong>joker牌叙事</strong>（以一张王牌作为剧情转折点）、<strong>女博士日常</strong>（实验室、论文、答辩场景的轻喜剧）、<strong>三方混合同人</strong>（把三个标签塞进同一世界观）。11月8日更新的《女博士的Joker牌》第4章，把“论文盲审”和“扑克博弈”并置，单章在站内获得76条评论，是近期讨论度最高的连载之一。</p>
+          <p>角色解析方面，11月7日修订的《曹长卿角色解析》补充了“儒圣”与“joker”在叙事功能上的对比：前者讲规矩，后者破规矩，女博士则夹在两者之间做选择。这个框架被多个二创作者引用，成为近期同人设定的常见起点。</p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="section" id="featured">
+        <div class="section-head">
+          <h2 class="section-title">精选二创与解析</h2>
+          <a href="/#related" class="section-more">更多推荐 →</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <img class="card-thumb" src="https://picsum.photos/seed/jokerphd01/400/300" alt="女博士手持扑克牌的插画" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《女博士的Joker牌》第4章</h3>
+              <div class="card-tags"><span class="tag">连载小说</span><span class="tag warm">更新中</span><span class="tag">学术博弈</span></div>
+              <p class="card-desc">论文盲审前夜，女主角在实验室抽屉里翻出一张被折过的joker牌。第4章把评审意见逐条念出来，每念一条，牌面花色就变一次。</p>
+              <div class="card-meta"><span>热度 8.6k</span><span class="card-heat">★ 4.9</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-thumb" src="https://picsum.photos/seed/caochangqing02/400/300" alt="曹长卿儒生造型与扑克牌元素结合的同人图" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《曹长卿·王牌儒生》插画组</h3>
+              <div class="card-tags"><span class="tag">插画</span><span class="tag">角色重构</span><span class="tag warm">高赞</span></div>
+              <p class="card-desc">六张系列图，把曹长卿的儒衫拆成现代西装，袖口别一张黑桃J。作者在评论区附了每张图的构图草稿，第三张的棋盘格背景改了四版。</p>
+              <div class="card-meta"><span>热度 6.2k</span><span class="card-heat">★ 4.8</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-thumb" src="https://picsum.photos/seed/phdthesis03/400/300" alt="堆满论文的桌面与一张扑克牌" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《盲审前夜我抽到了Joker》</h3>
+              <div class="card-tags"><span class="tag">短篇</span><span class="tag">校园</span><span class="tag">黑色幽默</span></div>
+              <p class="card-desc">女博士把盲审意见折成纸牌，一张张往桌上拍。导师说你这不像做学术，像在赌。全文6800字，结尾那句“牌是我自己印的”被截了三十多次。</p>
+              <div class="card-meta"><span>热度 5.8k</span><span class="card-heat">★ 4.7</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-thumb" src="https://picsum.photos/seed/jokeranalysis04/400/300" alt="角色关系图谱与扑克牌符号" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《joker牌在叙事中的三种用法》</h3>
+              <div class="card-tags"><span class="tag">解析</span><span class="tag">叙事结构</span><span class="tag warm">修订版</span></div>
+              <p class="card-desc">把joker牌拆成“底牌”“明牌”“弃牌”三个叙事功能，分别对应伏笔、摊牌和反悔。文末附了七篇同人作品的功能标注表，可直接对照。</p>
+              <div class="card-meta"><span>热度 4.9k</span><span class="card-heat">★ 4.8</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-thumb" src="https://picsum.photos/seed/labcomic05/400/300" alt="实验室场景的四格漫画" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《女博士的Joker日常》条漫</h3>
+              <div class="card-tags"><span class="tag">条漫</span><span class="tag">轻喜剧</span><span class="tag">实验室</span></div>
+              <p class="card-desc">每周三更新的四格，把组会、报账、养细胞画成牌局。最新一话里，师妹问“师姐你手里什么牌”，主角把移液枪往桌上一拍：“同花顺，但缺一张。”</p>
+              <div class="card-meta"><span>热度 4.5k</span><span class="card-heat">★ 4.6</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img class="card-thumb" src="https://picsum.photos/seed/crossover06/400/300" alt="三个角色标签交汇的视觉设计" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <h3 class="card-title">《三标签混合同人：牌桌夜谈》</h3>
+              <div class="card-tags"><span class="tag">短篇合集</span><span class="tag">跨界</span><span class="tag">对话体</span></div>
+              <p class="card-desc">把曹长卿、joker、女博士放进同一间深夜自习室，只写对话不写动作。七篇各自独立，共用一张牌桌和一副缺了大小王的扑克。</p>
+              <div class="card-meta"><span>热度 4.1k</span><span class="card-heat">★ 4.5</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="section" id="updates">
+        <div class="section-head">
+          <h2 class="section-title">最近更新与动态</h2>
+          <span class="section-sub">截至 11-08</span>
+        </div>
+        <div class="update-list">
+          <div class="update-item"><span class="update-time">11-08 14:20</span><div class="update-content"><div class="update-title">《女博士的Joker牌》第4章发布</div><div class="update-desc">盲审意见逐条念出，牌面花色随评语变化，本章新增“答辩前夜”场景。</div></div></div>
+          <div class="update-item"><span class="update-time">11-08 10:05</span><div class="update-content"><div class="update-title">曹长卿角色解析修订版上线</div><div class="update-desc">补充“儒圣”与“joker”叙事功能对比表，新增参考文献6条。</div></div></div>
+          <div class="update-item"><span class="update-time">11-07 21:40</span><div class="update-content"><div class="update-title">《王牌儒生》插画组更新第三张</div><div class="update-desc">棋盘格背景重绘，作者附上构图草稿与配色思路。</div></div></div>
+          <div class="update-item"><span class="update-time">11-07 16:12</span><div class="update-content"><div class="update-title">条漫《女博士的Joker日常》第18话</div><div class="update-desc">组会场景，主角把移液枪当筹码，师妹表情包已截。</div></div></div>
+          <div class="update-item"><span class="update-time">11-06 19:30</span><div class="update-content"><div class="update-title">《盲审前夜我抽到了Joker》评论过百</div><div class="update-desc">读者围绕结尾“牌是我自己印的”展开讨论，作者追加后记。</div></div></div>
+          <div class="update-item"><span class="update-time">11-05 11:00</span><div class="update-content"><div class="update-title">同人创作新增42件作品</div><div class="update-desc">其中插画28件、短篇10件、角色解析4件，女博士标签占比过半。</div></div></div>
+          <div class="update-item"><span class="update-time">11-04 20:15</span><div class="update-content"><div class="update-title">《joker牌在叙事中的三种用法》修订</div><div class="update-desc">新增七篇同人作品的功能标注表，修正“明牌”与“摊牌”的对应关系。</div></div></div>
+          <div class="update-item"><span class="update-time">11-03 09:40</span><div class="update-content"><div class="update-title">《牌桌夜谈》系列完结</div><div class="update-desc">七篇对话体短篇全部放出，作者在末篇后附了角色关系图。</div></div></div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="section" id="categories">
+        <div class="section-head">
+          <h2 class="section-title">按类别查找</h2>
+          <span class="section-sub">8 个频道</span>
+        </div>
+        <div class="category-grid">
+          <a href="/#featured" class="category-item"><span class="category-name">人物档案</span><span class="category-count">曹长卿 · 女博士 · joker</span></a>
+          <a href="/#featured" class="category-item"><span class="category-name">连载小说</span><span class="category-count">18 部在更</span></a>
+          <a href="/#featured" class="category-item"><span class="category-name">插画与条漫</span><span class="category-count">64 组作品</span></a>
+          <a href="/#deep-dive" class="category-item"><span class="category-name">叙事解析</span><span class="category-count">12 篇长文</span></a>
+          <a href="/#guide" class="category-item"><span class="category-name">阅读顺序</span><span class="category-count">入门指南</span></a>
+          <a href="/#comments" class="category-item"><span class="category-name">读者讨论</span><span class="category-count">近期热评</span></a>
+          <a href="/#news" class="category-item"><span class="category-name">更新动态</span><span class="category-count">11-08 最新</span></a>
+          <a href="/#contribute" class="category-item"><span class="category-name">投稿与交流</span><span class="category-count">本月42件</span></a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="section" id="deep-dive">
+        <div class="section-head">
+          <h2 class="section-title">深度解析：三个标签如何拧在一起</h2>
+        </div>
+        <div class="deep-dive">
+          <h3>“儒圣”与“joker”的破立关系</h3>
+          <p>曹长卿的儒生设定强调规矩、礼法和入世担当。joker牌在扑克中的特殊之处在于它不隶属任何花色，可以替代任意牌，也可以被当作废牌弃掉。二创把两者放在一起，核心冲突不在“好人变坏”，而在“守规矩的人要不要打出一张没有花色的牌”。11月7日修订的角色解析列了一张对照表：儒圣讲“应当如何”，joker讲“如果如何”，女博士则负责判断“能不能如何”。</p>
+          <p>这个框架被多个同人作者采用。以《女博士的Joker牌》第4章为例，女主角把盲审意见逐条念出，每念一条，手里的牌就翻一次面。评语是规矩，翻牌是破规矩，两者交替推进。读者@纸牌屋扫地僧 在评论里写：“她不是在赌盲审过不过，是在赌自己能不能先认输再翻盘。”这条评论被作者点了赞。</p>
+          <div class="callout">可核对的结构：该章共引用盲审意见7条，翻牌动作9次，其中第3条评语“创新性不足”对应连续三次翻牌，是节奏最密的一段。</div>
+
+          <h3>女博士标签为什么在这里好用</h3>
+          <p>女博士在叙事里承担的是“解释者”角色。曹长卿的儒圣语境需要文言底子，joker的疯狂需要有人拆解规则，女博士的学术训练恰好提供了一套可展示的推理过程——文献综述、假设检验、对照实验。这些动作让“疯狂”有了可追溯的步骤，而不是凭空翻转。</p>
+          <p>11月5日新增的42件作品中，有19件以“论文”“实验”“答辩”为场景关键词，占比45%。其中一篇《对照组》把joker牌写成实验变量，女博士给每张牌标了置信区间，评论区有人追问“小样本怎么算”，作者回“所以她才疯”。这个回答本身比作品更出圈，被转发了四十多次。</p>
+
+          <h3>同人创作中的三个常见问题</h3>
+          <ul>
+            <li><strong>标签堆砌。</strong>把三个词塞进标题，正文里却各写各的。11月第二周标记“三标签混合”的14篇作品中，有6篇在2000字内没有让三个元素同时出现在同一场景。</li>
+            <li><strong>joker牌功能模糊。</strong>部分作品把牌当道具摆着，只在开头和结尾各出现一次。对照《joker牌在叙事中的三种用法》的标注表，这类作品的“摊牌”节点平均延后到全文78%处，前文缺少铺垫。</li>
+            <li><strong>女博士形象单一。</strong>实验室白大褂、黑眼圈、咖啡杯三件套反复出现。11月6日的一条讨论帖统计了近期20篇作品，有15篇在开篇200字内出现“咖啡”，其中9篇是同一句“第三杯美式见底”。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="section" id="guide">
+        <div class="section-head">
+          <h2 class="section-title">阅读与消费路径</h2>
+          <span class="section-sub">从哪篇入手</span>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step"><span class="step-num">1</span><div class="step-body"><div class="step-title">先看角色解析，建立坐标</div><div class="step-desc">11月7日修订的《曹长卿角色解析》用两页篇幅讲清三个标签各自的功能位，读完再挑作品不容易被设定绕晕。重点看第三节的对照表，儒圣、joker、女博士各占一列，左边是叙事功能，右边是常见误用。</div></div></div>
+          <div class="guide-step"><span class="step-num">2</span><div class="step-body"><div class="step-title">短篇入门，从《盲审前夜》开始</div><div class="step-desc">6800字，半小时能读完。它的结构最干净：论文盲审是主线，joker牌是转折，女博士是叙述者。读完能判断自己更吃“学术梗”还是“牌局梗”，再决定追连载还是看插画。</div></div></div>
+          <div class="guide-step"><span class="step-num">3</span><div class="step-body"><div class="step-title">判断一篇同人值不值得追的三个信号</div><div class="step-desc">第一，看joker牌在第几段出现，超过全文三分之一还没出场的基本是挂名；第二，看女博士有没有具体的专业动作，写“做实验”三个字不算，写“跑胶跑歪了重来”才算；第三，看评论区有没有人吵设定，零争议的往往也没人认真读。</div></div></div>
+          <div class="guide-step"><span class="step-num">4</span><div class="step-body"><div class="step-title">同类比较：连载与单篇怎么选</div><div class="step-desc">连载适合跟角色关系，单篇适合看结构实验。《女博士的Joker牌》每周六更，目前4章，适合追更；《牌桌夜谈》七篇一次放出，适合周末一口气读完。两边的评论区氛围也不同，前者多猜测剧情，后者多拆解对话。</div></div></div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section" id="faq">
+        <div class="section-head">
+          <h2 class="section-title">常见问题</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>曹长卿和joker牌的关联是从哪部作品开始的？</summary><div class="faq-answer">较早的公开记录是2026年10月的一篇短篇《王牌儒生》，作者把曹长卿的儒衫袖口画了一张黑桃J，配文“规矩人手里也得有张野牌”。该篇在三天内获得两千多浏览，之后“袖口藏牌”的设定被多次沿用。11月7日的角色解析修订版把这个节点列为“标签交汇的起点之一”，但注明并非唯一来源。</div></details>
+          <details class="faq-item"><summary>女博士标签在同人里一般指什么专业？</summary><div class="faq-answer">近期作品里出现最多的是生物学和计算机方向，分别占11月新增作品的31%和24%。生物学场景常用细胞培养、跑胶、动物实验；计算机方向多用模型训练、数据清洗、跑不通的代码。也有少量文学、社会学方向，通常不写具体实验，转而写文献综述和田野笔记。</div></details>
+          <details class="faq-item"><summary>joker牌在故事里通常承担什么功能？</summary><div class="faq-answer">按11月4日修订的解析长文，常见功能分三种：底牌（伏笔，读者早知道但角色不知道）、明牌（摊牌，角色主动亮出）、弃牌（反悔，打出后不认）。三种功能对应不同的叙事节点，底牌宜放在前四分之一，明牌放在高潮，弃牌放在收束。用错位置的作品，评论区通常会在更新当天指出。</div></details>
+          <details class="faq-item"><summary>三个标签混写的作品容易踩什么坑？</summary><div class="faq-answer">最常见的是“各写各的”：前一千字写曹长卿的儒生做派，中间一千字写joker牌神秘出现，结尾突然冒出一个女博士收场，三个元素没有在同一场景里互动。11月第二周的14篇混合标签作品里，有6篇属于这种情况，平均评论数不到同期的三分之一。</div></details>
+          <details class="faq-item"><summary>《女博士的Joker牌》大概多久更新一次？</summary><div class="faq-answer">作者在11月8日的更新说明里写的是“每周六晚”，第4章发布于11月8日周六14:20，与说明一致。此前的第3章发布于11月1日，间隔7天。按现有节奏，第5章预计在11月15日前后，但作者同时提到“盲审季可能延迟”，具体以更新页为准。</div></details>
+          <details class="faq-item"><summary>想找同类型但更短的作品，有推荐吗？</summary><div class="faq-answer">《盲审前夜我抽到了Joker》6800字，《牌桌夜谈》单篇2000字上下，都是当天能读完的体量。前者偏黑色幽默，后者偏对话实验。如果只想看插画，《曹长卿·王牌儒生》六张系列图配有构图草稿，不看文字也能理解设定。</div></details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="section" id="comments">
+        <div class="section-head">
+          <h2 class="section-title">读者在聊什么</h2>
+          <span class="section-sub">近期 16 条</span>
+        </div>
+        <div class="comment-list">
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">纸牌屋扫地僧</span><span class="comment-badge">追更</span></div><p class="comment-text">第4章那句“牌是我自己印的”在群里被转了三遍。有人说是摆烂，我觉得是认了——盲审意见改不动，那就把规则重新印一副。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">跑胶跑歪</span><span class="comment-badge">生物博</span></div><p class="comment-text">实验室场景写得像那么回事，移液枪当筹码这个动作我干过，不过当时手里拿的是枪头盒。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">黑桃J不发音</span><span class="comment-badge">插画党</span></div><p class="comment-text">《王牌儒生》第三张的棋盘格改对了，前一版太密，看着像二维码。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">文献综述写不完</span><span class="comment-badge">新读者</span></div><p class="comment-text">看完解析再去看连载，确实顺很多。之前直接点进第1章，不知道joker牌是干嘛的，以为是装饰。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">答辩前夜</span><span class="comment-badge">路过</span></div><p class="comment-text">这标签组合有点怪，但看进去了。曹长卿和女博士有什么关系？没太懂，不过牌桌夜谈那几篇对话挺有意思。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">同人区潜水员</span><span class="comment-badge">老读者</span></div><p class="comment-text">最近混合标签的作品多起来了，质量参差。11月5号那批42件里，有几篇明显是先把标签凑齐再编故事。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">一杯美式见底</span><span class="comment-badge">吐槽</span></div><p class="comment-text">咖啡梗真的用烂了，开篇必有一杯美式，女博士不喝咖啡是不是写不下去。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">对照组本人</span><span class="comment-badge">作者</span></div><p class="comment-text">《对照组》那篇的置信区间是随手写的，被追问才补了句“所以她才疯”，没想到这个回复比正文火。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">条漫催更组</span><span class="comment-badge">追更</span></div><p class="comment-text">第18话师妹的表情包什么时候出，就等那张“同花顺缺一张”。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">叙事结构爱好者</span><span class="comment-badge">解析党</span></div><p class="comment-text">把joker牌拆成底牌、明牌、弃牌，这个分法比之前那些“象征意义”的写法清楚多了，至少能拿去对照具体段落。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">路过的牌友</span><span class="comment-badge">弱相关</span></div><p class="comment-text">所以这副牌到底几个王？我打掼蛋的，规则不一样。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">盲审过了吗</span><span class="comment-badge">追更</span></div><p class="comment-text">第4章翻牌九次这个统计我数了一遍，确实是九次，但第三次和第四次之间隔了两段回忆，节奏有点拖。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">三标签混写受害者</span><span class="comment-badge">作者</span></div><p class="comment-text">踩过“各写各的”那个坑。写了两千字发现三个元素没碰面，删了重来，现在老老实实先写场景再塞标签。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">只看图不说话</span><span class="comment-badge">插画党</span></div><p class="comment-text">《王牌儒生》的构图草稿比成图好看，草稿那种没画完的劲儿反而对。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">凌晨三点的实验室</span><span class="comment-badge">生物博</span></div><p class="comment-text">写细胞房那段太真实了，我上周刚把一板细胞养污染，要是手里有张joker我就打出去了。</p></div>
+          <div class="comment-item"><div class="comment-head"><span class="comment-name">随便看看</span><span class="comment-badge">新读者</span></div><p class="comment-text">标题挺吸引人的，点进来发现东西不少，先收藏了慢慢看。</p></div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="section" id="news">
+        <div class="section-head">
+          <h2 class="section-title">相关资讯</h2>
+          <span class="section-sub">近 7 天</span>
+        </div>
+        <div class="news-list">
+          <div class="news-item"><span class="news-date">11-08</span><div class="news-body"><div class="news-title">《女博士的Joker牌》第4章周六下午更新</div><div class="news-summary">更新时间为11月8日14:20，比前几章平均发布时间提前约3小时。作者在章节末尾确认第5章仍在盲审季排期之内。</div></div></div>
+          <div class="news-item"><span class="news-date">11-07</span><div class="news-body"><div class="news-title">曹长卿角色解析修订版增补6条参考文献</div><div class="news-summary">新增文献中有3条指向2026年9月至10月的同人作品，修订表把“袖口藏牌”设为首个交汇节点，并标注其他并行来源。</div></div></div>
+          <div class="news-item"><span class="news-date">11-06</span><div class="news-body"><div class="news-title">《盲审前夜》评论区讨论转向结尾句</div><div class="news-summary">11月6日19:30评论数突破100条，其中37条直接引用“牌是我自己印的”。作者当日追加后记，说明该句初稿是“牌是导师给的”。</div></div></div>
+          <div class="news-item"><span class="news-date">11-05</span><div class="news-body"><div class="news-title">同人区单日新增42件作品，女博士标签占19件</div><div class="news-summary">插画28件、短篇10件、解析4件。以“论文”“实验”“答辩”为场景关键词的19件中，有7件在标题里同时出现joker与女博士。</div></div></div>
+          <div class="news-item"><span class="news-date">11-04</span><div class="news-body"><div class="news-title">《joker牌在叙事中的三种用法》功能标注表修订</div><div class="news-summary">修订涉及七篇同人作品，其中两篇的“摊牌”节点从原文标注的62%调整至74%，理由是前文缺少可核对的铺垫动作。</div></div></div>
+          <div class="news-item"><span class="news-date">11-03</span><div class="news-body"><div class="news-title">《牌桌夜谈》七篇全部放出</div><div class="news-summary">末篇后附角色关系图，标出三个标签在对话中的出场比例：曹长卿34%、joker牌41%、女博士25%。作者称比例是写完才统计的。</div></div></div>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="section" id="related">
+        <div class="section-head">
+          <h2 class="section-title">相关推荐方向</h2>
+        </div>
+        <div class="related-tags">
+          <a href="/#featured" class="related-tag">袖口藏牌设定</a>
+          <a href="/#featured" class="related-tag">论文盲审叙事</a>
+          <a href="/#featured" class="related-tag">女博士实验室日常</a>
+          <a href="/#featured" class="related-tag">joker牌三种功能</a>
+          <a href="/#featured" class="related-tag">曹长卿儒生重构</a>
+          <a href="/#featured" class="related-tag">对话体短篇合集</a>
+          <a href="/#featured" class="related-tag">四格条漫追更</a>
+        </div>
+      </section>
+
+      <!-- 11. 热门榜单 -->
+      <section class="section" id="rank">
+        <div class="section-head">
+          <h2 class="section-title">近 7 天热度榜</h2>
+          <span class="section-sub">按评论与收藏综合</span>
+        </div>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-num">1</span><div class="rank-info"><span class="rank-name">《女博士的Joker牌》第4章</span><span class="rank-tag">连载小说</span></div><span class="rank-score">8.6k</span></div>
+          <div class="rank-item"><span class="rank-num">2</span><div class="rank-info"><span class="rank-name">《曹长卿·王牌儒生》插画组</span><span class="rank-tag">插画</span></div><span class="rank-score">6.2k</span></div>
+          <div class="rank-item"><span class="rank-num">3</span><div class="rank-info"><span class="rank-name">《盲审前夜我抽到了Joker》</span><span class="rank-tag">短篇</span></div><span class="rank-score">5.8k</span></div>
+          <div class="rank-item"><span class="rank-num">4</span><div class="rank-info"><span class="rank-name">《joker牌在叙事中的三种用法》</span><span class="rank-tag">解析</span></div><span class="rank-score">4.9k</span></div>
+          <div class="rank-item"><span class="rank-num">5</span><div class="rank-info"><span class="rank-name">《女博士的Joker日常》第18话</span><span class="rank-tag">条漫</span></div><span class="rank-score">4.5k</span></div>
+          <div class="rank-item"><span class="rank-num">6</span><div class="rank-info"><span class="rank-name">《牌桌夜谈·末篇》</span><span class="rank-tag">对话体</span></div><span class="rank-score">4.1k</span></div>
+        </div>
+      </section>
+
+      <!-- 投稿与交流 -->
+      <section class="section" id="contribute">
+        <div class="section-head">
+          <h2 class="section-title">投稿与创作交流</h2>
+        </div>
+        <div class="contribute-box">
+          <div>
+            <h3>把你的joker牌摊出来</h3>
+            <p>接受短篇、插画、条漫、角色解析四类投稿。11月新增42件，其中19件以女博士为主角。投稿时建议标注joker牌在故事里的功能位（底牌/明牌/弃牌），方便读者按类型检索。</p>
+          </div>
+          <a href="/#featured" class="btn-primary">了解投稿要求</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="sidebar" aria-label="辅助信息">
+      <div class="side-card">
+        <div class="side-head">本周热榜</div>
+        <div class="side-list">
+          <a href="/#featured" class="side-list-item"><span class="side-idx">01</span>《女博士的Joker牌》第4章</a>
+          <a href="/#featured" class="side-list-item"><span class="side-idx">02</span>《曹长卿·王牌儒生》插画组</a>
+          <a href="/#featured" class="side-list-item"><span class="side-idx">03</span>《盲审前夜我抽到了Joker》</a>
+          <a href="/#featured" class="side-list-item"><span class="side-idx">04</span>《joker牌在叙事中的三种用法》</a>
+          <a href="/#featured" class="side-list-item"><span class="side-idx">05</span>《女博士的Joker日常》第18话</a>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="side-head">标签索引</div>
+        <div class="side-tag-cloud">
+          <a href="/#featured" class="side-tag">论文盲审</a>
+          <a href="/#featured" class="side-tag">袖口藏牌</a>
+          <a href="/#featured" class="side-tag">实验室日常</a>
+          <a href="/#featured" class="side-tag">对话体</a>
+          <a href="/#featured" class="side-tag">底牌</a>
+          <a href="/#featured" class="side-tag">明牌</a>
+          <a href="/#featured" class="side-tag">弃牌</a>
+          <a href="/#featured" class="side-tag">儒生重构</a>
+          <a href="/#featured" class="side-tag">条漫追更</a>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="side-head">更新日历</div>
+        <div class="side-list">
+          <a href="/#updates" class="side-list-item"><span class="side-idx">11-08</span>《女博士的Joker牌》第4章</a>
+          <a href="/#updates" class="side-list-item"><span class="side-idx">11-08</span>角色解析修订版</a>
+          <a href="/#updates" class="side-list-item"><span class="side-idx">11-07</span>《王牌儒生》第三张</a>
+          <a href="/#updates" class="side-list-item"><span class="side-idx">11-07</span>条漫第18话</a>
+          <a href="/#updates" class="side-list-item"><span class="side-idx">11-06</span>《盲审前夜》后记</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+              <rect width="64" height="64" rx="14" fill="#c9a0ff"/>
+              <circle cx="25" cy="28" r="10" fill="#3f2b63" opacity="0.9"/>
+              <path d="M14 48 Q25 37 36 48" stroke="#3f2b63" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <circle cx="45" cy="22" r="6" fill="#f2d3a0"/>
+            </svg>
+            <span>曹长卿joker女博士</span>
+          </div>
+          <p class="footer-desc">记录2026年9月至11月的角色二创轨迹，覆盖连载小说、插画、条漫与叙事解析四类条目，每周一、三、六汇总更新。</p>
+        </div>
+        <div>
+          <div class="footer-col-title">内容频道</div>
+          <div class="footer-links">
+            <a href="/#overview">领域概览</a>
+            <a href="/#featured">精选推荐</a>
+            <a href="/#updates">最新动态</a>
+            <a href="/#categories">分类入口</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">深度与讨论</div>
+          <div class="footer-links">
+            <a href="/#deep-dive">深度解析</a>
+            <a href="/#guide">体验指南</a>
+            <a href="/#faq">常见问题</a>
+            <a href="/#comments">用户评论</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">互动与发现</div>
+          <div class="footer-links">
+            <a href="/#news">相关资讯</a>
+            <a href="/#related">相关推荐</a>
+            <a href="/#rank">热门榜单</a>
+            <a href="/#contribute">投稿交流</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>页面内容为二创示例条目，条目名称、评分、热度等数据用于展示索引结构。最近可核对更新：2026年11月8日《女博士的Joker牌》第4章。</span>
+        <span>© 2026 曹长卿joker女博士 · 内容聚合示例</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+  <script>
+    (function() {
+      // 移动菜单
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const overlay = document.getElementById('mobileOverlay');
+      const closeBtn = mobileMenu.querySelector('.close-btn');
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        overlay.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        overlay.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        hamburger.focus();
+      }
+      hamburger.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('open')) closeMenu();
+        else openMenu();
+      });
+      closeBtn.addEventListener('click', closeMenu);
+      overlay.addEventListener('click', closeMenu);
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          closeMenu();
+        });
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+
+      // 回到顶部
+      const backTop = document.getElementById('backTop');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          backTop.classList.add('show');
+        } else {
+          backTop.classList.remove('show');
+        }
+      }, { passive: true });
+      backTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // 平滑锚点（考虑吸顶偏移，CSS scroll-padding 已处理，这里补充 JS 对旧浏览器）
+      document.querySelectorAll('a[href^="/#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href.startsWith('/#')) {
+            const id = href.slice(2);
+            const target = document.getElementById(id);
+            if (target) {
+              // 让 CSS scroll-padding 生效，不需要 preventDefault
+            }
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "曹长卿joker女博士",
+    "description": "角色解析与二创内容聚合，覆盖人物档案、同人作品、剧情解读与创作交流。",
+    "url": "https://example.com/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "曹长卿和joker牌的关联是从哪部作品开始的？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "较早的公开记录是2026年10月的一篇短篇《王牌儒生》，作者把曹长卿的儒衫袖口画了一张黑桃J。11月7日的角色解析修订版把这个节点列为标签交汇的起点之一。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "女博士标签在同人里一般指什么专业？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "近期作品里出现最多的是生物学和计算机方向，分别占11月新增作品的31%和24%。生物学场景常用细胞培养、跑胶、动物实验；计算机方向多用模型训练、数据清洗。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "joker牌在故事里通常承担什么功能？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "常见功能分三种：底牌（伏笔）、明牌（摊牌）、弃牌（反悔）。底牌宜放在前四分之一，明牌放在高潮，弃牌放在收束。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "三个标签混写的作品容易踩什么坑？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "最常见的是各写各的：三个元素没有在同一场景里互动。11月第二周的14篇混合标签作品里，有6篇属于这种情况。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "《女博士的Joker牌》大概多久更新一次？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "作者在11月8日的更新说明里写的是每周六晚，第4章发布于11月8日周六14:20。按现有节奏，第5章预计在11月15日前后。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "想找同类型但更短的作品，有推荐吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "《盲审前夜我抽到了Joker》6800字，《牌桌夜谈》单篇2000字上下，都是当天能读完的体量。"
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+              </html>

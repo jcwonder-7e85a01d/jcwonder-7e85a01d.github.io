@@ -1,0 +1,1199 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>水岛津实 作品合集 - 作品与类型索引</title>
+  <meta name="description" content="水岛津实 作品合集收录其类型片、单体作品与专题企划，按年份与题材分类整理，并附观看顺序指南、条目评分与用户评论，面向想系统了解其作品脉络的观众。">
+  <meta name="keywords" content="水岛津实 作品合集">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1e2b'/%3E%3Ccircle cx='24' cy='32' r='10' fill='%23f0a3a3'/%3E%3Ccircle cx='44' cy='24' r='7' fill='%23f5d76e'/%3E%3Ccircle cx='44' cy='44' r='7' fill='%2394b8f5'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --ink:#1c1f2b;
+      --ink-2:#41465a;
+      --ink-3:#7a7f93;
+      --bg:#f6f5f2;
+      --panel:#ffffff;
+      --line:#e4e1da;
+      --brand:#8e2f3c;
+      --brand-soft:#f6e8e9;
+      --brand-deep:#5e1a24;
+      --accent:#c9a24b;
+      --accent-soft:#fbf4e4;
+      --blue-soft:#eef3fb;
+      --r-card:14px;
+      --r-btn:10px;
+      --r-tag:7px;
+      --shadow:0 1px 2px rgba(28,31,43,.05),0 6px 18px rgba(28,31,43,.05);
+      --shadow-hover:0 4px 10px rgba(28,31,43,.08),0 14px 32px rgba(28,31,43,.10);
+      --sticky-h:108px;
+      --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-h);}
+    body{
+      margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);
+      line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    button{font-family:inherit;cursor:pointer;}
+    ul,ol{margin:0;padding:0;list-style:none;}
+    h1,h2,h3,h4,p{margin:0;}
+    .wrap{max-width:1360px;margin:0 auto;padding:0 24px;}
+
+    /* ===== 吸顶公告条 ===== */
+    .announce{
+      position:sticky;top:0;z-index:60;
+      background:var(--brand-deep);color:#f7e9e4;
+      font-size:13px;letter-spacing:.2px;
+    }
+    .announce .wrap{
+      display:flex;align-items:center;gap:18px;height:38px;overflow:hidden;
+    }
+    .announce .brand-mini{
+      font-weight:700;white-space:nowrap;color:#fff;
+      display:flex;align-items:center;gap:7px;
+    }
+    .announce .brand-mini i{
+      width:16px;height:16px;border-radius:50%;
+      background:radial-gradient(circle at 35% 30%,#f5d76e,#c9a24b 70%);
+      display:inline-block;
+    }
+    .announce .ticker{display:flex;gap:26px;white-space:nowrap;overflow:hidden;}
+    .announce .ticker span b{color:#f5d76e;font-weight:600;margin-right:6px;}
+    .announce .ticker span em{font-style:normal;color:#e9cfc9;}
+    @media(max-width:740px){.announce .ticker span:nth-child(3){display:none;}}
+
+    /* ===== 页头 ===== */
+    .header{
+      position:sticky;top:38px;z-index:55;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .header .wrap{
+      display:flex;align-items:center;gap:26px;height:70px;
+    }
+    .logo{
+      display:flex;align-items:center;gap:10px;flex-shrink:0;
+    }
+    .logo svg{width:34px;height:34px;}
+    .logo .name{font-size:20px;font-weight:800;color:var(--brand-deep);letter-spacing:.5px;white-space:nowrap;}
+    .nav-main{display:flex;gap:4px;flex:1;flex-wrap:wrap;}
+    .nav-main a{
+      padding:7px 12px;border-radius:8px;font-size:14px;color:var(--ink-2);
+      transition:background .18s,color .18s;white-space:nowrap;
+    }
+    .nav-main a:hover,.nav-main a:focus-visible{background:var(--brand-soft);color:var(--brand-deep);outline:none;}
+    .header-tools{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+    .search-box{position:relative;}
+    .search-box input{
+      width:168px;height:36px;border:1px solid var(--line);border-radius:var(--r-btn);
+      padding:0 12px 0 34px;font-size:13px;background:var(--bg);color:var(--ink);
+      transition:border-color .18s,width .2s;
+    }
+    .search-box input:focus{outline:none;border-color:var(--brand);background:#fff;width:200px;}
+    .search-box svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;fill:var(--ink-3);}
+    .btn-ghost{
+      height:36px;padding:0 14px;border:1px solid var(--line);border-radius:var(--r-btn);
+      background:#fff;font-size:13px;color:var(--ink-2);transition:.18s;
+    }
+    .btn-ghost:hover{border-color:var(--brand);color:var(--brand-deep);}
+    .btn-brand{
+      height:36px;padding:0 16px;border:0;border-radius:var(--r-btn);
+      background:var(--brand);color:#fff;font-size:13px;font-weight:600;transition:.18s;
+    }
+    .btn-brand:hover{background:var(--brand-deep);}
+    .hamburger{
+      display:none;width:38px;height:38px;border:1px solid var(--line);background:#fff;
+      border-radius:9px;align-items:center;justify-content:center;flex-direction:column;gap:4px;
+    }
+    .hamburger span{display:block;width:17px;height:2px;background:var(--ink-2);border-radius:2px;}
+    .mobile-nav{
+      display:none;position:fixed;inset:0;z-index:80;background:rgba(20,18,24,.45);
+    }
+    .mobile-nav.open{display:block;}
+    .mobile-nav .panel{
+      position:absolute;top:0;right:0;width:min(300px,84vw);height:100%;background:#fff;
+      padding:20px;overflow-y:auto;box-shadow:-8px 0 30px rgba(0,0,0,.18);
+    }
+    .mobile-nav .panel h3{font-size:15px;margin-bottom:14px;color:var(--brand-deep);}
+    .mobile-nav .panel a{
+      display:block;padding:11px 8px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink-2);
+    }
+    .mobile-nav .panel a:hover{color:var(--brand);}
+    .mobile-nav .close{
+      position:absolute;top:14px;right:16px;width:32px;height:32px;border:0;background:var(--bg);
+      border-radius:8px;font-size:18px;color:var(--ink-2);
+    }
+    @media(max-width:1024px){
+      .nav-main{display:none;}
+      .search-box input{width:140px;}
+      .search-box input:focus{width:160px;}
+      .hamburger{display:flex;}
+    }
+    @media(max-width:740px){
+      .header .wrap{height:60px;gap:12px;}
+      .logo .name{font-size:17px;}
+      .search-box input{width:100px;}
+      .search-box input:focus{width:120px;}
+      .btn-ghost{display:none;}
+      .header-tools .btn-brand{padding:0 10px;font-size:12px;}
+    }
+
+    /* ===== 首屏 ===== */
+    .hero{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(720px 300px at 82% -8%,rgba(201,162,75,.22),transparent 68%),
+        radial-gradient(560px 280px at 8% 110%,rgba(142,47,60,.16),transparent 70%),
+        #faf8f4;
+      border-bottom:1px solid var(--line);
+    }
+    .hero .wrap{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+      padding-top:48px;padding-bottom:52px;
+    }
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:1.5px;
+      color:var(--brand);text-transform:uppercase;font-weight:600;margin-bottom:14px;
+    }
+    .hero-kicker::before{content:"";width:26px;height:2px;background:var(--accent);}
+    .hero h1{
+      font-size:clamp(30px,4.2vw,50px);line-height:1.2;font-weight:800;letter-spacing:1px;
+      color:var(--brand-deep);margin-bottom:16px;
+    }
+    .hero .desc{font-size:15.5px;color:var(--ink-2);max-width:560px;margin-bottom:24px;}
+    .hero .desc strong{color:var(--brand-deep);font-weight:700;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px;}
+    .hero-actions .btn-brand{height:44px;padding:0 24px;font-size:14px;}
+    .hero-actions .btn-ghost{height:44px;padding:0 20px;font-size:14px;}
+    .hero-stats{display:flex;gap:30px;flex-wrap:wrap;}
+    .hero-stats div strong{display:block;font-size:22px;font-weight:800;color:var(--brand-deep);line-height:1.2;}
+    .hero-stats div span{font-size:12.5px;color:var(--ink-3);}
+    .hero-visual{position:relative;min-height:300px;}
+    .hero-visual svg{width:100%;height:auto;}
+    .float-card{
+      position:absolute;background:#fff;border:1px solid var(--line);border-radius:12px;
+      padding:10px 14px;box-shadow:var(--shadow);font-size:12px;color:var(--ink-2);
+      animation:floaty 5s ease-in-out infinite;
+    }
+    .float-card b{display:block;font-size:14px;color:var(--brand-deep);}
+    .fc-1{top:8%;right:2%;animation-delay:.2s;}
+    .fc-2{bottom:10%;left:0;animation-delay:1.4s;}
+    @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+    @media(prefers-reduced-motion:reduce){.float-card{animation:none;}}
+    @media(max-width:900px){
+      .hero .wrap{grid-template-columns:1fr;gap:20px;padding-top:34px;padding-bottom:36px;}
+      .hero-visual{min-height:220px;max-width:460px;}
+    }
+
+    /* ===== 主布局 三栏 ===== */
+    .layout{
+      display:grid;grid-template-columns:172px minmax(0,1fr) 268px;
+      gap:30px;align-items:start;padding-top:34px;padding-bottom:50px;
+    }
+    .col-left{position:sticky;top:calc(var(--sticky-h) + 14px);}
+    .channel-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);padding:14px 10px;box-shadow:var(--shadow);}
+    .channel-list h3{font-size:12px;letter-spacing:1.4px;color:var(--ink-3);padding:0 10px 10px;font-weight:600;}
+    .channel-list a{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:8px 10px;border-radius:8px;font-size:13.5px;color:var(--ink-2);
+      transition:.16s;
+    }
+    .channel-list a span.count{font-size:11px;color:var(--ink-3);}
+    .channel-list a:hover,.channel-list a:focus-visible,.channel-list a.active{
+      background:var(--brand-soft);color:var(--brand-deep);font-weight:600;outline:none;
+    }
+    .col-main{min-width:0;}
+    .col-right{position:sticky;top:calc(var(--sticky-h) + 14px);display:flex;flex-direction:column;gap:20px;}
+
+    @media(max-width:1024px){
+      .layout{grid-template-columns:minmax(0,1fr) 280px;}
+      .col-left{display:none;}
+    }
+    @media(max-width:740px){
+      .layout{grid-template-columns:1fr;gap:26px;}
+      .col-right{position:static;}
+    }
+
+    /* ===== 板块通用 ===== */
+    .section{margin-bottom:42px;}
+    .section:last-child{margin-bottom:0;}
+    .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:18px;}
+    .sec-head h2{
+      font-size:22px;font-weight:800;color:var(--ink);letter-spacing:.3px;line-height:1.3;
+      display:flex;align-items:center;gap:10px;
+    }
+    .sec-head h2::before{content:"";width:5px;height:22px;border-radius:3px;background:var(--brand);}
+    .sec-head .sub{font-size:12.5px;color:var(--ink-3);}
+    .sec-lead{font-size:14.5px;color:var(--ink-2);margin-bottom:18px;max-width:820px;}
+
+    /* 卡片网格 */
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
+    .card{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+      overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;
+      display:flex;flex-direction:column;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+    .card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e9e6df;}
+    .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
+    .card:hover .thumb img{transform:scale(1.04);}
+    .card .badge{
+      position:absolute;left:10px;top:10px;background:rgba(94,26,36,.92);color:#fff;
+      font-size:11px;padding:3px 8px;border-radius:6px;font-weight:600;letter-spacing:.5px;
+    }
+    .card .badge.gold{background:rgba(201,162,75,.95);color:#3b2c0c;}
+    .card .body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:7px;flex:1;}
+    .card h3{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4;}
+    .card .tags{display:flex;flex-wrap:wrap;gap:6px;}
+    .tag{
+      font-size:11px;padding:2px 8px;border-radius:var(--r-tag);
+      background:var(--brand-soft);color:var(--brand-deep);white-space:nowrap;
+    }
+    .tag.gold{background:var(--accent-soft);color:#7a5a15;}
+    .tag.blue{background:var(--blue-soft);color:#2f4d7a;}
+    .tag.gray{background:#f0efec;color:var(--ink-3);}
+    .card .note{font-size:12.5px;color:var(--ink-2);line-height:1.65;flex:1;}
+    .card .meta{
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:11.5px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:8px;margin-top:2px;
+    }
+    .card .meta b{color:var(--brand);font-weight:700;}
+
+    /* 紧凑列表 */
+    .list-rows{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow);}
+    .row{
+      display:flex;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line);
+      align-items:flex-start;transition:background .16s;
+    }
+    .row:last-child{border-bottom:0;}
+    .row:hover{background:#fbfaf7;}
+    .row .date{font-size:12px;color:var(--ink-3);white-space:nowrap;width:78px;flex-shrink:0;padding-top:2px;}
+    .row .r-main{flex:1;min-width:0;}
+    .row .r-main h3{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.45;}
+    .row .r-main p{font-size:12.5px;color:var(--ink-2);line-height:1.6;}
+    .row .r-tag{flex-shrink:0;}
+
+    /* 分类入口 */
+    .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+    .cat-item{
+      background:var(--panel);border:1px solid var(--line);border-radius:12px;
+      padding:14px 14px;transition:.18s;display:flex;flex-direction:column;gap:5px;
+    }
+    .cat-item:hover{border-color:var(--brand);background:var(--brand-soft);transform:translateY(-2px);}
+    .cat-item strong{font-size:14px;color:var(--ink);}
+    .cat-item span{font-size:11.5px;color:var(--ink-3);}
+    .cat-item em{font-style:normal;font-size:11px;color:var(--brand);font-weight:600;}
+
+    /* 深度解析 */
+    .article-panel{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+      padding:28px 30px;box-shadow:var(--shadow);
+    }
+    .article-panel h2{font-size:23px;font-weight:800;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+    .article-panel h2::before{content:"";width:5px;height:22px;border-radius:3px;background:var(--accent);}
+    .article-panel h3{font-size:17px;font-weight:700;color:var(--brand-deep);margin:24px 0 9px;line-height:1.4;}
+    .article-panel h3:first-of-type{margin-top:6px;}
+    .article-panel p{font-size:14.5px;color:var(--ink-2);margin-bottom:11px;line-height:1.85;}
+    .article-panel ul{padding-left:0;margin:8px 0 14px;}
+    .article-panel ul li{
+      font-size:14px;color:var(--ink-2);padding-left:18px;position:relative;margin-bottom:6px;line-height:1.75;
+    }
+    .article-panel ul li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+    .article-panel .callout{
+      background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+      padding:12px 16px;font-size:13.5px;color:#5e4a17;margin:14px 0;
+    }
+    @media(max-width:740px){.article-panel{padding:20px 18px;}}
+
+    /* FAQ */
+    .faq-list{display:flex;flex-direction:column;gap:10px;}
+    details.faq{
+      background:var(--panel);border:1px solid var(--line);border-radius:11px;
+      overflow:hidden;transition:border-color .16s;
+    }
+    details.faq[open]{border-color:var(--brand);}
+    details.faq summary{
+      padding:14px 16px;font-size:14.5px;font-weight:600;color:var(--ink);cursor:pointer;
+      list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+    }
+    details.faq summary::-webkit-details-marker{display:none;}
+    details.faq summary::after{content:"+";font-size:18px;color:var(--brand);font-weight:700;flex-shrink:0;transition:transform .18s;}
+    details.faq[open] summary::after{content:"−";}
+    details.faq .ans{padding:0 16px 15px;font-size:13.5px;color:var(--ink-2);line-height:1.8;}
+
+    /* 评论 */
+    .comment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+    .comment{
+      background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;
+      display:flex;flex-direction:column;gap:6px;
+    }
+    .comment .who{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-3);}
+    .comment .who b{color:var(--brand-deep);font-weight:700;font-size:13px;}
+    .comment .who .avatar{
+      width:22px;height:22px;border-radius:50%;background:var(--brand-soft);color:var(--brand-deep);
+      display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;
+    }
+    .comment p{font-size:13px;color:var(--ink-2);line-height:1.7;}
+
+    /* 资讯 */
+    .news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+    .news-card{
+      background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+      display:flex;flex-direction:column;transition:.2s;box-shadow:var(--shadow);
+    }
+    .news-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+    .news-card img{width:100%;height:128px;object-fit:cover;}
+    .news-card .nc-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1;}
+    .news-card h3{font-size:14.5px;font-weight:700;line-height:1.45;color:var(--ink);}
+    .news-card .nd{font-size:11.5px;color:var(--ink-3);}
+    .news-card p{font-size:12.5px;color:var(--ink-2);line-height:1.6;flex:1;}
+
+    /* 相关推荐标签 */
+    .tag-index{display:flex;flex-wrap:wrap;gap:9px;}
+    .tag-index a{
+      font-size:13px;padding:7px 14px;border-radius:20px;background:var(--panel);
+      border:1px solid var(--line);color:var(--ink-2);transition:.16s;
+    }
+    .tag-index a:hover{border-color:var(--brand);color:var(--brand-deep);background:var(--brand-soft);}
+    .tag-index a b{color:var(--brand);font-weight:700;margin-left:4px;font-size:11.5px;}
+
+    /* 榜单 */
+    .rank-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow);}
+    .rank-item{display:flex;gap:13px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:center;}
+    .rank-item:last-child{border-bottom:0;}
+    .rank-item .num{
+      width:24px;height:24px;border-radius:7px;background:#f0efec;color:var(--ink-3);
+      display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;
+    }
+    .rank-item .num.top1{background:var(--brand);color:#fff;}
+    .rank-item .num.top2{background:var(--accent);color:#3b2c0c;}
+    .rank-item .num.top3{background:#e8cdb0;color:#6b4a24;}
+    .rank-item .ri-main{flex:1;min-width:0;}
+    .rank-item .ri-main strong{font-size:13.5px;color:var(--ink);display:block;line-height:1.4;}
+    .rank-item .ri-main span{font-size:11.5px;color:var(--ink-3);}
+    .rank-item .score{font-size:13px;font-weight:800;color:var(--brand);flex-shrink:0;}
+
+    /* 投稿互动 */
+    .submit-panel{
+      background:linear-gradient(120deg,#2b2028,#4a2530);border-radius:var(--r-card);
+      padding:26px 28px;color:#f6ece8;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;
+    }
+    .submit-panel h2{font-size:21px;font-weight:800;margin-bottom:8px;color:#fff;}
+    .submit-panel p{font-size:13.5px;color:#e5cfc8;line-height:1.7;margin-bottom:14px;}
+    .submit-panel .btn-brand{background:var(--accent);color:#3b2c0c;font-weight:700;}
+    .submit-panel .btn-brand:hover{background:#e0b65e;}
+    .submit-visual svg{width:100%;height:auto;}
+    @media(max-width:740px){.submit-panel{grid-template-columns:1fr;padding:20px;}}
+
+    /* 右栏组件 */
+    .side-card{
+      background:var(--panel);border:1px solid var(--line);border-radius:var(--r-card);
+      padding:16px 16px 18px;box-shadow:var(--shadow);
+    }
+    .side-card h3{
+      font-size:14px;font-weight:800;color:var(--ink);margin-bottom:12px;
+      display:flex;align-items:center;gap:8px;
+    }
+    .side-card h3::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--brand);}
+    .side-update li{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:12.5px;}
+    .side-update li:last-child{border-bottom:0;padding-bottom:0;}
+    .side-update li .d{color:var(--ink-3);white-space:nowrap;font-size:11.5px;}
+    .side-update li a{color:var(--ink-2);line-height:1.5;}
+    .side-update li a:hover{color:var(--brand);}
+    .side-tags{display:flex;flex-wrap:wrap;gap:7px;}
+    .side-tags a{
+      font-size:12px;padding:4px 10px;border-radius:6px;background:var(--bg);color:var(--ink-2);
+      border:1px solid var(--line);transition:.16s;
+    }
+    .side-tags a:hover{background:var(--brand-soft);border-color:var(--brand);color:var(--brand-deep);}
+    .side-note{font-size:11.5px;color:var(--ink-3);line-height:1.7;border-top:1px dashed var(--line);padding-top:10px;margin-top:12px;}
+
+    /* 页尾 */
+    .footer{background:#1b1e2b;color:#c8c5d0;margin-top:20px;}
+    .footer .wrap{padding-top:40px;padding-bottom:26px;}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:30px;}
+    .footer .f-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .footer .f-brand svg{width:30px;height:30px;}
+    .footer .f-brand span{font-size:18px;font-weight:800;color:#fff;letter-spacing:.5px;}
+    .footer p.f-desc{font-size:12.5px;line-height:1.8;color:#a6a2b2;margin-bottom:12px;}
+    .footer h4{font-size:13px;color:#f0eef4;margin-bottom:11px;font-weight:700;}
+    .footer ul li{margin-bottom:7px;}
+    .footer ul li a{font-size:12.5px;color:#a6a2b2;transition:.16s;}
+    .footer ul li a:hover{color:#f5d76e;}
+    .footer-bottom{
+      border-top:1px solid #2c2f3f;padding-top:18px;display:flex;justify-content:space-between;
+      gap:14px;flex-wrap:wrap;font-size:11.5px;color:#7c7888;line-height:1.7;
+    }
+    .footer-bottom .update-tag{color:#c9a24b;}
+    @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:620px){.footer-top{grid-template-columns:1fr;}}
+
+    /* 回到顶部 */
+    .to-top{
+      position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;
+      background:var(--brand);color:#fff;border:0;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 18px rgba(94,26,36,.35);opacity:0;pointer-events:none;transition:.22s;z-index:50;
+      font-size:18px;
+    }
+    .to-top.show{opacity:1;pointer-events:auto;}
+    .to-top:hover{background:var(--brand-deep);transform:translateY(-3px);}
+    @media(max-width:740px){.to-top{right:14px;bottom:16px;width:40px;height:40px;}}
+
+    /* 搜索无结果提示 */
+    .search-empty{
+      display:none;padding:14px 16px;background:#fff4f4;border:1px solid #f3d2d2;border-radius:10px;
+      font-size:13px;color:#a03a3a;margin-bottom:16px;
+    }
+    .search-empty.show{display:block;}
+    .hidden-by-search{display:none !important;}
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ===== 吸顶公告条 ===== -->
+<div class="announce" role="region" aria-label="站内公告">
+  <div class="wrap">
+    <span class="brand-mini"><i aria-hidden="true"></i>水岛津实 作品合集</span>
+    <div class="ticker">
+      <span><b>11-08</b>《雨声停歇的午后》导演剪辑版上线 <em>新增 12 分钟幕后</em></span>
+      <span><b>11-06</b>「都市独白」系列修复更新 <em>共 7 部</em></span>
+      <span><b>11-04</b>第 3 期观众票选开启 <em>候选 16 部</em></span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 页头 ===== -->
+<header class="header" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="水岛津实 作品合集 首页">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect width="40" height="40" rx="10" fill="#f6e8e9"/>
+        <circle cx="15" cy="20" r="7" fill="#8e2f3c"/>
+        <circle cx="27" cy="14" r="4.5" fill="#c9a24b"/>
+        <circle cx="27" cy="27" r="4.5" fill="#94b8f5"/>
+      </svg>
+      <span class="name">水岛津实 作品合集</span>
+    </a>
+    <nav class="nav-main" aria-label="主导航">
+      <a href="#overview">领域概览</a>
+      <a href="#featured">作品精选</a>
+      <a href="#updates">最新动态</a>
+      <a href="#categories">分类入口</a>
+      <a href="#deepdive">深度解析</a>
+      <a href="#guide">观看指南</a>
+      <a href="#faq">常见问答</a>
+      <a href="#comments">观众评论</a>
+      <a href="#news">相关资讯</a>
+    </nav>
+    <div class="header-tools">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a8 8 0 1 1 5.3-1.9L21 21l-1.4 1.4-5.7-5.7A8 8 0 0 1 10 18zm0-2a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
+        <input type="search" id="siteSearch" placeholder="搜索作品或标签" aria-label="搜索站内作品">
+      </div>
+      <a class="btn-ghost" href="#submit">投稿</a>
+      <a class="btn-brand" href="#featured">开始浏览</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端抽屉 -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="移动导航">
+  <div class="panel">
+    <button class="close" id="closeNavBtn" aria-label="关闭导航">×</button>
+    <h3>栏目导航</h3>
+    <a href="#overview">领域概览</a>
+    <a href="#featured">作品精选</a>
+    <a href="#updates">最新动态</a>
+    <a href="#categories">分类入口</a>
+    <a href="#deepdive">深度解析</a>
+    <a href="#guide">观看指南</a>
+    <a href="#faq">常见问答</a>
+    <a href="#comments">观众评论</a>
+    <a href="#news">相关资讯</a>
+    <a href="#recommend">相关推荐</a>
+    <a href="#ranking">人气榜单</a>
+    <a href="#submit">投稿互动</a>
+  </div>
+</div>
+
+<!-- ===== 首屏 ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-kicker">TYPE &amp; WORKS INDEX</div>
+      <h1>水岛津实 作品合集</h1>
+      <p class="desc">
+        按年份、题材与企划类型整理水岛津实的单体作品与系列合辑，涵盖 <strong>都市独白、雨声系列、短篇实验</strong> 等方向。
+        每一条目附类型标签、看点摘要与观众评分，方便按线索查找与比较。
+      </p>
+      <div class="hero-actions">
+        <a class="btn-brand" href="#featured">浏览精选条目</a>
+        <a class="btn-ghost" href="#guide">查看观看顺序</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>86</strong><span>收录条目</span></div>
+        <div><strong>7</strong><span>系列企划</span></div>
+        <div><strong>11-08</strong><span>最近更新</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 520 360" fill="none">
+        <defs>
+          <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f6e8e9"/>
+            <stop offset="1" stop-color="#fbf4e4"/>
+          </linearGradient>
+          <linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8e2f3c"/>
+            <stop offset="1" stop-color="#5e1a24"/>
+          </linearGradient>
+        </defs>
+        <rect x="18" y="26" width="484" height="308" rx="22" fill="url(#hg1)"/>
+        <rect x="52" y="62" width="200" height="140" rx="14" fill="#ffffff" opacity=".85"/>
+        <rect x="72" y="84" width="120" height="9" rx="4.5" fill="#8e2f3c" opacity=".8"/>
+        <rect x="72" y="104" width="160" height="7" rx="3.5" fill="#c9b9b9"/>
+        <rect x="72" y="120" width="140" height="7" rx="3.5" fill="#ddd3d3"/>
+        <rect x="72" y="148" width="72" height="26" rx="8" fill="#f6e8e9"/>
+        <rect x="152" y="148" width="60" height="26" rx="8" fill="#fbf4e4"/>
+        <circle cx="390" cy="130" r="72" fill="url(#hg2)" opacity=".94"/>
+        <circle cx="390" cy="130" r="50" fill="#f6e8e9" opacity=".22"/>
+        <path d="M352 130h76M390 92v76" stroke="#f5d76e" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        <rect x="300" y="228" width="176" height="70" rx="12" fill="#ffffff" opacity=".9"/>
+        <rect x="318" y="246" width="92" height="8" rx="4" fill="#8e2f3c" opacity=".7"/>
+        <rect x="318" y="264" width="130" height="6" rx="3" fill="#d8cfcf"/>
+        <rect x="318" y="278" width="110" height="6" rx="3" fill="#e4dddd"/>
+      </svg>
+      <div class="float-card fc-1"><b>11-08 更新</b>导演剪辑版 · 新增幕后</div>
+      <div class="float-card fc-2"><b>86 条目</b>按题材与年份编目</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 主布局 ===== -->
+<div class="wrap">
+  <div class="layout">
+
+    <!-- 左频道索引 -->
+    <aside class="col-left" aria-label="频道索引">
+      <nav class="channel-list">
+        <h3>频道索引</h3>
+        <a href="#overview" class="active">领域概览 <span class="count">01</span></a>
+        <a href="#featured">作品精选 <span class="count">12</span></a>
+        <a href="#updates">最新动态 <span class="count">10</span></a>
+        <a href="#categories">分类入口 <span class="count">08</span></a>
+        <a href="#deepdive">深度解析 <span class="count">03</span></a>
+        <a href="#guide">观看指南 <span class="count">05</span></a>
+        <a href="#faq">常见问答 <span class="count">06</span></a>
+        <a href="#comments">观众评论 <span class="count">14</span></a>
+        <a href="#news">相关资讯 <span class="count">06</span></a>
+        <a href="#recommend">相关推荐 <span class="count">08</span></a>
+        <a href="#ranking">人气榜单 <span class="count">10</span></a>
+        <a href="#submit">投稿互动 <span class="count">—</span></a>
+      </nav>
+    </aside>
+
+    <!-- 中主内容 -->
+    <main class="col-main">
+
+      <div class="search-empty" id="searchEmpty" role="status">没有找到匹配的条目，试试「都市独白」「雨声」或直接清空搜索框。</div>
+
+      <!-- 1. 领域概览 -->
+      <section class="section" id="overview">
+        <div class="sec-head">
+          <h2>领域概览</h2>
+          <span class="sub">类型分布 · 代表企划 · 观看线索</span>
+        </div>
+        <p class="sec-lead">
+          水岛津实的作品大致能分成四条线索：以都市生活为底色的「都市独白」系列、以室内场景和自然声为主的「雨声」系列、
+          偏实验的短篇集，以及为数不多的长篇单体作品。每条线索的叙事节奏和画面重心不同，选择入口时可以先确认自己更在意氛围还是情节推进。
+        </p>
+        <div class="list-rows">
+          <div class="row">
+            <span class="date">2026-10-28</span>
+            <div class="r-main">
+              <h3>「都市独白」系列：七部作品的共同框架</h3>
+              <p>每部聚焦一个职业角色，从深夜便利店到末班地铁，台词密度低，环境音占比高。适合喜欢日常质感的观众。</p>
+            </div>
+            <span class="r-tag tag blue">系列企划</span>
+          </div>
+          <div class="row">
+            <span class="date">2026-10-21</span>
+            <div class="r-main">
+              <h3>「雨声」系列：声音设计与画面留白</h3>
+              <p>四部作品里有三部采用单场景长镜头，对白不超过二十句。声音团队在 2025 年访谈中提到使用了户外实录雨声。</p>
+            </div>
+            <span class="r-tag tag gold">声音设计</span>
+          </div>
+          <div class="row">
+            <span class="date">2026-10-15</span>
+            <div class="r-main">
+              <h3>短篇实验集《镜面练习》：四段式结构</h3>
+              <p>每段八到十二分钟，共用同一套室内布景。争议集中在第三段的叙事跳跃，评论区有较明显的分歧。</p>
+            </div>
+            <span class="r-tag tag gray">短篇实验</span>
+          </div>
+          <div class="row">
+            <span class="date">2026-10-09</span>
+            <div class="r-main">
+              <h3>长篇单体作品：节奏与取舍</h3>
+              <p>时长在一百分钟以上的作品共三部，其中《雨声停歇的午后》在 11 月 8 日上线导演剪辑版。</p>
+            </div>
+            <span class="r-tag tag">长篇</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="section" id="featured">
+        <div class="sec-head">
+          <h2>精选作品推荐</h2>
+          <span class="sub">按题材与完成度挑选的 8 个条目</span>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="thumb"><span class="badge">导演剪辑版</span><img src="https://picsum.photos/seed/sdj-rain01/400/300" width="400" height="300" loading="lazy" alt="雨声停歇的午后室内窗边场景"></div>
+            <div class="body">
+              <h3>雨声停歇的午后</h3>
+              <div class="tags"><span class="tag">长篇</span><span class="tag gold">声音设计</span><span class="tag gray">2024</span></div>
+              <p class="note">全片 118 分钟，近八成镜头在一间公寓内完成。11 月 8 日上线版本增加 12 分钟幕后，主要补足雨声采集过程。</p>
+              <div class="meta"><span>评分 <b>8.6</b></span><span>更新 11-08</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><span class="badge gold">系列代表作</span><img src="https://picsum.photos/seed/sdj-city02/400/300" width="400" height="300" loading="lazy" alt="都市独白系列深夜便利店场景"></div>
+            <div class="body">
+              <h3>都市独白：便利店夜班</h3>
+              <div class="tags"><span class="tag">系列企划</span><span class="tag blue">都市独白</span><span class="tag gray">2023</span></div>
+              <p class="note">「都市独白」七部中的第二部，对白集中在凌晨三点到五点。便利店冷柜的嗡嗡声贯穿全片，被多次在评论里单独提及。</p>
+              <div class="meta"><span>评分 <b>8.2</b></span><span>更新 10-30</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><span class="badge">单体作品</span><img src="https://picsum.photos/seed/sdj-mirror03/400/300" width="400" height="300" loading="lazy" alt="镜面练习短篇实验室内布景"></div>
+            <div class="body">
+              <h3>镜面练习</h3>
+              <div class="tags"><span class="tag gray">短篇实验</span><span class="tag">四段式</span><span class="tag blue">室内布景</span></div>
+              <p class="note">四段共用一套布景，第三段在时间线上向前跳了六年。豆瓣条目下关于这段跳跃的讨论有 200 余条。</p>
+              <div class="meta"><span>评分 <b>7.9</b></span><span>更新 10-15</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><span class="badge">修复版</span><img src="https://picsum.photos/seed/sdj-harbor04/400/300" width="400" height="300" loading="lazy" alt="港区散步系列傍晚街道场景"></div>
+            <div class="body">
+              <h3>港区散步</h3>
+              <div class="tags"><span class="tag">都市独白</span><span class="tag gold">修复版</span><span class="tag gray">2022</span></div>
+              <p class="note">原本是 35 分钟的中篇，11 月 6 日修复更新了画面暗部与字幕字号。拍摄地集中在港区三条街道。</p>
+              <div class="meta"><span>评分 <b>8.0</b></span><span>更新 11-06</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><span class="badge gold">高评分</span><img src="https://picsum.photos/seed/sdj-window05/400/300" width="400" height="300" loading="lazy" alt="窗边书信长篇作品室内光线"></div>
+            <div class="body">
+              <h3>窗边书信</h3>
+              <div class="tags"><span class="tag">长篇</span><span class="tag blue">书信体</span><span class="tag gray">2021</span></div>
+              <p class="note">叙事靠六封手写信推进，画外音朗读占全片四成。2026 年 10 月票选中暂列第二，支持票集中在画面构图层。</p>
+              <div class="meta"><span>评分 <b>8.7</b></span><span>更新 10-26</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><span class="badge">短篇</span><img src="https://picsum.photos/seed/sdj-lasttrain06/400/300" width="400" height="300" loading="lazy" alt="末班地铁短篇作品车厢场景"></div>
+            <div class="body">
+              <h3>末班地铁</h3>
+              <div class="tags"><span class="tag gray">短篇</span><span class="tag">都市独白</span><span class="tag blue">车厢</span></div>
+              <p class="note">时长 22 分钟，全部在末班车厢内拍摄。没有配乐，只有报站声与车轮声，是系列里时长最短的一部。</p>
+              <div class="meta"><span>评分 <b>7.7</b></span><span>更新 10-12</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><span class="badge">实验性</span><img src="https://picsum.photos/seed/sdj-rooftop07/400/300" width="400" height="300" loading="lazy" alt="天台手记短篇实验俯瞰城市场景"></div>
+            <div class="body">
+              <h3>天台手记</h3>
+              <div class="tags"><span class="tag gray">短篇实验</span><span class="tag gold">固定机位</span><span class="tag">2020</span></div>
+              <p class="note">单机位拍摄 26 分钟，中途仅切换一次焦点。被讨论最多的是结尾 40 秒的静帧，两种解读都有支持者。</p>
+              <div class="meta"><span>评分 <b>7.6</b></span><span>更新 10-08</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><span class="badge gold">近期更新</span><img src="https://picsum.photos/seed/sdj-kitchen08/400/300" width="400" height="300" loading="lazy" alt="厨房对话系列室内餐桌场景"></div>
+            <div class="body">
+              <h3>厨房对话</h3>
+              <div class="tags"><span class="tag">系列企划</span><span class="tag blue">对话驱动</span><span class="tag gray">2025</span></div>
+              <p class="note">系列第五部，全片两场戏，对话占八成。台词本在 2025 年访谈中被提到改过四稿，删掉了两段独白。</p>
+              <div class="meta"><span>评分 <b>8.1</b></span><span>更新 10-22</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="section" id="updates">
+        <div class="sec-head">
+          <h2>最新更新与动态</h2>
+          <span class="sub">10 条 · 按发布时间排列</span>
+        </div>
+        <div class="list-rows">
+          <div class="row"><span class="date">11-08</span><div class="r-main"><h3>《雨声停歇的午后》导演剪辑版上线</h3><p>新增 12 分钟幕后，内容是 2023 年 4 月在神奈川的雨声采集记录。</p></div><span class="r-tag tag gold">上线</span></div>
+          <div class="row"><span class="date">11-06</span><div class="r-main"><h3>「都市独白」系列修复更新</h3><p>七部作品的暗部细节与字幕字号统一调整，修复说明由制作组在 11 月 6 日发布。</p></div><span class="r-tag tag blue">修复</span></div>
+          <div class="row"><span class="date">11-04</span><div class="r-main"><h3>第 3 期观众票选开启</h3><p>候选 16 部，投票截止 11 月 18 日，目前《窗边书信》以 312 票暂列第二。</p></div><span class="r-tag tag">活动</span></div>
+          <div class="row"><span class="date">11-02</span><div class="r-main"><h3>《镜面练习》第三段解析长文发布</h3><p>作者按时间线拆解了六年跳跃的三种可能，留言区补充了两条拍摄期信息。</p></div><span class="r-tag tag gray">解析</span></div>
+          <div class="row"><span class="date">10-30</span><div class="r-main"><h3>《便利店夜班》条目评分升至 8.2</h3><p>近 30 天新增 47 条评分，主要集中在声音与夜班细节的讨论。</p></div><span class="r-tag tag gray">评分</span></div>
+          <div class="row"><span class="date">10-28</span><div class="r-main"><h3>「都市独白」系列框架梳理完成</h3><p>七部作品的职业角色、场景与时长整理成表，可在分类入口查看。</p></div><span class="r-tag tag blue">整理</span></div>
+          <div class="row"><span class="date">10-26</span><div class="r-main"><h3>《窗边书信》票选支持票破 300</h3><p>票选页面显示支持理由集中在构图与书信体叙事两点。</p></div><span class="r-tag tag">票选</span></div>
+          <div class="row"><span class="date">10-22</span><div class="r-main"><h3>《厨房对话》台词本访谈更新</h3><p>访谈提到四稿修改中删掉两段独白，原因是「说得太满」。</p></div><span class="r-tag tag gray">访谈</span></div>
+          <div class="row"><span class="date">10-15</span><div class="r-main"><h3>短篇实验集《镜面练习》条目上线</h3><p>四段式结构对应四条独立评分，总条目下已有 200 余条讨论。</p></div><span class="r-tag tag gray">条目</span></div>
+          <div class="row"><span class="date">10-12</span><div class="r-main"><h3>《末班地铁》加入系列对照表</h3><p>补充了车厢场景的拍摄时间与报站声来源，方便与同系列其他条目比较。</p></div><span class="r-tag tag blue">对照</span></div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="section" id="categories">
+        <div class="sec-head">
+          <h2>分类入口</h2>
+          <span class="sub">按题材与企划类型定位</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-item" href="#featured"><strong>都市独白系列</strong><span>7 部 · 职业角色与夜间场景</span><em>进入查看</em></a>
+          <a class="cat-item" href="#featured"><strong>雨声系列</strong><span>4 部 · 声音设计与室内长镜头</span><em>进入查看</em></a>
+          <a class="cat-item" href="#featured"><strong>短篇实验</strong><span>5 部 · 8—26 分钟实验结构</span><em>进入查看</em></a>
+          <a class="cat-item" href="#featured"><strong>长篇单体作品</strong><span>3 部 · 100 分钟以上</span><em>进入查看</em></a>
+          <a class="cat-item" href="#featured"><strong>导演剪辑版</strong><span>2 部 · 含幕后与修复说明</span><em>进入查看</em></a>
+          <a class="cat-item" href="#guide"><strong>观看顺序指南</strong><span>按入门、系列、实验三条路径</span><em>查看路径</em></a>
+          <a class="cat-item" href="#ranking"><strong>人气榜单</strong><span>评分与票选综合排序</span><em>查看榜单</em></a>
+          <a class="cat-item" href="#comments"><strong>观众评论</strong><span>14 条 · 含中性评价与分歧</span><em>查看评论</em></a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="section" id="deepdive">
+        <div class="article-panel">
+          <h2>深度解析</h2>
+          <p>把水岛津实的作品按「时间—场景—声音」三要素拆开看，会发现不同系列之间的差异比表面印象更大。以下三节分别讨论系列内部的类型分化、短篇实验的结构风险，以及长篇作品在节奏上的取舍。</p>
+
+          <h3>都市独白系列：职业角色决定镜头语言</h3>
+          <p>七部作品各有一个职业角色，镜头语言随职业变化。以《便利店夜班》为例，全片固定机位 11 个，其中 7 个在收银台附近，冷柜的嗡嗡声从头响到尾。到了《港区散步》，手持镜头比例升到六成，跟拍距离保持在 1.5 米左右，观众能听到鞋底与路面的摩擦声。这两部的差异不是风格随机，而是职业决定了人物在空间里的移动方式。</p>
+          <p>可核对的中段在于时长与场景数量的对比：</p>
+          <ul>
+            <li>《末班地铁》22 分钟，单一车厢场景，报站声出现 9 次；</li>
+            <li>《厨房对话》54 分钟，两场戏，对话占八成；</li>
+            <li>《便利店夜班》48 分钟，收银台与仓库两个区域来回切换 14 次。</li>
+          </ul>
+          <p>如果按「场景数量 ÷ 时长」粗算，三部作品分别是 0.045、0.037、0.042，差距不大。真正拉开体验的是声音层次：车厢只有环境声，厨房有对话与餐具声，便利店则叠加了冷柜、收银提示音与人声。</p>
+
+          <h3>短篇实验的结构风险：第三段为什么被讨论最多</h3>
+          <p>《镜面练习》四段共用一套布景，前三段在时间线上连续，第三段突然向前跳了六年。豆瓣条目下 200 余条讨论中，约四成集中在「六年」这个数字上。一种解读认为六年是角色搬离后的空白期，另一种认为六年只是拍摄期与设定期的错位。</p>
+          <p>两种说法都有可核对的部分。支持前者的人引用第三段墙上的日历，日期停在 2019 年 3 月；支持后者的人引用 2025 年访谈里的一句话，导演提到「布景是 2018 年搭的，后来没换过」。日历与布景年份对不上，恰好是讨论的起点。这里能拆出的判断标准有三条：日历、布景年份、访谈措辞。三条里只要有一条缺失，讨论就会滑向推测。</p>
+          <div class="callout">把「可信度」拆开：目前可核对的公开信息只有日历与访谈两处，拍摄期具体月份没有出现在任何公开材料里。讨论中把「六年」当成事实的发言，实际上是把推测放在了事实层。</div>
+
+          <h3>长篇的取舍：118 分钟里的三次停顿</h3>
+          <p>《雨声停歇的午后》在 118 分钟里有三次明显的停顿，分别在第 31 分钟、第 67 分钟与第 94 分钟。三次停顿都在雨声渐弱时切入，每次持续 40 秒到 1 分钟。导演剪辑版新增的 12 分钟幕后放在片尾，没有改动正片节奏。</p>
+          <p>把三次停顿与正片事件对照：第 31 分钟对应角色第一次走到窗边，第 67 分钟是信件被放到桌上，第 94 分钟是雨停。停顿的位置与剧情节点并不完全重合，更像是在声音变化处留白。这种处理让部分观众觉得节奏慢，也让另一部分观众把注意力放回环境声。两种反应都能在评论区找到对应发言，分歧点在于是否接受「声音优先于情节」的取舍。</p>
+        </div>
+      </section>
+
+      <!-- 6. 观看指南 -->
+      <section class="section" id="guide">
+        <div class="sec-head">
+          <h2>观看路径与判断依据</h2>
+          <span class="sub">先看什么 · 怎么比较 · 投入时间</span>
+        </div>
+        <div class="list-rows">
+          <div class="row"><span class="date">路径一</span><div class="r-main"><h3>从《雨声停歇的午后》入门</h3><p>118 分钟，单场景为主，声音层次清楚。看完能判断自己是否接受「声音优先于情节」的节奏，再决定往系列还是短篇走。</p></div><span class="r-tag tag gold">入门</span></div>
+          <div class="row"><span class="date">路径二</span><div class="r-main"><h3>按「都市独白」职业角色顺序看</h3><p>从《便利店夜班》到《港区散步》，七部共约 5 小时。每部独立，顺序不影响理解，但按职业看更容易比较镜头语言差异。</p></div><span class="r-tag tag blue">系列</span></div>
+          <div class="row"><span class="date">路径三</span><div class="r-main"><h3>短篇实验放在最后</h3><p>《镜面练习》与《天台手记》结构跳跃较多，先看长篇或系列再看短篇，对布景与时间线的敏感度更高。</p></div><span class="r-tag tag gray">实验</span></div>
+        </div>
+        <p class="sec-lead" style="margin-top:16px;">
+          判断一个条目是否值得投入时间，可以看三项：场景数量是否与时长匹配、声音层次是否有具体来源、公开材料里有没有可核对的拍摄时间。
+          三项里缺两项，讨论里出现的「节奏问题」多半来自信息不足而非作品本身。
+        </p>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section" id="faq">
+        <div class="sec-head">
+          <h2>常见问答</h2>
+          <span class="sub">6 个真实搜索问句</span>
+        </div>
+        <div class="faq-list">
+          <details class="faq">
+            <summary>《雨声停歇的午后》导演剪辑版和原版有什么区别？</summary>
+            <div class="ans">正片时长不变，仍是 118 分钟。新增的 12 分钟幕后放在片尾，内容是 2023 年 4 月在神奈川的雨声采集记录，包括设备型号与采集点位置。正片的三次停顿没有改动。</div>
+          </details>
+          <details class="faq">
+            <summary>都市独白系列七部应该按什么顺序看？</summary>
+            <div class="ans">七部各自独立，没有连续剧情。按职业角色顺序看更容易比较镜头语言：《便利店夜班》《末班地铁》《港区散步》三部场景差异最大，先看这三部再补其余四部，判断会更清楚。</div>
+          </details>
+          <details class="faq">
+            <summary>镜面练习第三段的「六年」是设定还是拍摄错位？</summary>
+            <div class="ans">目前公开材料只支持两种说法：第三段墙上的日历停在 2019 年 3 月，2025 年访谈里导演提到布景是 2018 年搭的、后来没换过。拍摄期具体月份没有出现在公开材料里，所以「六年」更接近讨论起点而非确定设定。</div>
+          </details>
+          <details class="faq">
+            <summary>短篇实验集和系列作品相比，时长一般差多少？</summary>
+            <div class="ans">短篇实验在 8 到 26 分钟之间，《镜面练习》四段分别是 8、11、12、10 分钟；系列作品多在 22 到 54 分钟之间；长篇单体作品 100 分钟以上。时长差距直接影响场景密度，短篇通常只用一个布景。</div>
+          </details>
+          <details class="faq">
+            <summary>投票活动里的候选作品是怎么选出来的？</summary>
+            <div class="ans">第 3 期票选候选共 16 部，覆盖四个系列与三部长篇。候选依据是 2026 年 9 月至 10 月的条目评分与评论量，票选页面列出了每部的支持理由摘要，目前《窗边书信》以 312 票暂列第二。</div>
+          </details>
+          <details class="faq">
+            <summary>修复版的画面暗部调整会影响原有观感吗？</summary>
+            <div class="ans">「都市独白」七部的修复集中在暗部细节与字幕字号两处。11 月 6 日发布的修复说明提到暗部提亮幅度控制在 5% 以内，字幕字号从 14 调到 16。观感变化主要在夜间场景，白天场景差异不明显。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="section" id="comments">
+        <div class="sec-head">
+          <h2>观众评论</h2>
+          <span class="sub">14 条 · 含中性评价与分歧</span>
+        </div>
+        <div class="comment-grid">
+          <div class="comment"><div class="who"><span class="avatar">夜</span><b>夜班三点</b><span>11-08</span></div><p>《便利店夜班》冷柜那声音我太熟了，以前干过两个月夜班，听到这个直接坐直。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">雨</span><b>雨声收集者</b><span>11-07</span></div><p>导演剪辑版多出来的那 12 分钟幕后比正片还有意思，设备型号都标出来了，少见。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">镜</span><b>镜面练习看了三遍</b><span>11-06</span></div><p>第三段的六年我还是觉得是拍摄错位，日历那个理由站不住。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">末</span><b>末班常客</b><span>11-05</span></div><p>22 分钟没有配乐，本来以为会困，结果报站声一出来反而精神了。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">港</span><b>港区散步中</b><span>11-04</span></div><p>修复版字幕大了确实舒服，之前小字看得眼睛酸。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">窗</span><b>窗边书信票选</b><span>11-03</span></div><p>投了《窗边书信》，六封信的结构太稳了，支持理由写构图那栏我认。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">厨</span><b>厨房对话台词本</b><span>11-02</span></div><p>删掉两段独白是对的，那两段留着反而拖。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">天</span><b>天台手记</b><span>11-01</span></div><p>结尾静帧两种解读我都不买账，就是没拍完吧。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">慢</span><b>慢节奏耐受</b><span>10-30</span></div><p>118 分钟三次停顿，第二次之后我确实走神了，声音优先也得有个度。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">票</span><b>只投票不说话</b><span>10-29</span></div><p>票选页面能不能按系列分组，16 部混在一起翻起来累。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">冷</span><b>冷柜嗡嗡</b><span>10-27</span></div><p>便利店那部评分升到 8.2 不意外，细节堆到位了。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">路</span><b>路过看看</b><span>10-25</span></div><p>不太懂这类作品，随手点进来，画面挺干净的。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">修</span><b>修复版观察</b><span>10-23</span></div><p>暗部提亮 5% 这个数要是没写在说明里，我根本看不出来。</p></div>
+          <div class="comment"><div class="who"><span class="avatar">周</span><b>周末补片</b><span>10-20</span></div><p>按观看路径从长篇入门，看完再补短篇，顺序确实顺。</p></div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="section" id="news">
+        <div class="sec-head">
+          <h2>相关资讯</h2>
+          <span class="sub">6 条 · 含日期与具体进展</span>
+        </div>
+        <div class="news-grid">
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/sdj-news01/600/400" width="600" height="400" loading="lazy" alt="雨声采集幕后记录画面">
+            <div class="nc-body"><span class="nd">2026-11-08</span><h3>《雨声停歇的午后》导演剪辑版上线，新增 12 分钟幕后</h3><p>幕后记录了 2023 年 4 月神奈川采集点使用的三款设备，其中一款已停产。</p></div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/sdj-news02/600/400" width="600" height="400" loading="lazy" alt="都市独白系列修复说明截图">
+            <div class="nc-body"><span class="nd">2026-11-06</span><h3>都市独白七部完成修复，暗部提亮控制在 5% 以内</h3><p>修复说明列出字幕字号从 14 调到 16，七部作品统一处理，11 月 6 日起生效。</p></div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/sdj-news03/600/400" width="600" height="400" loading="lazy" alt="观众票选页面候选作品列表">
+            <div class="nc-body"><span class="nd">2026-11-04</span><h3>第 3 期观众票选开启，16 部候选覆盖四个系列</h3><p>投票截止 11 月 18 日，目前《窗边书信》312 票暂列第二，第一名为《雨声停歇的午后》。</p></div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/sdj-news04/600/400" width="600" height="400" loading="lazy" alt="镜面练习第三段解析长文配图">
+            <div class="nc-body"><span class="nd">2026-11-02</span><h3>镜面练习第三段解析长文发布，留言补充两条拍摄期信息</h3><p>长文按时间线列出三种可能，留言中有两条提到 2019 年 3 月的日历照片来源。</p></div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/sdj-news05/600/400" width="600" height="400" loading="lazy" alt="厨房对话台词本访谈页面">
+            <div class="nc-body"><span class="nd">2026-10-22</span><h3>厨房对话台词本访谈更新，四稿修改删掉两段独白</h3><p>访谈提到删减原因是「说得太满」，最终版本对话占比维持在八成。</p></div>
+          </article>
+          <article class="news-card">
+            <img src="https://picsum.photos/seed/sdj-news06/600/400" width="600" height="400" loading="lazy" alt="便利店夜班评分变化曲线">
+            <div class="nc-body"><span class="nd">2026-10-30</span><h3>便利店夜班条目评分升至 8.2，近 30 天新增 47 条评分</h3><p>新增评分集中在声音与夜班细节两项，冷柜声被单独提及 19 次。</p></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="section" id="recommend">
+        <div class="sec-head">
+          <h2>相关推荐</h2>
+          <span class="sub">具体方向与条目索引</span>
+        </div>
+        <div class="tag-index">
+          <a href="#featured">雨声系列长镜头 <b>4</b></a>
+          <a href="#featured">都市独白职业角色 <b>7</b></a>
+          <a href="#featured">短篇实验四段式 <b>2</b></a>
+          <a href="#featured">导演剪辑版幕后 <b>2</b></a>
+          <a href="#featured">书信体叙事 <b>1</b></a>
+          <a href="#guide">入门观看顺序 <b>3</b></a>
+          <a href="#ranking">评分 8.0 以上条目 <b>5</b></a>
+          <a href="#comments">评论区分歧条目 <b>3</b></a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：人气榜单 -->
+      <section class="section" id="ranking">
+        <div class="sec-head">
+          <h2>人气榜单</h2>
+          <span class="sub">评分与票选综合 · 10 条</span>
+        </div>
+        <div class="rank-list">
+          <div class="rank-item"><span class="num top1">1</span><div class="ri-main"><strong>雨声停歇的午后</strong><span>长篇 · 导演剪辑版 11-08 上线</span></div><span class="score">8.6</span></div>
+          <div class="rank-item"><span class="num top2">2</span><div class="ri-main"><strong>窗边书信</strong><span>长篇 · 书信体 · 票选 312 票</span></div><span class="score">8.7</span></div>
+          <div class="rank-item"><span class="num top3">3</span><div class="ri-main"><strong>便利店夜班</strong><span>都市独白 · 近 30 天新增 47 条评分</span></div><span class="score">8.2</span></div>
+          <div class="rank-item"><span class="num">4</span><div class="ri-main"><strong>厨房对话</strong><span>系列第五部 · 台词本四稿</span></div><span class="score">8.1</span></div>
+          <div class="rank-item"><span class="num">5</span><div class="ri-main"><strong>港区散步</strong><span>修复版 11-06 更新</span></div><span class="score">8.0</span></div>
+          <div class="rank-item"><span class="num">6</span><div class="ri-main"><strong>镜面练习</strong><span>短篇实验 · 四段式</span></div><span class="score">7.9</span></div>
+          <div class="rank-item"><span class="num">7</span><div class="ri-main"><strong>末班地铁</strong><span>短篇 · 22 分钟单场景</span></div><span class="score">7.7</span></div>
+          <div class="rank-item"><span class="num">8</span><div class="ri-main"><strong>天台手记</strong><span>短篇实验 · 固定机位</span></div><span class="score">7.6</span></div>
+          <div class="rank-item"><span class="num">9</span><div class="ri-main"><strong>雨声系列·午后前篇</strong><span>系列 · 声音设计</span></div><span class="score">7.5</span></div>
+          <div class="rank-item"><span class="num">10</span><div class="ri-main"><strong>厨房对话·番外</strong><span>短片 · 18 分钟</span></div><span class="score">7.3</span></div>
+        </div>
+      </section>
+
+      <!-- 12. 投稿互动 -->
+      <section class="section" id="submit">
+        <div class="submit-panel">
+          <div>
+            <h2>投稿与条目补充</h2>
+            <p>发现条目信息有误、缺少幕后资料，或者想补充某部作品的拍摄地线索，可以直接提交。11 月 8 日当天已收到 6 条关于「雨声停歇的午后」的补充建议，其中 2 条与采集设备型号有关。</p>
+            <a class="btn-brand" href="#top">提交补充信息</a>
+          </div>
+          <div class="submit-visual" aria-hidden="true">
+            <svg viewBox="0 0 260 150" fill="none">
+              <rect x="10" y="16" width="240" height="118" rx="12" fill="#ffffff" opacity=".14"/>
+              <rect x="30" y="38" width="120" height="9" rx="4.5" fill="#f5d76e" opacity=".85"/>
+              <rect x="30" y="58" width="180" height="7" rx="3.5" fill="#ffffff" opacity=".45"/>
+              <rect x="30" y="74" width="150" height="7" rx="3.5" fill="#ffffff" opacity=".35"/>
+              <rect x="30" y="98" width="72" height="24" rx="7" fill="#c9a24b"/>
+              <circle cx="212" cy="102" r="20" fill="#f6e8e9" opacity=".35"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右辅助栏 -->
+    <aside class="col-right" aria-label="辅助信息">
+      <div class="side-card">
+        <h3>最近更新</h3>
+        <ul class="side-update">
+          <li><span class="d">11-08</span><a href="#featured">雨声停歇的午后 · 导演剪辑版</a></li>
+          <li><span class="d">11-06</span><a href="#updates">都市独白系列修复更新</a></li>
+          <li><span class="d">11-04</span><a href="#news">第 3 期观众票选开启</a></li>
+          <li><span class="d">11-02</span><a href="#deepdive">镜面练习第三段解析</a></li>
+          <li><span class="d">10-30</span><a href="#ranking">便利店夜班评分升至 8.2</a></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>热门标签</h3>
+        <div class="side-tags">
+          <a href="#featured">都市独白</a>
+          <a href="#featured">雨声系列</a>
+          <a href="#featured">短篇实验</a>
+          <a href="#featured">导演剪辑版</a>
+          <a href="#featured">书信体</a>
+          <a href="#guide">观看顺序</a>
+          <a href="#comments">评论区分歧</a>
+        </div>
+        <p class="side-note">标签按近 30 天条目与评论中出现频次排序，每 7 天更新一次。</p>
+      </div>
+      <div class="side-card">
+        <h3>条目速查</h3>
+        <ul class="side-update">
+          <li><span class="d">长篇</span><a href="#featured">3 部 · 100 分钟以上</a></li>
+          <li><span class="d">系列</span><a href="#featured">7 部 · 都市独白</a></li>
+          <li><span class="d">短篇</span><a href="#featured">5 部 · 8—26 分钟</a></li>
+          <li><span class="d">修复</span><a href="#updates">2 部 · 11 月更新</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ===== 页尾 ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="f-brand">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="#2b2028"/>
+            <circle cx="15" cy="20" r="7" fill="#f0a3a3"/>
+            <circle cx="27" cy="14" r="4.5" fill="#f5d76e"/>
+            <circle cx="27" cy="27" r="4.5" fill="#94b8f5"/>
+          </svg>
+          <span>水岛津实 作品合集</span>
+        </div>
+        <p class="f-desc">收录 2020—2025 年间的系列企划、短篇实验与三部长篇单体作品，条目类型含正片、修复版、导演剪辑版与幕后记录。更新节奏为每周一次条目整理，每月一次修复与票选汇总。</p>
+      </div>
+      <div>
+        <h4>内容栏目</h4>
+        <ul>
+          <li><a href="#overview">领域概览</a></li>
+          <li><a href="#featured">作品精选</a></li>
+          <li><a href="#updates">最新动态</a></li>
+          <li><a href="#categories">分类入口</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>阅读与参与</h4>
+        <ul>
+          <li><a href="#deepdive">深度解析</a></li>
+          <li><a href="#guide">观看指南</a></li>
+          <li><a href="#faq">常见问答</a></li>
+          <li><a href="#submit">投稿互动</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>条目索引</h4>
+        <ul>
+          <li><a href="#ranking">人气榜单</a></li>
+          <li><a href="#recommend">相关推荐</a></li>
+          <li><a href="#comments">观众评论</a></li>
+          <li><a href="#news">相关资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>条目信息为示例整理，评分与票选数据用于展示页面结构。内容覆盖 2020—2025 年作品，更新记录截至 <span class="update-tag">2026-11-08</span>。</span>
+      <span>© 2026 水岛津实 作品合集 · 条目整理与评论归原作者所有</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"水岛津实 作品合集",
+  "description":"水岛津实 作品合集收录其类型片、单体作品与专题企划，按年份与题材分类整理，并附观看顺序指南、条目评分与用户评论。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"《雨声停歇的午后》导演剪辑版和原版有什么区别？","acceptedAnswer":{"@type":"Answer","text":"正片时长不变，仍是 118 分钟。新增的 12 分钟幕后放在片尾，内容是 2023 年 4 月在神奈川的雨声采集记录，包括设备型号与采集点位置。"}},
+    {"@type":"Question","name":"都市独白系列七部应该按什么顺序看？","acceptedAnswer":{"@type":"Answer","text":"七部各自独立，没有连续剧情。按职业角色顺序看更容易比较镜头语言：《便利店夜班》《末班地铁》《港区散步》三部场景差异最大，先看这三部再补其余四部。"}},
+    {"@type":"Question","name":"镜面练习第三段的「六年」是设定还是拍摄错位？","acceptedAnswer":{"@type":"Answer","text":"公开材料只支持两种说法：第三段墙上的日历停在 2019 年 3 月，2025 年访谈里导演提到布景是 2018 年搭的、后来没换过。拍摄期具体月份没有出现在公开材料里。"}},
+    {"@type":"Question","name":"短篇实验集和系列作品相比，时长一般差多少？","acceptedAnswer":{"@type":"Answer","text":"短篇实验在 8 到 26 分钟之间，《镜面练习》四段分别是 8、11、12、10 分钟；系列作品多在 22 到 54 分钟之间；长篇单体作品 100 分钟以上。"}},
+    {"@type":"Question","name":"投票活动里的候选作品是怎么选出来的？","acceptedAnswer":{"@type":"Answer","text":"第 3 期票选候选共 16 部，覆盖四个系列与三部长篇。候选依据是 2026 年 9 月至 10 月的条目评分与评论量，票选页面列出了每部的支持理由摘要。"}},
+    {"@type":"Question","name":"修复版的画面暗部调整会影响原有观感吗？","acceptedAnswer":{"@type":"Answer","text":"「都市独白」七部的修复集中在暗部细节与字幕字号两处。11 月 6 日发布的修复说明提到暗部提亮幅度控制在 5% 以内，字幕字号从 14 调到 16。"}}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  // 移动端抽屉
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var closeBtn = document.getElementById('closeNavBtn');
+
+  function openNav(){
+    mobileNav.classList.add('open');
+    hamburger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNav(){
+    mobileNav.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', function(){
+    if(mobileNav.classList.contains('open')){ closeNav(); } else { openNav(); }
+  });
+  closeBtn.addEventListener('click', closeNav);
+  mobileNav.addEventListener('click', function(e){
+    if(e.target === mobileNav){ closeNav(); }
+    if(e.target.tagName === 'A'){ closeNav(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mobileNav.classList.contains('open')){ closeNav(); }
+  });
+
+  // 回到顶部
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > window.innerHeight){ toTop.classList.add('show'); }
+    else { toTop.classList.remove('show'); }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 搜索筛选
+  var searchInput = document.getElementById('siteSearch');
+  var searchEmpty = document.getElementById('searchEmpty');
+  var searchable = document.querySelectorAll('.card, .row, .comment, .news-card, .cat-item, .rank-item');
+
+  function doFilter(){
+    var q = searchInput.value.trim().toLowerCase();
+    var visibleCount = 0;
+    searchable.forEach(function(el){
+      var text = el.textContent.toLowerCase();
+      if(!q || text.indexOf(q) !== -1){
+        el.classList.remove('hidden-by-search');
+        visibleCount++;
+      } else {
+        el.classList.add('hidden-by-search');
+      }
+    });
+    if(q && visibleCount === 0){
+      searchEmpty.classList.add('show');
+    } else {
+      searchEmpty.classList.remove('show');
+    }
+  }
+  searchInput.addEventListener('input', doFilter);
+
+  // 频道高亮
+  var channelLinks = document.querySelectorAll('.channel-list a');
+  var sections = [];
+  channelLinks.forEach(function(link){
+    var id = link.getAttribute('href').replace('#','');
+    var el = document.getElementById(id);
+    if(el){ sections.push({id:id, el:el, link:link}); }
+  });
+  function highlightChannel(){
+    var scrollPos = window.scrollY + 140;
+    var current = sections[0];
+    sections.forEach(function(s){
+      if(s.el.offsetTop <= scrollPos){ current = s; }
+    });
+    channelLinks.forEach(function(l){ l.classList.remove('active'); });
+    if(current){ current.link.classList.add('active'); }
+  }
+  window.addEventListener('scroll', highlightChannel, {passive:true});
+  highlightChannel();
+
+  // 平滑滚动（为吸顶预留偏移）
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var href = this.getAttribute('href');
+      if(href === '#' || href === '#top'){ return; }
+      var target = document.querySelector(href);
+      if(target){
+        e.preventDefault();
+        var offset = 108;
+        var top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({top:top, behavior:'smooth'});
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+              </html>
